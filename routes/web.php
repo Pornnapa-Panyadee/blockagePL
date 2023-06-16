@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-//////// test return data ////////
+//////// test return data ///////
 Route::get('/testing/emailsend', 'TestingEmailController@testingemail');
 Route::get('/testing/emailsendperuser/{updateByEmail}', 'TestingEmailController@sendingEmailByPerUser');
 Route::get('/sendmailforgot/{email}', 'SendPasswordForgetController@forgetUserName');
