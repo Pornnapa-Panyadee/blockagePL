@@ -1158,8 +1158,6 @@ class DataForExpertController extends Controller
                 $data = DB::table('blockage_locations')
                     ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
                     ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')
-                    ->where('blockage_locations.blk_province', '=', "เชียงใหม่")
-                    ->where('blockages.status_approve', '=', "2")
                     ->get(); 
             }           
             $districtData['data'] = Page::getDistrictCM();
