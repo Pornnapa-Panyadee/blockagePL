@@ -111,8 +111,8 @@
         var stations9 = new L.LayerGroup();
         var stations10 = new L.LayerGroup();    
         
-        var x = 20.15755 ;
-        var y = 99.9995964;
+        var x = 18.408485 ;
+        var y = 99.834079;
 
         osm = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
                                     maxZoom: 20,
@@ -146,7 +146,8 @@
                      popupAnchor: [0, 0]
                  });
            
-        var amp=["เชียงของ","เชียงแสน","เวียงแก่น","เวียงชัย","เวียงเชียงรุ้ง","แม่จัน","แม่สาย","แม่ฟ้าหลวง","ดอยหลวง","เมืองเชียงราย"];
+        // var amp=["เชียงของ","เชียงแสน","เวียงแก่น","เวียงชัย","เวียงเชียงรุ้ง","แม่จัน","แม่สาย","แม่ฟ้าหลวง","ดอยหลวง","เมืองเชียงราย"];
+        var amp=["เมืองลำปาง", "เกาะคา","แม่ทะ" ,"แม่เมาะ"];
         
         function addPin(ampName,i,mo){
             $.getJSON("{{ asset('form/getDamage') }}/"+amp[i], 
@@ -218,12 +219,12 @@
                 { label:" "+amp[1],layer: stations2,},
                 { label:" "+amp[2],layer: stations3,},
                 { label:" "+amp[3],layer: stations4,},
-                { label:" "+amp[4],layer: stations5,},
-                { label:" "+amp[5],layer: stations6,},
-                { label:" "+amp[6],layer: stations7,},
-                { label:" "+amp[7],layer: stations8,},
-                { label:" "+amp[8],layer: stations9,},
-                { label:" "+amp[9],layer: stations10},
+                // { label:" "+amp[4],layer: stations5,},
+                // { label:" "+amp[5],layer: stations6,},
+                // { label:" "+amp[6],layer: stations7,},
+                // { label:" "+amp[7],layer: stations8,},
+                // { label:" "+amp[8],layer: stations9,},
+                // { label:" "+amp[9],layer: stations10},
             ]
         };
 

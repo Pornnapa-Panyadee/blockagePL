@@ -97,8 +97,8 @@
                             <!-- ============================================================== -->
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">กิจกรรมการพัฒนาระบบข้อมูลของสิ่งกีดขวางทางน้ำในลำน้ำคูคลองและถนนในจังหวัดเชียงใหม่ </h3>
-                                    
+                                    <h3 class="card-title"> โครงการพัฒนาระบบข้อมูลสารสนเทศของสิ่งกีดขวางทางน้ำในลำน้ำคูคลองและถนนในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง </h3>
+                                    <h5>โดย การไฟฟ้าฝ่ายผลิตแห่งประเทศไทย (กฟผ.) แม่เมาะ ร่วมกับมหาวิทยาลัยเชียงใหม่</h5>                                    
                                 </div>
                                 <div class="card-body" >
                                     {{-- <a href="#tableData">หน้าแรก </a> --}}
@@ -276,14 +276,14 @@
             zoom: {{$z}},
         });
 
-        var runLayer = omnivore.kml('{{ asset('kml/CM_bound-25-amphoe.kml') }}')
-						.on('ready', function() {
-						this.setStyle({
-                            fillOpacity: 0,
-                            color: "#994F3E",
-                            weight: 2
-						});
-			}).addTo(borders); 
+        // var runLayer = omnivore.kml('{{ asset('kml/CM_bound-25-amphoe.kml') }}')
+		// 				.on('ready', function() {
+		// 				this.setStyle({
+        //                     fillOpacity: 0,
+        //                     color: "#994F3E",
+        //                     weight: 2
+		// 				});
+		// 	}).addTo(borders); 
   
         var pin = L.icon({
                     iconUrl: '{{ asset('images/logo/pin.png') }}',
@@ -301,8 +301,9 @@
                      popupAnchor: [0, 0]
                  });
                  
-        var amp=["ฝาง","ไชยปราการ","แม่อาย","ดอยหล่อ","ดอยสะเก็ด", "สะเมิง","สันกำแพง","สันทราย","สันป่าตอง","สารภี","หางดง","เมืองเชียงใหม่","แม่ริม","แม่วาง","แม่ออน"];
-        
+        // var amp=["ฝาง","ไชยปราการ","แม่อาย","ดอยหล่อ","ดอยสะเก็ด", "สะเมิง","สันกำแพง","สันทราย","สันป่าตอง","สารภี","หางดง","เมืองเชียงใหม่","แม่ริม","แม่วาง","แม่ออน"];
+        var amp=["เมืองลำปาง", "เกาะคา","แม่ทะ" ,"แม่เมาะ"];
+
         function addPin(ampName,k,mo){
             $.getJSON("{{ asset('form/getDamage') }}/"+amp[k], 
                 function (data){
@@ -350,17 +351,17 @@
             addPin(stations2,1,mo);
             addPin(stations3,2,mo);
             addPin(stations4,3,mo);
-            addPin(stations5,4,mo);
-            addPin(stations6,5,mo);
-            addPin(stations7,6,mo);
-            addPin(stations8,7,mo);
-            addPin(stations9,8,mo);
-            addPin(stations10,9,mo);
-            addPin(stations11,10,mo);
-            addPin(stations12,11,mo);
-            addPin(stations13,12,mo);
-            addPin(stations14,13,mo);
-            addPin(stations15,14,mo);
+            // addPin(stations5,4,mo);
+            // addPin(stations6,5,mo);
+            // addPin(stations7,6,mo);
+            // addPin(stations8,7,mo);
+            // addPin(stations9,8,mo);
+            // addPin(stations10,9,mo);
+            // addPin(stations11,10,mo);
+            // addPin(stations12,11,mo);
+            // addPin(stations13,12,mo);
+            // addPin(stations14,13,mo);
+            // addPin(stations15,14,mo);
 
      
         var baseTree = {
@@ -378,17 +379,17 @@
                 { label:" "+amp[1],layer: stations2,},
                 { label:" "+amp[2],layer: stations3,},
                 { label:" "+amp[3],layer: stations4,},
-                { label:" "+amp[4],layer: stations5,},
-                { label:" "+amp[5],layer: stations6,},
-                { label:" "+amp[6],layer: stations7,},
-                { label:" "+amp[7],layer: stations8,},
-                { label:" "+amp[8],layer: stations9,},
-                { label:" "+amp[9],layer: stations10},
-                { label:" "+amp[10],layer: stations11},
-                { label:" "+amp[11],layer: stations12},
-                { label:" "+amp[12],layer: stations13},
-                { label:" "+amp[13],layer: stations14},
-                { label:" "+amp[14],layer: stations15},
+                // { label:" "+amp[4],layer: stations5,},
+                // { label:" "+amp[5],layer: stations6,},
+                // { label:" "+amp[6],layer: stations7,},
+                // { label:" "+amp[7],layer: stations8,},
+                // { label:" "+amp[8],layer: stations9,},
+                // { label:" "+amp[9],layer: stations10},
+                // { label:" "+amp[10],layer: stations11},
+                // { label:" "+amp[11],layer: stations12},
+                // { label:" "+amp[12],layer: stations13},
+                // { label:" "+amp[13],layer: stations14},
+                // { label:" "+amp[14],layer: stations15},
             ]
         };
 
