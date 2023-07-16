@@ -115,7 +115,7 @@ class HighChartController extends Controller
                     ["สิ่งปฏิกูล",$countBar[0]->hum_trash],
                     ["อื่นๆ(มนุษย์)",$countBar[0]->hum_other]
                   ];
-        $amp = "รวมทุกอำเภอของจังหวัดเชียงใหม่";
+        $amp = "รวมทุกอำเภอของลุ่มน้ำแม่จาง จังหวัดลำปาง";
                  
         return view('chart/chart', compact('countNum','countBar','amp'));
 
@@ -320,7 +320,7 @@ class HighChartController extends Controller
                     ["สิ่งปฏิกูล",$countBar[0]->hum_trash],
                     ["อื่นๆ(มนุษย์)",$countBar[0]->hum_other]
                   ];
-        $amp = " รวมทุกอำเภอของจังหวัดเชียงใหม่";
+        $amp = " รวมทุกอำเภอของลุ่มน้ำแม่จาง จังหวัดลำปาง";
                  
         return view('chart/chart_Allsee', compact('countNum','countBar','amp'));
 

@@ -14,6 +14,7 @@ class Page extends Model
     return $value;
   }
 
+  
   public static function getDistrictCR(){
     $value=DB::table('info_village')->where('vill_province','=','เชียงราย')->distinct()->get('vill_district'); 
     //$value=DB::table('villages')->distinct()->get(); 
@@ -25,7 +26,11 @@ class Page extends Model
     //$value=DB::table('villages')->distinct()->get(); 
     return $value;
   }
-
+  public static function getDistrictLP(){
+    $value=DB::table('info_village')->where('vill_province','=','ลำปาง')->distinct()->get('vill_district'); 
+    //$value=DB::table('villages')->distinct()->get(); 
+    return $value;
+  }
   //Fetch District
     public static function getprovinceDistrict($vill_provinceid=0){
 

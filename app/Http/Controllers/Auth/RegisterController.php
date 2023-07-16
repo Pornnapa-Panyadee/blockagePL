@@ -7,8 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\AutoMail;
+
+// use Illuminate\Support\Facades\Mail;
+// use App\Mail\AutoMail;
 
 
 class RegisterController extends Controller
@@ -74,14 +75,14 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        $details = [
-            'title' => 'New user register',
-            'body' => ('user name that register from website CMblockage is: '. $data['name'].' '.$data['LName'].' and email is: '. $data['email']),
-            'replyback' => "Do not reply this email"
-        ];
+        // $details = [
+        //     'title' => 'New user register',
+        //     'body' => ('user name that register from website CMblockage is: '. $data['name'].' '.$data['LName'].' and email is: '. $data['email']),
+        //     'replyback' => "Do not reply this email"
+        // ];
 
-        Mail::to("cmblockage.cmu@gmail.com") -> send(new AutoMail($details));
-
+        // Mail::to("cmblockage.cmu@gmail.com") -> send(new AutoMail($details));
+        
         return   User::create([
             'name' => $data['name'],
             'LName' =>  $data['LName'],
@@ -90,7 +91,7 @@ class RegisterController extends Controller
             'Tel' => $data['Tel'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'verify' => 0,
+            'verify' => 1,
             'status_work' => "surveyor01",
         ]);
 

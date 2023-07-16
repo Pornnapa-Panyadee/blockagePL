@@ -31,7 +31,7 @@ class Expert extends Model
         'survey_problem',
         'survey_solution',
         'approve_by',
-        'maning'
+        'maning',
 
     ];
 }

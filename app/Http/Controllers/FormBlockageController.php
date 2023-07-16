@@ -125,7 +125,7 @@ class FormBlockageController extends Controller
         }else{
             $num="0".(count($blkcode)+1);
         }
-        $codeBlk=$code[0]->vill_code.$num;
+        $codeBlk="B".$code[0]->vill_code.$num;
 
         //dd($codeBlk);
         //location point
@@ -240,7 +240,10 @@ class FormBlockageController extends Controller
                     'proj_id'=>$projectId,
                     'blk_slope_bed'=>$request->blk_slope_bed,
                     'survey_date'=>$request->survey_date,
-                    'status_approve'=> 0
+                    'status_approve'=> 0,
+                    'survey_engineer'=>$request->survey_engineer,
+                    'survey_engineer_position'=>$request->survey_engineer_position,
+                    'survey_engineer_unit'=>$request->survey_engineer_unit,
                 ]
             );
             $Blockage->save();
@@ -301,6 +304,7 @@ class FormBlockageController extends Controller
                 ]
             );
             $Promblemloc->save();
+            // dd($Promblemloc);
         
         /////////--------UpPhoto-------------/////////
             
@@ -1009,6 +1013,7 @@ class FormBlockageController extends Controller
     public function removeblockage($id){
         $data =  Blockage::where('blk_id', $id)->get();
         $sol = Solution::where('sol_id',$data[0]->sol_id )->get();
+        
         /////////--------blockage_location-------------/////////
         $loc = BlockageLocation::where('blk_location_id',$data[0]->blk_location_id)->delete(); 
         /////////--------blockage_crossection-------------/////////
@@ -1018,9 +1023,7 @@ class FormBlockageController extends Controller
         /////////--------addSolution-------------/////////
         $solutionLoc = Solution::where('sol_id',$data[0]->sol_id)->delete();          
         /////////--------addProject-------------/////////      
-        $ProjectLoc = Project::where('proj_id',$sol[0]->proj_id)->delete();      
-        ///////--------blockage Main-------------/////////      
-        $Blockage = Blockage::where('blk_id',$id)->delete();        
+        $ProjectLoc = Project::where('proj_id',$sol[0]->proj_id)->delete();             
         /////////--------Expert-------------///////// 
         $Expertdata = Expert::where('blk_id',$data[0]->blk_id)->delete();        
         /////////--------ProblemDetail-------------/////////
@@ -1028,7 +1031,8 @@ class FormBlockageController extends Controller
         /////////--------UpPhoto-------------/////////
         $photo= DB::table('photos')->where('blk_id', $data[0]->blk_id)->delete();   
 
-        
+        ///////--------blockage Main-------------/////////      
+        $Blockage = Blockage::where('blk_id',$id)->delete(); 
         
         $Logs = new ChangeLogs(
             [
@@ -1046,6 +1050,7 @@ class FormBlockageController extends Controller
     // edit detail from Expert
     public function updateForExpert(Request $request)
     {
+        // dd($request);
         $blk = Blockage::where('blk_code', $request->blk_code)
          ->update(['status_approve' =>$request->status_approve]);
         // dd($request);

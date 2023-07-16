@@ -1095,7 +1095,7 @@ class DataForExpertController extends Controller
     }
     // home foe expert by p'kong & admin
     public function getDataforexpert(User $user ){
-        $districtData['data'] = Page::getDistrictCM();
+        $districtData['data'] = Page::getDistrictLP();
         $user_id =Auth::user()->id;
         if(!isset(Auth::user()->name)){
             return view('auth/login');
@@ -1111,8 +1111,10 @@ class DataForExpertController extends Controller
                 ->join('experts','experts.blk_code','=','blockages.blk_code')
                 ->orderBy('blockages.created_at', 'DESC')
                 ->get();
-                // ->where('blockage_locations.blk_province', '=', "เชียงราย")->get();
-                return view('expert.expert',compact('data','districtData'));
+                
+                $blk=Blockage::with('blockageLocation')->get();
+                // dd($blk);
+                return view('expert.expert',compact('data','districtData','blk'));
                 
             }else if(Auth::user()->status_work=="surveyor" ||Auth::user()->status_work=="surveyor1" ){
                 $data = DB::table('blockage_locations')
@@ -1125,6 +1127,7 @@ class DataForExpertController extends Controller
                 return view('expert.expertByUser',compact('data','districtData'));
 
             }
+
         }
 
     }
@@ -1132,14 +1135,13 @@ class DataForExpertController extends Controller
 
     public function getDataforHome(User $user, Request $request){
         if(Auth::guest()){
-            if($request->fang==1){$x=19.889831; $y=99.185144;$z=10;}
-            else{$x=18.782687; $y=98.993518;$z=8;}
+            $x=18.290015; $y=99.656525;$z=10;
             if(!empty($request->blk_district)){
                 if(!empty($request->blk_tumbol) && $request->blk_tumbol!="sum"){
                     $data = DB::table('blockage_locations')
                     ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
                     ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')
-                    ->where('blockage_locations.blk_province', '=', "เชียงใหม่")
+                    ->where('blockage_locations.blk_province', '=', "ลำปาง")
                     ->where('blockage_locations.blk_district', '=',$request->blk_district)
                     ->where('blockage_locations.blk_tumbol', '=',$request->blk_tumbol)
                     ->where('blockages.status_approve', '=', "2")
@@ -1148,7 +1150,7 @@ class DataForExpertController extends Controller
                     $data = DB::table('blockage_locations')
                     ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
                     ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')
-                    ->where('blockage_locations.blk_province', '=', "เชียงใหม่")
+                    ->where('blockage_locations.blk_province', '=', "ลำปาง")
                     ->where('blockage_locations.blk_district', '=',$request->blk_district)
                     ->where('blockages.status_approve', '=', "2")
                     ->get();                    
@@ -1160,7 +1162,8 @@ class DataForExpertController extends Controller
                     ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')
                     ->get(); 
             }           
-            $districtData['data'] = Page::getDistrictCM();
+            $districtData['data'] = Page::getDistrictLP();
+            // dd($districtData);
             return view('pages.home',compact('data','districtData','x','y','z'));
         }else{
             $username = Auth::user()->name;
@@ -1179,12 +1182,12 @@ class DataForExpertController extends Controller
                 $data = DB::table('blockage_locations')
                     ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
                     ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')
-                    ->where('blockage_locations.blk_province', '=', "เชียงใหม่")
+                    ->where('blockage_locations.blk_province', '=', "ลำปาง")
                     ->get();
                 // dd($data);
             }
 
-            $districtData['data'] = Page::getDistrictCM();
+            $districtData['data'] = Page::getDistrictLP();
 
             // dd(isset($data));     
            
@@ -1194,8 +1197,8 @@ class DataForExpertController extends Controller
                     $location =NULL;
                     // $location =BlockageLocation::where('blk_location_id', $data[0]->blk_location_id)->get();   
                     // dd($data);
-                    $location_x= 18.789029;
-                    $location_y = 98.985954;
+                    $location_x= 18.290015;
+                    $location_y = 99.656525;
                     return view('pages.surveyor1',compact('data','districtData','username','lastname','position','department','location_x','location_y'));
                 }else{
                     $location =BlockageLocation::where('blk_location_id', $data[0]->blk_location_id)->get();   

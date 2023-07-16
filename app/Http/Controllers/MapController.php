@@ -227,10 +227,10 @@ class MapController extends Controller
         
         $result=[];
         $properties['time']=[];
-        
+        // dd($data[0]->blockage->status_approve);
         for ($i=0;$i<count($data);$i++){
             //$locationSt = new Point($request->latstart,$request->longstart);
-            if($data[$i]->blockage->status_approve=="2"){
+            // if($data[$i]->blockage->status_approve=="2"){
                 $fq = ProblemDetail::select('prob_level')->where ('problem_details.blk_id', $data[$i]->blockage->blk_id)->get();
                 //dd($fq);
                 // $point =($data[0]->blk_start_location);
@@ -252,7 +252,7 @@ class MapController extends Controller
                         'district'=>$data[$i]->blk_district,
                         'geometry'=> $data[$i]->blk_start_location,
                         'level'=>$risk];
-             }
+            //  }
             
         }
 
@@ -299,7 +299,7 @@ class MapController extends Controller
     // }
 
     public function getDamageByAmpG() {
-        $amp=["ฝาง","ไชยปราการ","แม่อาย","ดอยหล่อ","ดอยสะเก็ด", "สะเมิง","สันกำแพง","สันทราย","สันป่าตอง","สารภี","หางดง","เมืองเชียงใหม่","แม่ริม","แม่วาง","แม่ออน"];
+        $amp=["เมืองลำปาง","เกาะคา","แม่ทะ","แม่เมาะ"];
         $amp_data= [];
         // dd($amp_data );
         $ampL1=0;$ampL2=0;$ampL3=0;
