@@ -1,7 +1,7 @@
 //console.log('hello');
 
 // var ID = window.location.href.replace("https://watercenter.scmc.cmu.ac.th/weir/jang_basin/", "");
-var ID = window.location.href.replace("http://localhost/blockagePL/public/", "");
+var ID = window.location.href.replace("https://watercenter.scmc.cmu.ac.th/weir/jang_basin/", "");
 // console.log(ID);
 // alert(ID);
 
@@ -13,7 +13,7 @@ function Province(id,district) {
   // AJAX request 
   $.ajax({
   
-    url: 'http://localhost/blockagePL/public/getdistrict/' + id,
+    url: 'https://watercenter.scmc.cmu.ac.th/weir/jang_basin/getdistrict/' + id,
   // url: 'https://watercenter.scmc.cmu.ac.th/weir/jang_basin/getdistrict/' + id,
   //url: link+'getVillage/' + id,
  
@@ -56,7 +56,7 @@ function District(id, tumbol) {
     // AJAX request 
     $.ajax({
      
-      url: 'http://localhost/blockagePL/public/getTumbol/' + id,
+      url: 'https://watercenter.scmc.cmu.ac.th/weir/jang_basin/getTumbol/' + id,
   // url: 'https://watercenter.scmc.cmu.ac.th/weir/jang_basin/getTumbol/' + id,
      // url: link+'getTumbol/' + id,
       type: 'get',
@@ -98,7 +98,7 @@ function Tumbol(id, vill) {
       // AJAX request 
       $.ajax({
       
-        url: 'http://localhost/blockagePL/public/getVillage/' + id,
+        url: 'https://watercenter.scmc.cmu.ac.th/weir/jang_basin/getVillage/' + id,
     // url: 'https://watercenter.scmc.cmu.ac.th/weir/jang_basin/getVillage/' + id,
       //url: link+'getVillage/' + id,
         type: 'get',
@@ -135,7 +135,7 @@ function Tumbol(id, vill) {
 if(ID.length > 4){
   // console.log(ID);
   // alert(ID)
-  $.getJSON('http://localhost/blockagePL/public/getBlockageID/' + ID, (data) => {
+  $.getJSON('https://watercenter.scmc.cmu.ac.th/weir/jang_basin/getBlockageID/' + ID, (data) => {
   //  $.getJSON('https://watercenter.scmc.cmu.ac.th/weir/jang_basin/getBlockageID/' + ID, (data) => {
     // $.getJSON(link+'getBlockageID/' + ID, (data) => {
   let id = data[0]['blockage_location']['blk_district'];
