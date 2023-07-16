@@ -479,10 +479,10 @@
                                             if(!empty($expert[0]->exp_pixmap)){ ?>
                                                 <tr>
                                                     <td align="center"> 
-                                                        <div style="margin-top:5px;"><img src="https://cmblockage.cmfightflood.com/{{($expert[0]->exp_pix1)  }}" width=180px;></div>
+                                                        <div style="margin-top:5px;"><img src="https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/{{($expert[0]->exp_pix1)  }}" width=180px;></div>
                                                     </td>
                                                     <td align="center">
-                                                        <div style="margin-top:15px;margin-bottom:10px;"><img src="https://cmblockage.cmfightflood.com/{{($expert[0]->exp_pix2) }}" width=180px;></div>
+                                                        <div style="margin-top:15px;margin-bottom:10px;"><img src="https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/{{($expert[0]->exp_pix2) }}" width=180px;></div>
                                                     </td>
                                                 </tr>
                                         <?php  }else{ ?>

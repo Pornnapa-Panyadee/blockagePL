@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Blockage::CMFightflood</title>
+    <title>Blockage::Mae Jang Basin</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Mitr|Prompt" rel="stylesheet">
     <!-- Styles -->

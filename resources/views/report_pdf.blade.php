@@ -104,20 +104,24 @@
 <body>
     <div class="dashboard-short-list">
         <div class="row" >
-            <div class="col-xl-1 col-lg-1"></div>
-            <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12" > 
+            <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-12" > 
                 <div class="card">
                     <div class="title m-b-md">
-                        <table style="margin-top:-20px;">
-                            <tr>
-                                <td rowspan="2"><img src="{{ asset('images/icon/cmu.png') }}" width="12%"></td>
+                        <table style="margin-top:-20px;" >
+                            <tr align="center">
+                                <td rowspan="3" width=14%><img src="{{ asset('images/logo/footer/EGAT-Logo.png') }}" width="100%"></td>
                                 <td align="center"> <div style="font-size: 28px;margin-top:-10px;"> แบบสำรวจรายละเอียดการกีดขวางทางน้ำ </div></td>
+                                <td rowspan="3" width=15%><img src="{{ asset('images/logo/footer/cmu.png') }}" width="90%"></td>
                             </tr>
                             <tr>
-                                <td align="center"><div style="margin-top:-10px;">"กิจกรรมการพัฒนาระบบข้อมูลของสิ่งกีดขวางทางน้ำในลำน้ำคูคลองและถนนในจังหวัดเชียงใหม่" </div></td>
+                                <td align="center">
+                                    <div style="font-size: 18px;margin-top:-10px;">โครงการพัฒนาระบบการสำรวจและบริหารจัดการพื้นที่เสี่ยงภัยน้ำท่วมและภัยแล้ง  <br> 
+                                        บนพื้นฐานของเทคโนโลยีสารสนเทศและการจัดการขั้นสูงในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง
+                                    </div>
+                                </td>
                             </tr>
                             <tr align="center">
-                                <td colspan="2"  ><div style="font-size: 16px;margin-top:-10px;"> ภายใต้โครงการการพัฒนาระบบการสำรวจและบริหารจัดการพื้นที่เสี่ยงภัยน้ำท่วมและดินถล่มบนพื้นฐานของเทคโนโลยีสารสนเทศและการจัดการน้ำขั้นสูง </div> </td>
+                                <td><div style="font-size: 16px;margin-top:-10px;"> โดย การไฟฟ้าฝ่ายผลิตแห่งประเทศไทย (กฟผ.) แม่เมาะ ร่วมกับ มหาวิทยาลัยเชียงใหม่ </div> </td>
                             </tr>
                         </table>
                         <hr>
@@ -129,8 +133,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <?php 
-                       
+                    <?php                        
                         $text= explode(" ",$data[0]->blockageLocation->blk_village);
                         $moo = $text[1];
                         $tambol=$text[2];
@@ -144,31 +147,31 @@
                     <table class="table-report" width="105%" >
                         <tr>
                             <td> รหัสหมู่บ้าน  
-                                <font class="box">5</font>
-                                <font class="box">7</font>
-                                <font class="box">{{$code[2]}}</font>
-                                <font class="box">{{$code[3]}}</font>
-                                <font class="box">{{$code[4]}}</font>
-                                <font class="box">{{$code[5]}}</font>
-                                <font class="box">{{$code[6]}}</font>
+                                <font class="box">0</font>
+                                <font class="box">0</font>
+                                <font class="box">0</font>
+                                <font class="box">0</font>
+                                <font class="box">0</font>
+                                <font class="box">0</font>
+                                <font class="box">{{$code[7]}}</font>
                                 <font class="box">{{$code[8]}}</font>
                             
                             </td>
                             <td> รหัสตำบล 
-                                <font class="box">5</font>
-                                <font class="box">7</font>
-                                <font class="box">{{$code[2]}}</font>
-                                <font class="box">{{$code[3]}}</font>
-                                <font class="box">{{$code[4]}}</font>
+                                <font class="box">0</font>
+                                <font class="box">0</font>
+                                <font class="box">0</font>
+                                <font class="box">0</font>
                                 <font class="box">{{$code[5]}}</font>
+                                <font class="box">{{$code[6]}}</font>
                             </td>
                             <td> รหัสอำเภอ 
-                                <font class="box">5</font>
-                                <font class="box">7</font>
-                                <font class="box">{{$code[2]}}</font>
+                                <font class="box">0</font>
+                                <font class="box">0</font>
                                 <font class="box">{{$code[3]}}</font>
+                                <font class="box">{{$code[4]}}</font>
                             </td>
-                            <td> รหัสจังหวัด <font class="box">5</font> <font class="box">7</font></td>
+                            <td> รหัสจังหวัด <font class="box">L</font> <font class="box">P</font></td>
                         </tr>
                     </table>
                     <?php function DateTimeThai($strDate)
@@ -185,18 +188,18 @@
                     <table class="table-report1" width="90%" align="center"  >
                         <tr>
                             <td>ผู้กรอกแบบสำรวจ </td>
-                            <td colspan="3" class="line">  {{ $data[0]->blk_user_name}} </td>
+                            <td colspan="3" class="line">  {{ $data[0]->survey_engineer}} </td>
                             <td align="center" >  วัน/เดือน/ปี</td>
                             <!-- <td colspan="2"class="line"> {{date_format($data[0]->created_at,"d/m/Y") }} </td> -->
                             <td colspan="2"class="line"> {{DateTimeThai($data[0]->survey_date)}} </td>
                         </tr>
                         <tr>
                             <td align="center"> ตำแหน่ง  </td>
-                            <td colspan="2"class="line" > ผู้ช่วยวิจัย</td>
+                            <td colspan="2"class="line" > {{ $data[0]->survey_engineer_position}}</td>
                             <td align="center">หน่วยงาน  </td>
-                            <td class="line"> มหาวิทยาลัยเชียงใหม่</td>
+                            <td class="line"> {{ $data[0]->survey_engineer_unit}}</td>
                             <td align="center">โทรศัพท์ </td>
-                            <td class="line"> 085-9087632<td>
+                            <td class="line"> -<td>
                             
                         </tr>
                         <?php  if($data[0]->blk_id=="B00399" || $data[0]->blk_id=="B00398"|| $data[0]->blk_id=="B00400"){?> 
@@ -359,26 +362,26 @@
                     <?php 
                         function checkCuase($text) {
                             if($text!=NULL){
-                                $img='https://cmblockage.cmfightflood.com/images/logo/check.png';
+                                $img='https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/images/logo/check.png';
                                 // $img='http://localhost/2021_CMblockage/public/images/logo/check.png';
                                 echo "<img src='{$img}'  width=3%>";	
                                 //echo  "<font size=\"4\"> &#9745;</font>";
                             }else{
                                 // echo "<font size=\"4\"> &#9744;</font>";
-                                $img='https://cmblockage.cmfightflood.com/images/logo/square.png';
+                                $img='https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/images/logo/square.png';
                                 // $img='http://localhost/2021_CMblockage/public/images/logo/square.png';
                                 echo "<img src='{$img}'  width=3%>";	
                             }
                         }
                         function checkCuaseProb($text) {
                             if($text!=NULL){
-                                $img='https://cmblockage.cmfightflood.com/images/logo/check.png';
+                                $img='https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/images/logo/check.png';
                                 // $img='http://localhost/2021_CMblockage/public/images/logo/check.png';
                                 echo "<img src='{$img}'  width=3% style='margin-top:10px;'>";	
                                 //echo  "<font size=\"4\"> &#9745;</font>";
                             }else{
                                 // echo "<font size=\"4\"> &#9744;</font>";
-                                $img='https://cmblockage.cmfightflood.com/images/logo/square.png';
+                                $img='https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/images/logo/square.png';
                                 // $img='http://localhost/2021_CMblockage/public/images/logo/square.png';
                                 echo "<img src='{$img}'  width=3% style='margin-top:10px;'>";	
                             }
@@ -605,7 +608,7 @@
                             $sol3="<img src='images/logo/square.png'  width=3%>";
                             $sol4="<img src='images/logo/square.png'  width=3%>";
                             $sol5="<img src='images/logo/square.png'  width=3%>";
-                        }else if($solution_id[0]->sol_how=="เจรจาให้รื้อถอน"){
+                        }else if($solution_id[0]->sol_how=="เจรจาให้รื้อถอนให้รื้อถอน"){
                             $sol1="<img src='images/logo/square.png'  width=3%>";
                             $sol2="<img src='images/logo/check.png'  width=3%>";
                             $sol3="<img src='images/logo/square.png'  width=3%>";

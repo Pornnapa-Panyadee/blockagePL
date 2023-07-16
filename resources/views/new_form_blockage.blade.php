@@ -11,9 +11,11 @@
             <div class="flex-center position-ref full-height">
                 <div class="content" >
                      <div class="card border-3 border-top border-top-primary">
-                        <div class="card-header"> 
+                        <div class="card-header" align="center"> 
                             <h2> แบบสำรวจรายละเอียดการกีดขวางทางน้ำ </h2>
-                            <h4>กิจกรรมการพัฒนาระบบข้อมูลของสิ่งกีดขวางทางน้ำในลำน้ำคูคลองและถนนในจังหวัดเชียงใหม่</h4>
+                            <h5>โครงการพัฒนาระบบการสำรวจและบริหารจัดการพื้นที่เสียงภัยน้ำท่วมและภัยแล้ง
+                            บนพื้นฐานของเทคโนโลยีสารสนเทศ </h5><h5>และการจัดการขั้นสูงในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง</h5>
+                            <p>โดย การไฟฟ้าฝ่ายผลิตแห่งประเทศไทย (กฟผ.) แม่เมาะ ร่วมกับ มหาวิทยาลัยเชียงใหม่</p>
                         </div>
                             <div class="title m-b-md form-group">   
                                 <!-- Progress Wizard -->
@@ -72,8 +74,25 @@
                                                         <tr>
                                                             <th> วันที่ทำการสำรวจ </th>
                                                             <td>
-                                                                <!-- <input type="date" id="survey_date" name="survey_date" placeholder="dd-mm-yyyy" placeholder="-- กรอกวันที่ --" isBuddhist: true > -->
                                                                 <input type="text" name="survey_date" id="survey_date" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th> ชื่อผู้ตรวจสอบ </th>
+                                                            <td>
+                                                                <input type="text" name="survey_engineer" id="survey_engineer" value="ทีมตรวจประเมิน"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th> ตำแหน่ง </th>
+                                                            <td>
+                                                                <input type="text" name="survey_engineer_position" id="survey_engineer_position" value="-"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th> หน่วยงาน </th>
+                                                            <td>
+                                                                <input type="text" name="survey_engineer_unit" id="survey_engineer_unit" value="cmu"/>
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -103,7 +122,7 @@
                                                             <td align="right" width=30% class="text_location">จังหวัด  </td>
                                                             <td colspan="2">
                                                                 <select id='blk_province' name='blk_province' >
-                                                                    <option value='เชียงใหม่'> เชียงใหม่ </option>
+                                                                    <option value='ลำปาง'> ลำปาง </option>
                                                                 </select>
                                                             </td>
                                                         </tr>
@@ -111,9 +130,9 @@
                                                             <td align="right" class="text_location">อำเภอ  </td>
                                                             <td colspan="2">
                                                                 <select id='blk_district' name='blk_district' required onchange="validateForm(this.id)">
-                                                                    <option value=''>-- เลือกอำเภอ --</option>
-                                                                    <!-- Read district -->
-                                        
+                                                                    <option value=''>-- เลือกอำเภอ --</option>                                                                   
+                                                                    
+                                                                    <!-- Read district -->                                        
                                                                     @foreach($districtData['data'] as $village)
                                                                         <option value='{{ $village->vill_district }}'>{{ $village->vill_district  }}</option>
                                                                     @endforeach
@@ -394,14 +413,14 @@
                                                 </table>
                                                 <table align="center"  class="table-damages table-borderless" width="80%">
                                                     <tr>
-
                                                         <td colspan="3"><input type="hidden" name="damage_type[flood]" value="0">
                                                                         <input type="checkbox" id="damage_type1"  name="damage_type[flood]" value="1" onclick="damageLevelRadioValidation()"> 
                                                                         <label for="damage_type1">น้ำท่วม</label>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td width="5%"></td>
+                                                        <td width="5%"> </td>
+                                                        <td width="15%"> ระดับความรุนแรง</td>
                                                         <td class="loc_damage"><input type="hidden" name="damage_level[flood]" value="0">
                                                             <input type="radio" id="damageflood1" name="damage_level[flood]" value="low" disabled/> 
                                                             <label for="damageflood1">น้อย</label>
@@ -418,6 +437,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td width="5%"></td>
+                                                        <td width="15%"> ระดับความรุนแรง</td>
                                                         <td class="loc_damage"><input type="hidden" name="damage_level[waste]" value="0">
                                                             <input type="radio" id="damagewaste1" name="damage_level[waste]" value="low" disabled/>
                                                             <label for="damagewaste1"> น้อย </label>
@@ -436,6 +456,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td width="5%"></td>
+                                                        <td width="15%"> ระดับความรุนแรง</td>
                                                         <td class="loc_damage"><input type="hidden" name="damage_level[other][level]" value="0">
                                                             <input type="radio" id="damageother1" name="damage_level[other][level]" value="low" disabled/>
                                                             <label for="damageother1"> น้อย </label>
@@ -488,7 +509,7 @@
                                                     <tr>
 
                                                         <td><input type="checkbox" id="nat_missing" name="nat_missing" value="1"/><label for="nat_missing">ลำน้ำขาดหาย</label></td>
-                                                        <td><input type="checkbox" id="nat_winding" name="nat_winding" value="1"/> <label for="nat_winding">ลักษณะทางกายภาพของล้ำน้ำ </label></td>
+                                                        <td><input type="checkbox" id="nat_winding" name="nat_winding" value="1"/> <label for="nat_winding">ลำน้ำคดเคี้ยวมาก </label></td>
 
 
                                                     </tr>   
@@ -620,7 +641,7 @@
                                                     </tr>
                                                     <tr>
 
-                                                        <td style="padding-left:40px;"><input type="radio" id="sol_how2" name="sol_how" value="เจรจา" onclick="solHowValidate()" ><label for="sol_how2">เจรจา</label></td>
+                                                        <td style="padding-left:40px;"><input type="radio" id="sol_how2" name="sol_how" value="เจรจาให้รื้อถอน" onclick="solHowValidate()" ><label for="sol_how2">เจรจาให้รื้อถอน</label></td>
                                                         <td style="padding-left:40px;" colspan="2"><input type="radio" id="sol_how3" name="sol_how" value="ฟ้องร้อง"  onclick="solHowValidate()" ><label for="sol_how3">ฟ้องร้อง</label></td>
                                                         <td style="padding-left:40px;" colspan="2"><input type="radio" id="sol_how4" name="sol_how" value="รื้อถอน"  onclick="solHowValidate()" ><label for="sol_how4">รื้อถอน</label></td>
                                                         <td style="padding-left:40px;" colspan="2" 99><input type="radio" id="sol_how5" name="sol_how" value="ยังไม่ได้ดำเนินการ"  onclick="solHowValidate()" ><label for="sol_how5">ยังไม่ได้ดำเนินการ</label></td>
@@ -664,7 +685,7 @@
                                                         <td><input type="text" id="proj_budget" name="proj_budget" step="any" placeholder="ระบุงบประมาณ" disabled></td>
                                                     </tr>
                                                     <tr>
-                                                        <td colspan="3"><input type="radio" id="proj_status3" name="proj_status" value="making"  /><label for="proj_status3">กำลังปรับปรุงก่อสร้าง</label></td>
+                                                        <td colspan="3"><input type="radio" id="proj_status3" name="proj_status" value="making"  /><label for="proj_status3">กำลังปรับปรุงหรือก่อสร้าง</label></td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="3"><input type="radio" id="proj_status4" name="proj_status" value="noplan" /><label for="proj_status4">ยังไม่มีในแผน </label></td>
@@ -714,431 +735,6 @@
                                     </form>
                                 </div>
                             </div>
-                    </div>
-                </div>
-
-
-                <!-- chat -->
-                <div class="chatbox">
-                    
-
-                    <div class="chatbox__support4 chatbox-infomation">
-                        <div class="chatbox__header">
-                            <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">X</button>
-                            </div>
-                            <div class="chatbox__content--header">
-                            </div>
-                        </div>
-                        <div class="chatbox__messages">
-                            <div class="user-img"><img src="{{ asset('images/chat_bot_web.png') }}" /></div>
-                                <div>
-                                    <div class="messages__item messages__item--visitor">
-                                    
-                                    {{--                                 
-                                    <p>รายละเอียดของความหมาย</p>
-                                    <p>{{$detailsAdviceF130}}</p>
-                                    <p>-----------</p>
-                                    <p>คำอธิบาย</p>
-                                    <p>{{$descAdviceF130}}</p>
-                                    <p>-----------</p> 
-                                    --}}
-
-                                    <p>วิธีการคำนวนเบื้องต้น</p>
-                                    <p>{{$methodAdviceF130}}</p>    
-
-                                    {{--  Trigger/Open The Modal --}}
-                                    <button type="button" id="myBtn1" class="btn btn-link">ตัวอย่างรูปภาพ <br>การคำนวนความลาดตลิ่ง</button>
-                                    {{--  The Modal --}}
-                                    <div id="myModal1" class="modal">
-
-                                        {{--  Modal content--}}
-                                        <div class="modal-content">
-                                            <span class="close1">&times;</span>
-                                            <img  src="{{ asset('images/ref_advice/1_3.jpg') }}"  weight="70%"  >  
-                                        </div>
-                                    </div>
-                                
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chatbox__footer">
-                        </div>
-                    </div>
-
-
-                    <div class="chatbox__support6 chatbox-infomation">
-                        <div class="chatbox__header">
-                            <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">X</button>
-                            </div>
-                            <div class="chatbox__content--header">
-                            </div>
-                        </div>
-                        <div class="chatbox__messages">
-                            <div class="user-img"><img src="{{ asset('images/chat_bot_web.png') }}" /></div>
-                            <div>
-                                <div class="messages__item messages__item--visitor">
-                                <p>คำอธิบาย</p>
-                                <p>{{$methodAdviceF141}}</p>
-
-                                {{--  Trigger/Open The Modal --}}
-                                <button type="button" id="myBtn2" class="btn btn-link"> รูปภาพอธิบาย <br> ตำแหน่งเพิ่มเติม</button>
-                                {{--  The Modal --}}
-                                <div id="myModal2" class="modal">
-
-                                    {{--  Modal content--}}
-                                    <div class="modal-content">
-                                        <span class="close2">&times;</span>
-                                        <img  src="{{ asset('images/ref_advice/1_4_1.jpg') }}"  weight="70%"  >  
-                                    </div>
-                                </div>
-    
-
-
-                                {{--
-                                    <p><a target="_blank" href="{{ asset('images/ref_advice/1_4_1.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
-                                    --}}  
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chatbox__footer">
-                        </div>
-                    </div>
-
-                    <div class="chatbox__support7 chatbox-infomation">
-                        <div class="chatbox__header">
-                            <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">X</button>
-                            </div>
-                            <div class="chatbox__content--header">
-                            </div>
-                        </div>
-                        <div class="chatbox__messages">
-                            <div class="user-img"><img src="{{ asset('images/chat_bot_web.png') }}" /></div>
-                            <div>
-                                <div class="messages__item messages__item--visitor">
-                                 {{--
-
-                                <p>รายละเอียดของความหมาย</p>
-                                <p>{{$detailsAdviceF142}}</p>
-                                <p>-----------</p>
-                                <p>คำอธิบาย</p>
-                                <p>{{$descAdviceF142}}</p>
-                                <p>-----------</p>                         
-                                    
-                                    --}}
-
-                                <p>คำอธิบาย</p>
-                                <p>{{$methodAdviceF142}}</p>   
-
-                                {{--  Trigger/Open The Modal --}}
-                                <button type="button" id="myBtn3" class="btn btn-link"> รูปภาพเพิ่มเติมประเภท<br>สิ่งกีดขวางทางน้ำ</button>
-                                {{--  The Modal --}}
-                                <div id="myModal3" class="modal">
-
-                                    {{--  Modal content--}}
-                                    <div class="modal-content">
-                                        <span class="close3">&times;</span>
-                                        <img  src="{{ asset('images/ref_advice/1_4_3.jpg') }}"  weight="70%"  >  
-                                    </div>
-                                </div>
-
-     
-                                    {{--
-                                        <p><a target="_blank" href="{{ asset('images/ref_advice/1_4_3.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
-                                        --}}
-                                
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chatbox__footer">
-                        </div>
-                    </div>
-
-                    <div class="chatbox__support8 chatbox-infomation">
-                        <div class="chatbox__header">
-                            <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">X</button>
-                            </div>
-                            <div class="chatbox__content--header">
-                            </div>
-                        </div>
-                        <div class="chatbox__messages">
-                            <div class="user-img"><img src="{{ asset('images/chat_bot_web.png') }}" /></div>
-                            <div>
-                                <div class="messages__item messages__item--visitor">
-                                 {{--
-
-                                <p>รายละเอียดของความหมาย</p>
-                                <p>{{$detailsAdviceF143}}</p>
-                                <p>-----------</p>
-                                <p>คำอธิบาย</p>
-                                <p>{{$descAdviceF143}}</p>
-                                <p>-----------</p>                         
-                                    
-                                    --}}
-
-                                <p>คำอธิบาย</p>
-                                <p>{{$methodAdviceF143}}</p>    
-
-                                {{--  Trigger/Open The Modal --}}
-                                <button type="button" id="myBtn4" class="btn btn-link">รูปภาพตัวอย่าง <br>หน้าตัดลำน้ำ</button>
-                                {{--  The Modal --}}
-                                <div id="myModal4" class="modal">
-
-                                    {{--  Modal content--}}
-                                    <div class="modal-content">
-                                        <span class="close4">&times;</span>
-                                        <img  src="{{ asset('images/ref_advice/1_4_2.jpg') }}"  weight="70%"  >  
-                                    </div>
-                                </div>
-
-                                {{-- 
-                                    <p><a target="_blank" href="{{ asset('images/ref_advice/1_4_2.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
-                                    --}}
-                                                    
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chatbox__footer">
-                        </div>
-                    </div>
-
-                    <div class="chatbox__support9 chatbox-infomation">
-                        <div class="chatbox__header">
-                            <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">X</button>
-                            </div>
-                            <div class="chatbox__content--header">
-                            </div>
-                        </div>
-                        <div class="chatbox__messages">
-                            <div class="user-img"><img src="{{ asset('images/chat_bot_web.png') }}" /></div>
-                            <div>
-                                <div class="messages__item messages__item--visitor">
-                          
-                                <p>รายละเอียดของความหมาย</p>
-                                <p>{{$detailsAdviceF150}}</p>
-                                <p>-----------</p>
-                                <p>คำอธิบาย</p>
-                                <p>{{$descAdviceF150}}</p>
-                                <p>-----------</p>
-                                <p>วิธีการกรอกข้อมูล</p>
-                                <p>{{$methodAdviceF150}}</p>    
-                                                             
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chatbox__footer">
-                        </div>
-                    </div>
-
-                    <div class="chatbox__support10 chatbox-infomation">
-                        <div class="chatbox__header">
-                            <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">X</button>
-                            </div>
-                            <div class="chatbox__content--header">
-                            </div>
-                        </div>
-                        <div class="chatbox__messages">
-                            <div class="user-img"><img src="{{ asset('images/chat_bot_web.png') }}" /></div>
-                            <div>
-                                <div class="messages__item messages__item--visitor">
-                                    <p>คำอธิบาย</p>
-                                    <p>คลองส่งน้ำที่เสริมคลองส่วนที่สัมผัสกับน้ำด้วยวัสดุที่มีความแข็งแรง ที่นิยมใช้กันคือการดาดผิวคลองด้วยคอนกรีต เพราะมีความแข็งแรง และก่อสร้างได้ง่าย ซึ่งจะช่วยลดการรั่วซึมผ่านตัวคลองส่งน้ำ ลดการพังทลายของลาดด้านข้างคลองส่งน้ำ ป้องกันวัชพืชและลดขนาดของตัวคลองลง ทําให้ประหยัดพื้นที่สําหรับการก่อสร้างด้วย</p>
-
-                                    {{--  Trigger/Open The Modal --}}
-                                    <center><button type="button" id="myBtn5" class="btn btn-link">รูปภาพตัวอย่าง <br> การดาดผิว</button></center>
-                                    {{--  The Modal --}}
-                                    <div id="myModal5" class="modal">
-
-                                        {{--  Modal content--}}
-                                        <div class="modal-content">
-                                            <span class="close5">&times;</span>
-                                            <img  src="{{ asset('images/ref_advice/1_6.png') }}"  weight="70%"  >  
-                                        </div>
-                                    </div>
-                        
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chatbox__footer">
-                        </div>
-                    </div>
-
-                    <div class="chatbox__support1_7 chatbox-infomation">
-                        <div class="chatbox__header">
-                            <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">X</button>
-                            </div>
-                            <div class="chatbox__content--header">
-                            </div>
-                        </div>
-                        <div class="chatbox__messages">
-                            <div class="user-img"><img src="{{ asset('images/chat_bot_web.png') }}" /></div>
-                            <div>
-                                <div class="messages__item messages__item--visitor">
- 
-                                <p>รายละเอียดของความหมาย</p>
-                                <p>ความลาดชันท้องน้ำช่วงที่เกิดปัญหา (โดยประมาณ)</p>
-                                <p>-----------</p>
-                                <p>คำอธิบาย</p>
-                                <p>เป็นความลาดชันท้องน้ำในอดีตก่อนที่จะเกิดปัญหา</p>
-                                <p>-----------</p>
-                                <p>วิธีการคำนวน</p>
-                                <p>โดยสอบถามคนในพื้นที่ และนำมากรอกโดยสูตรตามรูปภาพตัวอย่าง ความกว้าง ยาว สูง (หน่วยเป็นเมตร)</p> 
-                                {{--  Trigger/Open The Modal --}}
-                                    <center><button type="button" id="myBtn6" class="btn btn-link">รายละเอียดการคำนวน</button></center>
-                                    {{--  The Modal --}}
-                                    <div id="myModal6" class="modal">
-
-                                        {{--  Modal content--}}
-                                        <div class="modal-content">
-                                            <span class="close6">&times;</span>
-                                            <img  src="{{ asset('images/ref_advice/1_7.jpg') }}"  weight="70%"  >  
-                                        </div>
-                                    </div>
-                                    {{--  The Modal  slope Cal--}}
-                                    <div>
-                                        <center><button type="button" id="myBtn7" class="btn btn-link">คำนวณความลาดชัน</button></center>
-                                    </div>
-                                    <div id="myModal7" class="modal">
-                                        <div class="modal-content">
-                                            <span class="close7">&times;</span>
-                                            <center>
-                                                <h3>การคำนวณความลาดชันท้องน้ำช่วงที่เกิดปัญหา</h3>
-                                            </center>
-                                            <div class="row justify-content-center" >
-                                                <div class="col-5">
-                                                     <img  src="{{ asset('images/ref_advice/1_7.jpg') }}"  width="100%"  >
-                                                </div>
-                                                <div class="col-5 " >
-
-                                                    <!-- <table width=100% class="modal-cal">
-                                                        <tr style="margin-bottom: 200px;">
-                                                            <td>ระดับจุด A </td>
-                                                            <td> <input type="text" id="A"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>ระดับจุด B </td>
-                                                            <td> <input type="text" id="B"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>ระยะทางจาก A ถึง B </td>
-                                                            <td> <input type="text" id="lenght"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="2"><div id="slope" style="padding-top:2em;"></div></td>
-                                                        </tr>
-                                                    </table> -->
-                                                    <form class="form_cal">
-                                                        <table width=100% class="modal-cal">
-                                                            <tr style="margin-bottom: 200px;">
-                                                                <td width="30%">ระดับจุด A</td>
-                                                                <td ><input type="number" name="A" id="A" ></td>
-                                                                <td> เมตร </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>ระดับจุด B </td>
-                                                                <td> <input type="number"name="B" id="B"></td>
-                                                                <td> เมตร </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>ระยะทางจาก A ถึง B </td>
-                                                                <td> <input type="number" name="lenght" id="lenght"></td>
-                                                                <td> เมตร </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td colspan="2">
-                                                                    <br><br><br>
-                                                                    <button class="btn btn-outline-primary btn-lg btn-block" type="button" onclick="answer.value=((parseFloat(A.value) - parseFloat(B.value))/parseFloat(lenght.value));"> <font style="font-family: 'Mitr';">คำนวณความชัน </font></button><br>
-                                                                    <br>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>ความลาดชันท้องน้ำ </td>
-                                                                <td><input type="number" class="answer" name="answer" ></td>
-                                                            </tr>
-                                                        </table>
-                                                        <br><br><br>
-                                                     </form>
-                                                  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                {{--
-                                    <p><a target="_blank" href="{{ asset('images/ref_advice/1_7.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
-                                    --}}
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chatbox__footer">
-                        </div>
-                    </div>
-
-                    <div class="chatbox__support18 chatbox-infomation">
-                        
-                        <div class="chatbox__header">
-                            <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">X</button>
-                            </div>
-                            <div class="chatbox__content--header">
-                            </div>
-                        </div>
-                        <div class="chatbox__messages">
-                        <div class="user-img"><img src="{{ asset('images/chat_bot_web.png') }}" /></div>
-                            <div>
-                                <div class="messages__item messages__item--visitor">
- 
-                                <p>วิธีการ</p>
-                                <p>{{$methodAdviceF500}} </p>
-                                {{--
-                                    
-                                <p>รายละเอียดเชิงรูปภาพ</p>
-                                <p><a href="{{ asset('images/ref_advice/exsample1.jpg') }}"><img src="{{ asset('images/image_info.png') }} " /></a></p>      
-
-                                    --}}
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chatbox__footer">
-                        </div>
-                    </div>
-
-                    <div class="chatbox_support_admin chatbox-infomation">
-                        
-                        <div class="chatbox__header">
-                            <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">X</button>
-                            </div>
-                            <div class="chatbox__content--header">
-                            </div>
-                        </div>
-                        <div class="chatbox__messages">
-                        <div class="user-img"><img src="{{ asset('images/chat_bot_web.png') }}" /></div>
-                            <div>
-                                <div class="messages__item messages__item--visitor">
-                                   <p>คุยกับน้องผ่าน line ได้นะคะด้วยการเพิ่มน้องเป็นเพือนผ่าน line id: @188hzruo</p>
-                                   <p>หรือผ่าน QRCode</p>
-                                   <p><img src="{{ asset('images/qrcode/ninaqrcode.png') }}" height=150 width=150></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chatbox__footer">
-                        </div>
-                    </div>
-
-                    <div class="chatbox__button_pix chatbox_button_admin">
-                        <button ><img src="{{ asset('images/chat_bot_web.png') }}" /></button>
                     </div>
                 </div>
 

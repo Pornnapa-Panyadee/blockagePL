@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Blockage::CMFightflood</title>
+    <title>Blockage::Mae Jang Basin</title>
 
 
     <!-- Fonts -->
@@ -389,7 +389,7 @@
                         <tr>
 
                             <td><input type="checkbox" id="nat_missing" name="nat_missing" value='{{ $blk_problem_detail[$id]->nat_missing ?? "" }}' /><label for="nat_missing">ลำน้ำขาดหาย</label></td>
-                            <td><input type="checkbox" id="nat_winding" name="nat_winding" value='{{ $blk_problem_detail[$id]->nat_winding ?? "" }}' /> <label for="nat_winding">ลักษณะทางกายภาพของล้ำน้ำ </label></td>
+                            <td><input type="checkbox" id="nat_winding" name="nat_winding" value='{{ $blk_problem_detail[$id]->nat_winding ?? "" }}' /> <label for="nat_winding">ลำน้ำคดเคี้ยวมาก </label></td>
 
 
                         </tr>
@@ -529,7 +529,7 @@
                         </tr>
                         <tr>
 
-                            <td style="padding-left:40px;"><input type="radio" id="sol_how2" name="sol_how" value="เจรจา" required><label for="sol_how2">เจรจา</label></td>
+                            <td style="padding-left:40px;"><input type="radio" id="sol_how2" name="sol_how" value="เจรจาให้รื้อถอน" required><label for="sol_how2">เจรจาให้รื้อถอน</label></td>
                             <td colspan="2"><input type="radio" id="sol_how3" name="sol_how" value="ฟ้องร้อง" required<label for="sol_how3">ฟ้องร้อง</label></td>
                             <td colspan="2"><input type="radio" id="sol_how4" name="sol_how" value="รื้อถอน" required><label for="sol_how4">รื้อถอน</label></td>
                             <td colspan="2" 99><input type="radio" id="sol_how5" name="sol_how" value="ยังไม่ได้ดำเนินการ" required><label for="sol_how5">ยังไม่ได้ดำเนินการ</label></td>   
@@ -562,7 +562,7 @@
                         <tr>
                             <td><input type="radio" id="proj_status1" name="proj_status" value="plan" required  onclick="projStatusValidate()"/><label for="proj_status1"> อยู่ในแผน </label></td>
                             <td><input type="radio" id="proj_status2" name="proj_status" value="received" required  onclick="projStatusValidate()"/><label for="proj_status2">ได้รับงบประมาณแล้ว</label></td>
-                            <td><input type="radio" id="proj_status3" name="proj_status" value="making" required/><label for="proj_status3">กำลังปรับปรุงก่อสร้าง</label> </td>
+                            <td><input type="radio" id="proj_status3" name="proj_status" value="making" required/><label for="proj_status3">กำลังปรับปรุงหรือก่อสร้าง</label> </td>
                             <td><input type="radio" id="proj_status4" name="proj_status" value="noplan" required/><label for="proj_status4">ยังไม่มีในแผน </label></td>
                         </tr>
                         <tr>

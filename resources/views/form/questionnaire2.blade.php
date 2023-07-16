@@ -50,7 +50,7 @@
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td colspan="2"><input type="radio" name="nat_cause_type[cause]" value="ลักษณะทางกายภาพของล้ำน้ำ" /> ลักษณะทางกายภาพของล้ำน้ำ</td>       
+                                    <td colspan="2"><input type="radio" name="nat_cause_type[cause]" value="ลำน้ำคดเคี้ยวมาก" /> ลำน้ำคดเคี้ยวมาก</td>       
                                 </tr>
                                 <tr>
                                     <td></td>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Blockage::CRflood</title>
+    <title>Blockage::Mae Jang Basin</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Mitr|Prompt" rel="stylesheet">
@@ -650,7 +650,7 @@
                                             <td colspan="4"><?php echo $sol1?>ปรับปรุงแก้ไขโดย <font class="line">  {{$solution_id[0]->sol_edit}} &nbsp;&nbsp;&nbsp;&nbsp;</font></td>
                                             </tr>
                                             <tr>
-                                                <td> <?php echo $sol2?> เจรจาให้รื้อถอน</td>
+                                                <td> <?php echo $sol2?> เจรจาให้รื้อถอนให้รื้อถอน</td>
                                                 <td> <?php echo $sol3?> ฟ้องร้อง</td>
                                                 <td> <?php echo $sol4?>รื้อถอน</td>
                                                 <td> <?php echo $sol5?>ยังไม่ได้ดำเนินการ</td>

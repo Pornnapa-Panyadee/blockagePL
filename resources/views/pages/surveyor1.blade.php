@@ -183,11 +183,10 @@
         var stations2 = new L.LayerGroup();
         var borders = new L.LayerGroup();
         
-     
-        var x = 18.789029;
-        var y =98.985954;
+        var x=18.290015; 
+        var y=99.656525;
 
-        var mbAttr = 'CRFlood ',
+        var mbAttr = 'Mae Jang Basin',
            mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidmFucGFueWEiLCJhIjoiY2loZWl5ZnJ4MGxnNHRwbHp5bmY4ZnNxOCJ9.IooQB0jYS_4QZvIq7gkjeQ';
                                                                           
         osm = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{

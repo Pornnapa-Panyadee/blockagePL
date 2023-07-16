@@ -20,7 +20,7 @@
             <label>ปรับปรุงแก้ไขโดย:</label>
             <table class="table table-borderless">
                 <tr>
-                    <td ><input type="checkbox" name="sol_how[talk]" value="1">เจรจา</td>
+                    <td ><input type="checkbox" name="sol_how[talk]" value="1">เจรจาให้รื้อถอน</td>
                     <td><input type="checkbox" name="sol_how[demolish]" value="1">รื้อถอน</td>
                     <td ><input type="checkbox" name="sol_how[sue]" value="1">ฟ้องร้อง</td>
                 </tr>

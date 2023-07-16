@@ -39,16 +39,16 @@
                                 <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">คลังความรู้ </a>
                                 <div class="dropdown-menu dropdown-menu-right" style="padding:20px 0 20px ; background-color:#b3d6ff ; font-size:16px;"  >
                                     <!-- <a class="dropdown-item" href="https://www.landslide-chiangrai.net/">แผนที่ความเสี่ยงดินถล่มเชิงพลวัต </a> -->
-                                    <a class="dropdown-item" href="{{ asset('/idf/chiangmai')}}" target=\"_blank\">IDF curves รายอำเภอ (จ.เชียงใหม่) </a>
-                                    <a class="dropdown-item" href="{{ asset('/ddf/chiangmai')}}" target=\"_blank\">DDF curves รายอำเภอ (จ.เชียงใหม่) </a>
+                                    <!-- <a class="dropdown-item" href="{{ asset('/idf/chiangmai')}}" target=\"_blank\">IDF curves รายอำเภอ (จ.เชียงใหม่) </a> -->
+                                    <!-- <a class="dropdown-item" href="{{ asset('/ddf/chiangmai')}}" target=\"_blank\">DDF curves รายอำเภอ (จ.เชียงใหม่) </a> -->
                                     <a class="dropdown-item" href="{{ asset('/pdf/flood-preparedness.pdf')}}">คู่มือสถานการณ์น้ำท่วม</a>
                                     
                                     <a class="dropdown-item" href="{{ asset('/pdf/flood-manage.pdf')}}">การบริหารจัดการน้ำท่วม</a>
                                     <a class="dropdown-item" href="{{ asset('/pdf/flood-protect.pdf')}}">การป้องกันน้ำไหลเข้าบ้าน</a>
                                     <a class="dropdown-item" href="{{ asset('/pdf/flood-structures.pdf')}}">โครงสร้างป้องกันน้ำท่วม</a>
                                     <a class="dropdown-item" href="{{ asset('/pdf/flood_drainage.pdf')}}">การออกแบบระบบระบายน้ำฝน</a>
-                                    <a class="dropdown-item" href="{{ asset('/pdf/คู่มือwebsiteสำหรับผู้ใช้งานทั่วไป_draf 1-03-22.pdf')}}" target=\"_blank\">คู่มือการใช้งานเว็บไซต์</a>
-                                    <a class="dropdown-item" href="{{ asset('/pdf/คู่มือline botสำหรับผู้ใช้งานทั่วไป_draf 1-03-22.pdf')}}" target=\"_blank\">คู่มือการใช้งานระบบช่วยสนับสนุนข้อมูล (Line)</a>
+                                    <!-- <a class="dropdown-item" href="{{ asset('/pdf/คู่มือwebsiteสำหรับผู้ใช้งานทั่วไป_draf 1-03-22.pdf')}}" target=\"_blank\">คู่มือการใช้งานเว็บไซต์</a> -->
+                                    <!-- <a class="dropdown-item" href="{{ asset('/pdf/คู่มือline botสำหรับผู้ใช้งานทั่วไป_draf 1-03-22.pdf')}}" target=\"_blank\">คู่มือการใช้งานระบบช่วยสนับสนุนข้อมูล (Line)</a> -->
                                 </div>
                             </li>
                             <li class="nav-item dropdown ">

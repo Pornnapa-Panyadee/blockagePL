@@ -110,7 +110,9 @@
                             <!-- ============================================================== -->
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">การพัฒนาระบบข้อมูลสารสนเทศของสิ่งกีดขวางทางน้ำในลำน้ำคูคลองและถนนที่มีปัญหาการกีดขวางทางน้ำในพื้นที่จังหวัดเชียงใหม่</h3>
+                                    <h4 class="card-title">โครงการพัฒนาระบบการสำรวจและบริหารจัดการพื้นที่เสียงภัยน้ำท่วมและภัยแล้ง
+                                        บนพื้นฐานของเทคโนโลยีสารสนเทศ และการจัดการขั้นสูงในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง</h4>
+                                    <p>โดย การไฟฟ้าฝ่ายผลิตแห่งประเทศไทย (กฟผ.) แม่เมาะ ร่วมกับ มหาวิทยาลัยเชียงใหม่</p>
                                 </div>
                                 <div class="card-body">
                                         {{-- @include('form.map') --}}
@@ -275,10 +277,10 @@
         // var stations12 = new L.LayerGroup();  
         var borders = new L.LayerGroup();
         
-        var x = 18.782687 ; 
-        var y = 98.993518 ;
+        var x=18.290015; 
+        var y=99.656525;
 
-        var mbAttr = 'CMFightFlood ',
+        var mbAttr = 'Mae Jang Basin',
            mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidmFucGFueWEiLCJhIjoiY2loZWl5ZnJ4MGxnNHRwbHp5bmY4ZnNxOCJ9.IooQB0jYS_4QZvIq7gkjeQ';
                                                                           
         osm = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
@@ -293,17 +295,17 @@
         var map = L.map('map', {
             layers: [borders,osm,stations1,stations2,stations3],
             center: [x,y],
-            zoom: 8,
+            zoom: 10,
         });
 
-        var runLayer = omnivore.kml('{{ asset('kml/CM_bound-25-amphoe.kml') }}')
-						.on('ready', function() {
-						this.setStyle({
-                            fillOpacity: 0,
-                            color: "#994F3E",
-                            weight: 2
-						});
-			}).addTo(borders); 
+        // var runLayer = omnivore.kml('{{ asset('kml/CM_bound-25-amphoe.kml') }}')
+		// 				.on('ready', function() {
+		// 				this.setStyle({
+        //                     fillOpacity: 0,
+        //                     color: "#994F3E",
+        //                     weight: 2
+		// 				});
+		// 	}).addTo(borders); 
   
         var pin = L.icon({
                     iconUrl: '{{ asset('images/logo/pin.png') }}',
@@ -351,7 +353,6 @@
                      popupAnchor: [0, 0]
                  });
            
-        // var amp=["ฝาง","ไชยปราการ","แม่อาย","เมืองเชียงใหม่","หางดง","สารภี","สันกำแพง","สันป่าตอง","ดอยหล่อ","แม่ริม","สันทราย","ดอยสะเก็ด","แม่ออน","แม่วาง","สะเมิง"];
         var amp=["1","0","2"]
         
         function addPin(ampName,k,mo){
@@ -413,7 +414,7 @@
             addPin(stations1,0,mo);
             addPin(stations2,1,mo);
             addPin(stations3,2,mo);
-            // addPin(stations4,3,mo);
+            addPin(stations4,3,mo);
             // addPin(stations5,4,mo);
             // addPin(stations6,5,mo);
             // addPin(stations7,6,mo);

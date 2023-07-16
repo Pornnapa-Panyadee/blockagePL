@@ -4,7 +4,7 @@
     <meta charset="UFT-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Blockage::CMFightFlood</title>
+    <title>Blockage::Mae Jang Basin</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Mitr|Prompt" rel="stylesheet">
     <!-- Styles -->
@@ -45,7 +45,7 @@
                           // echo url()->previous();
                             
                         ?>
-                        <h2 class="pageheader-title">กราฟแสดงสัดส่วนสิ่งกีดขวางทางน้ำจำแนกตามสภาพปัญหา จังหวัดเชียงใหม่</h2>
+                        <h2 class="pageheader-title">กราฟแสดงสัดส่วนสิ่งกีดขวางทางน้ำจำแนกตามสภาพปัญหา ลุ่มน้ำแม่จาง จังหวัดลำปาง</h2>
                     </div>
                 </div>
             </div>
@@ -64,21 +64,10 @@
                                                 <select name="amp" class="selectpicker " id="amp" onchange="this.form.submit();"> 
                                                     <option value="0">-- อำเภอ --</option>
                                                     <option value="รวม">รวมทุกอำเภอ</option>
-                                                    <option value="ไชยปราการ">ไชยปราการ</option>
-                                                    <option value="ดอยหล่อ">ดอยหล่อ</option>
-                                                    <option value="ดอยสะเก็ด">ดอยสะเก็ด</option>
-                                                    <option value="ฝาง">ฝาง</option>
-                                                    <option value="สะเมิง">สะเมิง</option>
-                                                    <option value="สันกำแพง">สันกำแพง</option>
-                                                    <option value="สันทราย">สันทราย</option>
-                                                    <option value="สันป่าตอง">สันป่าตอง</option>
-                                                    <option value="สารภี">สารภี</option>
-                                                    <option value="หางดง">หางดง</option>
-                                                    <option value="เมืองเชียงใหม่">เมืองเชียงใหม่</option>
-                                                    <option value="แม่ริม">แม่ริม</option>
-                                                    <option value="แม่วาง">แม่วาง</option>
-                                                    <option value="แม่ออน">แม่ออน</option>
-                                                    <option value="แม่อาย">แม่อาย</option>
+                                                    <option value="เมืองลำปาง">เมืองลำปาง</option>
+                                                    <option value="เกาะคา">เกาะคา</option>
+                                                    <option value="แม่ทะ">แม่ทะ</option>
+                                                    <option value="แม่เมาะ">แม่เมาะ</option>
                                                 </select> </h4>
                                             </label>
                                         </div>
@@ -284,7 +273,7 @@
             text: 'สาเหตุการกีดขวางทางน้ำ'
         },
         subtitle: {
-            text: 'ในพื้นที่จังหวัดเชียงใหม่'
+            text: 'ในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง'
         },
         xAxis: {
             type: 'category',

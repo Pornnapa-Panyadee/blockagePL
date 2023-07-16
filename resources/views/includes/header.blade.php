@@ -27,7 +27,7 @@
                                     เมนู
                                 </li>
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="{{ url('/chiangmai') }}"  aria-expanded="false"><i class="fa fa-home fa-fw"></i>หน้าแรก</a>
+                                    <a class="nav-link" href="{{ url('/') }}"  aria-expanded="false"><i class="fa fa-home fa-fw"></i>หน้าแรก</a>
                                     
                                 </li>
 

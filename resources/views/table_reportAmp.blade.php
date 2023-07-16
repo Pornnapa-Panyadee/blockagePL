@@ -159,7 +159,7 @@
                                 }
                             function checkCuase($text) {
                                 if($text!=NULL ||$text!=0 ){
-                                    $img='https://cmblockage.cmfightflood.com/images/logo/checkOnly.png';
+                                    $img='https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/images/logo/checkOnly.png';
                                     echo "<div class=\"checkmark\"></div>";
                                 }else{
                                     return '';

@@ -72,9 +72,9 @@
                                             }
                                             function checkphoto($text){
                                                 if($text!=NULL){
-                                                    // $img='http://localhost/2021_CMblockage/public/'.$text;
-                                                    $img='https://cmblockage.cmfightflood.com/'.$text; 
-                                                    echo "<img src='{$img}'  width=200px; style='margin-left:10px;'>";
+                                                    // $img='http://localhost/blockagePL/public/'.$text;
+                                                    $img='https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/'.$text; 
+                                                    echo "<img src='{{$img}}'  width=200px; style='margin-left:10px;'>";
                                                 }else{ echo "";}	
                                             }
                                         ?> 
@@ -463,7 +463,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td><input type="checkbox" id="nat_missing" name="nat_missing" {{add($blk_problem_detail[$id]->nat_missing)}} /><label for="nat_missing">ลำน้ำขาดหาย</label></td>
-                                                            <td><input type="checkbox" id="nat_winding" name="nat_winding" {{add($blk_problem_detail[$id]->nat_winding )}} /> <label for="nat_winding">ลักษณะทางกายภาพของล้ำน้ำ </label></td>
+                                                            <td><input type="checkbox" id="nat_winding" name="nat_winding" {{add($blk_problem_detail[$id]->nat_winding )}} /> <label for="nat_winding">ลำน้ำคดเคี้ยวมาก </label></td>
                                                         </tr>
                                                         <tr>
                                                             <td colspan="2"><input type="checkbox" id="nat_weed" name="nat_weed" {{add($blk_problem_detail[$id]->nat_weed)}}> <label for="nat_weed"> วัชพืช : </label>
@@ -581,7 +581,7 @@
                                                             <input class="textbox" id="responsed_dept2" name="sol_edit" placeholder="(วิธีแก้ไขหรือโครงการ)" value="{{$solution[0]->sol_edit}}" disabled>
                                                         </td>
                                                     </tr>
-                                                    <tr> <td ><input type="radio" id="sol_how2" name="sol_how" value="เจรจา"  {{checksame($solution[0]->sol_how,"เจรจา")}} ><label for="sol_how2">เจรจา</label></td></tr>
+                                                    <tr> <td ><input type="radio" id="sol_how2" name="sol_how" value="เจรจาให้รื้อถอน"  {{checksame($solution[0]->sol_how,"เจรจาให้รื้อถอน")}} ><label for="sol_how2">เจรจาให้รื้อถอน</label></td></tr>
                                                     <tr> <td  colspan="2"><input type="radio" id="sol_how3" name="sol_how" value="ฟ้องร้อง" {{checksame($solution[0]->sol_how,"ฟ้องร้อง")}} ><label for="sol_how3">ฟ้องร้อง</label></td></tr>
                                                     <tr> <td  colspan="2"><input type="radio" id="sol_how4" name="sol_how" value="รื้อถอน" {{checksame($solution[0]->sol_how,"รื้อถอน")}} ><label for="sol_how4">รื้อถอน</label></td></tr>
                                                     <tr> <td  colspan="2"><input type="radio" id="sol_how5" name="sol_how" value="ยังไม่ได้ดำเนินการ" {{checksame($solution[0]->sol_how,"ยังไม่ได้ดำเนินการ")}} ><label for="sol_how5">ยังไม่ได้ดำเนินการ</label></td></tr>
@@ -620,7 +620,7 @@
                                                         <td><input type="text" id="proj_budget2" name="proj_budget2" step="any" placeholder="ระบุงบประมาณ" value='{{ $project['proj_budget_rev'] }}' disabled></td>
                                                     </tr>
                                                     <tr>
-                                                        <td colspan="3"><input type="radio" id="proj_status3" name="proj_status" value="making" {{checksame($project['proj_status'],"making")}}  /><label for="proj_status3">กำลังปรับปรุงก่อสร้าง</label> </td>
+                                                        <td colspan="3"><input type="radio" id="proj_status3" name="proj_status" value="making" {{checksame($project['proj_status'],"making")}}  /><label for="proj_status3">กำลังปรับปรุงหรือก่อสร้าง</label> </td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="3"><input type="radio" id="proj_status4" name="proj_status" value="noplan" {{checksame($project['proj_status'],"noplan")}} /><label for="proj_status4">ยังไม่มีในแผน </label></td>

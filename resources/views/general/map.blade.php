@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Blockage::CMFightFlood</title>
+    <title>Blockage::Mae Jang Basin</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Mitr|Prompt" rel="stylesheet">
@@ -112,7 +112,7 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
                                     <div class="card-header"> 
-                                        <h2 class="pageheader-title">แผนที่แสดงตำแหน่งการกีดขวางทางน้ำจำแนกตามระดับความเสี่ยง พื้นที่ของจังหวัดเชียงใหม่</h2>
+                                        <h2 class="pageheader-title">แผนที่แสดงตำแหน่งการกีดขวางทางน้ำจำแนกตามระดับความเสี่ยง พื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง</h2>
                                     </div>
                                 <div class="card-body">
                                         {{-- @include('form.map') --}}
@@ -268,13 +268,13 @@
         {//--------borders, stations, rivers, 
                 
             
-                var x = 19.213399 ;
-                var y = 99.1995964;
+                var x=18.290015; 
+                var y=99.656525;
                     
                     var map = L.map('map', {
                     center: [x,y],
-                    zoom: 9,
-                    layers: [borders,stations1,stations2,stations3,stations4,stations5,stations6,stations7,stations8,stations9,stations10,stations11,stations12,stations13,stations14,stations15,osm]
+                    zoom: 10,
+                    layers: [borders,stations1,stations2,stations3,stations4,osm]
                     // layers: [borders,stations1,stations2,stations3,osm]
                 });
 
@@ -322,7 +322,7 @@
                 
                 
                 // var amp=["ฝาง","ไชยปราการ","แม่อาย"];
-                var amp=["ฝาง","ไชยปราการ","แม่อาย","ดอยหล่อ","ดอยสะเก็ด", "สะเมิง","สันกำแพง","สันทราย","สันป่าตอง","สารภี","หางดง","เมืองเชียงใหม่","แม่ริม","แม่วาง","แม่ออน"];
+                var amp=["เมืองลำปาง","เกาะคา","แม่ทะ","แม่เมาะ"];
                 function addPin(ampName,i){
                     $.getJSON("{{ asset('form/getDamage') }}/"+amp[i], 
                         function (data){
@@ -356,19 +356,7 @@
                 addPin(stations1,0);
                 addPin(stations2,1);
                 addPin(stations3,2);
-                addPin(stations4,3);
-                addPin(stations5,4);
-                addPin(stations6,5);
-                addPin(stations7,6);
-                addPin(stations8,7);
-                addPin(stations9,8);
-                addPin(stations10,9);
-                addPin(stations11,10);
-                addPin(stations12,11);
-                addPin(stations13,12);
-                addPin(stations14,13);
-                addPin(stations15,14);
-                
+                addPin(stations4,3);                
 
         }
 
@@ -401,17 +389,6 @@
                     { label:" "+amp[1],layer: stations2,},
                     { label:" "+amp[2],layer: stations3,},
                     { label:" "+amp[3],layer: stations4,},
-                    { label:" "+amp[4],layer: stations5,},
-                    { label:" "+amp[5],layer: stations6,},
-                    { label:" "+amp[6],layer: stations7,},
-                    { label:" "+amp[7],layer: stations8,},
-                    { label:" "+amp[8],layer: stations9,},
-                    { label:" "+amp[9],layer: stations10},
-                    { label:" "+amp[10],layer: stations11},
-                    { label:" "+amp[11],layer: stations12},
-                    { label:" "+amp[12],layer: stations13},
-                    { label:" "+amp[13],layer: stations14},
-                    { label:" "+amp[14],layer: stations15},
 
                 ]
             };

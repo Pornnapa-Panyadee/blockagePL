@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Blockage::CMFightflood</title>
+    <title>Blockage::Mae Jang Basin</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Mitr|Prompt" rel="stylesheet">
@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="card-body" >
                                     <center>
-                                        <iframe src="https://docs.google.com/gview?url=http://https://cmblockage.cmfightflood.com//pdf/flood_drainage.pdf&embedded=true#:page.7" style="" width="90%" height="880px" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe> 
+                                        <iframe src="https://docs.google.com/gview?url=http://https://watercenter.scmc.cmu.ac.th/blockage/jang_basin//pdf/flood_drainage.pdf&embedded=true#:page.7" style="" width="90%" height="880px" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe> 
                                     </center>
                                   
                                 </div>

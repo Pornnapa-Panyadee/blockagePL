@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">ข้อมูลสภาพปัญหาและแนวทางการแก้ไขปัญหาเบื้องต้นของตำแหน่งสิ่งกีดขวาง จังหวัดเชียงใหม่</h2>
+                            <h2 class="pageheader-title">ข้อมูลสภาพปัญหาและแนวทางการแก้ไขปัญหาเบื้องต้นของตำแหน่งสิ่งกีดขวาง พื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง</h2>
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                                                                     <td align="left" data-label="หมู่บ้าน">{{$data[$i]->blk_village}} ต.{{$data[$i]->blk_tumbol}} อ.{{$data[$i]->blk_district}}</td>
                                                                     <td data-label="วันที่สำรวจ">{{$data[$i]->created_at}}</td>
                                                                     <td data-label="ผู้สำรวจ">{{$data[$i]->blk_user_name}}</td>
-                                                                    <?php if($data[$i]->status_approve==0){ ?> 
+                                                                    <?php if($blk[$i]->status_approve==0){ ?> 
                                                                         <td ><button type="button" class="btn btn-offline" >กำลังรอพิจารณา</button>  </td>   
                                                                     <?php }else { ?> 
                                                                         <td ><button type="button" class="btn btn-success" >พิจารณาเรียบร้อย</button>  </td>   
@@ -104,7 +104,7 @@
                                                                     else{return $name; }
                                                                 }
                                                                 for($i = 0;$i < count($data);$i++){
-                                                                    if($data[$i]->status_approve==2 ||$data[$i]->status_approve==1 ){ ?>
+                                                                    if($blk[$i]->status_approve==2 ||$blk[$i]->status_approve==1 ){ ?>
                                                                     <tr align="center">
                                                                         <td >{{$c+1}}</td>
                                                                         <td data-label="รหัส">{{$data[$i]->blk_code}}</td>
@@ -153,7 +153,7 @@
                                                         <tbody>
                                                             <?php $c=0;
                                                                 for($i = 0;$i < count($data);$i++){
-                                                                    if($data[$i]->status_approve==0){ ?>
+                                                                    if($blk[$i]->status_approve==0){ ?>
                                                                         <tr align="center">
                                                                             <td >{{$i+1}}</td>
                                                                             <td data-label="รหัส">{{$data[$i]->blk_code}}</td>

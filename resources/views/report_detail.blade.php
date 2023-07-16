@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Blockage::CRflood</title>
+    <title>Blockage::Mae Jang Basin</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Mitr|Prompt" rel="stylesheet">
@@ -431,7 +431,7 @@
                                                             }else if ($project_id[0]->proj_status=="received"){
                                                                 $text="ได้รับงบประมาณแล้ว  ปี".$project_id[0]->proj_year ." งบประมาณ ".$project_id[0]->proj_budget ." บาท";
                                                             }else if($project_id[0]->proj_status=="making"){
-                                                                $text="กำลังปรับปรุงก่อสร้าง";
+                                                                $text="กำลังปรับปรุงหรือก่อสร้าง";
                                                             }else{
                                                                 $text="ยังไม่มีในแผน";
 

@@ -120,7 +120,7 @@
                                                             
                                                     </div>
                                                     <div class="card-header">
-                                                        <form id="amp" name="amp" action="/chiangmai/#tableData" method="get"> 
+                                                        <form id="amp" name="amp" action="/blockagePL/public/#tableData" method="get"> 
                                                             <div class="row justify-content-end">
                                                                 <div class="col-md-3">
                                                                     <h4 class="card-title">
@@ -241,24 +241,13 @@
         var stations2 = new L.LayerGroup();
         var stations3 = new L.LayerGroup();
         var stations4 = new L.LayerGroup();
-        var stations5 = new L.LayerGroup();
-        var stations6 = new L.LayerGroup();
-        var stations7 = new L.LayerGroup();
-        var stations8 = new L.LayerGroup();
-        var stations9 = new L.LayerGroup();
-        var stations10 = new L.LayerGroup();    
-        var stations11 = new L.LayerGroup();  
-        var stations12 = new L.LayerGroup();
-        var stations13 = new L.LayerGroup();
-        var stations14 = new L.LayerGroup();
-        var stations15 = new L.LayerGroup();  
         var borders = new L.LayerGroup();
         
         // var x = 18.782687 ; 
         // var y = 98.993518 ;
         var x = {{$x}} ; 
         var y = {{$y}};
-        var mbAttr = 'CMFightflood ',
+        var mbAttr = 'Mae Jang Basin',
            mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidmFucGFueWEiLCJhIjoiY2loZWl5ZnJ4MGxnNHRwbHp5bmY4ZnNxOCJ9.IooQB0jYS_4QZvIq7gkjeQ';
                                                                           
         osm = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
@@ -271,19 +260,19 @@
                                 });
 
         var map = L.map('map', {
-            layers: [borders,osm,stations1,stations2,stations3,stations4,stations5,stations6,stations7,stations8,stations9,stations10,stations11,stations12,stations13,stations14,stations15],
+            layers: [borders,osm,stations1,stations2,stations3,stations4],
             center: [x,y],
             zoom: {{$z}},
         });
 
-        // var runLayer = omnivore.kml('{{ asset('kml/CM_bound-25-amphoe.kml') }}')
-		// 				.on('ready', function() {
-		// 				this.setStyle({
-        //                     fillOpacity: 0,
-        //                     color: "#994F3E",
-        //                     weight: 2
-		// 				});
-		// 	}).addTo(borders); 
+        var runLayer = omnivore.kml('{{ asset('kml/bound_maejangbasin.kml') }}')
+						.on('ready', function() {
+						this.setStyle({
+                            fillOpacity: 0,
+                            color: "#994F3E",
+                            weight: 2
+						});
+			}).addTo(borders); 
   
         var pin = L.icon({
                     iconUrl: '{{ asset('images/logo/pin.png') }}',
@@ -301,7 +290,6 @@
                      popupAnchor: [0, 0]
                  });
                  
-        // var amp=["ฝาง","ไชยปราการ","แม่อาย","ดอยหล่อ","ดอยสะเก็ด", "สะเมิง","สันกำแพง","สันทราย","สันป่าตอง","สารภี","หางดง","เมืองเชียงใหม่","แม่ริม","แม่วาง","แม่ออน"];
         var amp=["เมืองลำปาง", "เกาะคา","แม่ทะ" ,"แม่เมาะ"];
 
         function addPin(ampName,k,mo){
@@ -351,18 +339,6 @@
             addPin(stations2,1,mo);
             addPin(stations3,2,mo);
             addPin(stations4,3,mo);
-            // addPin(stations5,4,mo);
-            // addPin(stations6,5,mo);
-            // addPin(stations7,6,mo);
-            // addPin(stations8,7,mo);
-            // addPin(stations9,8,mo);
-            // addPin(stations10,9,mo);
-            // addPin(stations11,10,mo);
-            // addPin(stations12,11,mo);
-            // addPin(stations13,12,mo);
-            // addPin(stations14,13,mo);
-            // addPin(stations15,14,mo);
-
      
         var baseTree = {
             label: 'BaseLayers',
@@ -379,17 +355,6 @@
                 { label:" "+amp[1],layer: stations2,},
                 { label:" "+amp[2],layer: stations3,},
                 { label:" "+amp[3],layer: stations4,},
-                // { label:" "+amp[4],layer: stations5,},
-                // { label:" "+amp[5],layer: stations6,},
-                // { label:" "+amp[6],layer: stations7,},
-                // { label:" "+amp[7],layer: stations8,},
-                // { label:" "+amp[8],layer: stations9,},
-                // { label:" "+amp[9],layer: stations10},
-                // { label:" "+amp[10],layer: stations11},
-                // { label:" "+amp[11],layer: stations12},
-                // { label:" "+amp[12],layer: stations13},
-                // { label:" "+amp[13],layer: stations14},
-                // { label:" "+amp[14],layer: stations15},
             ]
         };
 

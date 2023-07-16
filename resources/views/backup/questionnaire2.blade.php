@@ -49,7 +49,7 @@
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td colspan="2"><input type="radio" name="nat_cause_type" value="nat_cause_4" /> ลักษณะทางกายภาพของล้ำน้ำ</td>       
+                                    <td colspan="2"><input type="radio" name="nat_cause_type" value="nat_cause_4" /> ลำน้ำคดเคี้ยวมาก</td>       
                                 </tr>
                                 <tr>
                                     <td></td>

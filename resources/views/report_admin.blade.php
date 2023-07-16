@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Blockage::CRflood</title>
+    <title>Blockage::Mae Jang Basin</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Mitr|Prompt" rel="stylesheet">
     <!-- Styles -->
@@ -33,7 +33,7 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">สรุปผลแบบสำรวจการกีดขวางในแม่น้ำคูคลอง จังหวัดเชียงราย</h2>
+                            <h2 class="pageheader-title">สรุปผลแบบสำรวจการกีดขวางทางน้ำ พื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง </h2>
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="card">
                                     <br>
-                                        <h5 style="padding-left:30px;"> ผลการสำรวจการกีดขวางในแม่น้ำคูคลอง </h5>
+                                        <h5 style="padding-left:30px;"> ผลการสำรวจการกีดขวางทางน้ำ </h5>
                                    
                                       
                                     <div class="card-body" style="overflow-x:auto;">

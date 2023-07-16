@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Blockage::CRflood</title>
+    <title>Blockage::Mae Jang Basin</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Mitr|Prompt" rel="stylesheet">
@@ -55,7 +55,7 @@
                     
                         <div class="row">
                                 <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
-                                        <h4 ><a href="{{ asset('/blocker') }}">รายละเอียดแบบสำรวจ </a> &raquo; ผลการสำรวจการกีดขวางในแม่น้ำคูคลอง &raquo;  {{ $data[0]->blk_code }}</h4>
+                                        <h4 ><a href="{{ asset('/blocker') }}">รายละเอียดแบบสำรวจ </a> &raquo; ผลการสำรวจการกีดขวางทางน้ำ &raquo;  {{ $data[0]->blk_code }}</h4>
                                 </div>
                                 <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12" align="right">
                                         <a href="{{ url('/') }}"><button class="btn btn-sm btn-outline-light " >
@@ -507,7 +507,7 @@
                                                 $sol3="<font size=\"4\"> &#9744; </font>";
                                                 $sol4="<font size=\"4\"> &#9744; </font>";
                                                 $sol5="<font size=\"4\"> &#9744; </font>";
-                                            }else if($solution_id[0]->sol_how=="เจรจาให้รื้อถอน"){
+                                            }else if($solution_id[0]->sol_how=="เจรจาให้รื้อถอนให้รื้อถอน"){
                                                 $sol1="<font size=\"4\"> &#9744; </font>";
                                                 $sol2="<font size=\"4\"> &#9745; </font>";
                                                 $sol3="<font size=\"4\"> &#9744; </font>";
@@ -672,7 +672,7 @@
                                             <td colspan="4"><?php echo $sol1?>ปรับปรุงแก้ไขโดย <font class="line">  {{$solution_id[0]->sol_edit}} &nbsp;&nbsp;&nbsp;&nbsp;</font></td>
                                             </tr>
                                             <tr>
-                                                <td> <?php echo $sol2?> เจรจาให้รื้อถอน</td>
+                                                <td> <?php echo $sol2?> เจรจาให้รื้อถอนให้รื้อถอน</td>
                                                 <td> <?php echo $sol3?> ฟ้องร้อง</td>
                                                 <td> <?php echo $sol4?>รื้อถอน</td>
                                                 <td> <?php echo $sol5?>ยังไม่ได้ดำเนินการ</td>
