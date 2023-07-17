@@ -1,5 +1,5 @@
 //console.log('hello');
-var ID = window.location.href.replace("https://watercenter.scmc.cmu.ac.th/weir/jang_basin/", "");
+var ID = window.location.href.replace("https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/", "");
 // var ID = window.location.href.replace("http://localhost/chiang-rai/public/blockage", "");
 // console.log(ID);
 
@@ -11,7 +11,7 @@ function Province(id, district) {
   // AJAX request 
   $.ajax({
 
-    url: 'https://watercenter.scmc.cmu.ac.th/weir/jang_basin/getdistrict/' + id,
+    url: 'https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/getdistrict/' + id,
     //  url: 'https://survey.crflood.com/getdistrict/' + id,
     //url: link+'getVillage/' + id,
 
@@ -54,7 +54,7 @@ function District(id, tumbol) {
   // AJAX request 
   $.ajax({
 
-    url: 'https://watercenter.scmc.cmu.ac.th/weir/jang_basin/getTumbol/' + id,
+    url: 'https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/getTumbol/' + id,
     // url: 'https://survey.crflood.com/getTumbol/' + id,
     // url: link+'getTumbol/' + id,
     type: 'get',
@@ -96,7 +96,7 @@ function Tumbol(id, vill) {
   // AJAX request 
   $.ajax({
 
-    url: 'https://watercenter.scmc.cmu.ac.th/weir/jang_basin/getVillage/' + id,
+    url: 'https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/getVillage/' + id,
     // url: 'https://survey.crflood.com/getVillage/' + id,
     //url: link+'getVillage/' + id,
     type: 'get',
@@ -133,7 +133,7 @@ function Tumbol(id, vill) {
 if (ID.length > 4) {
   //console.log(ID.length);
 
-  $.getJSON('https://watercenter.scmc.cmu.ac.th/weir/jang_basin/' + ID, (data) => {
+  $.getJSON('https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/' + ID, (data) => {
     // $.getJSON('https://survey.crflood.com/getBlockageID/' + ID, (data) => {
     // $.getJSON(link+'getBlockageID/' + ID, (data) => {
     let id = data[0]['blockage_location']['blk_district'];
@@ -205,7 +205,7 @@ function District(id, tumbol) {
   // AJAX request 
   $.ajax({
 
-    url: 'https://watercenter.scmc.cmu.ac.th/weir/jang_basin/getTumbol/' + id,
+    url: 'https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/getTumbol/' + id,
     // url: 'https://survey.crflood.com/getTumbol/' + id,
     // url: link+'getTumbol/' + id,
     type: 'get',
