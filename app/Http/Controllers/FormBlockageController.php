@@ -118,7 +118,7 @@ class FormBlockageController extends Controller
         $vill=explode(" ",$request->blk_village);
         $code =DB::table('info_village')->select('vill_code')->where('vill_name',$vill[2] )->where('vill_moo',$vill[1])->get();
         $codeBlk=$code[0]->vill_code;
-        $blkcode = DB::table('blockages')->select('blk_id')->where('blk_code','like',$codeBlk.'%' )->get();
+        $blkcode = DB::table('blockages')->select('blk_id')->where('blk_code','like',"B".$codeBlk.'%' )->get();
         // dd(count($blkcode));
         if(count($blkcode)<10){
             $num="00".(count($blkcode)+1);
