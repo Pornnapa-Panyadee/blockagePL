@@ -120,7 +120,7 @@
                                                             
                                                     </div>
                                                     <div class="card-header">
-                                                        <form id="amp" name="amp" action="/blockagePL/public/#tableData" method="get"> 
+                                                        <form id="amp" name="amp" action="/blockage/jang_basin/#tableData" method="get"> 
                                                             <div class="row justify-content-end">
                                                                 <div class="col-md-3">
                                                                     <h4 class="card-title">
