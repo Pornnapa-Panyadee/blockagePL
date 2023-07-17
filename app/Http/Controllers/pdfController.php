@@ -238,8 +238,8 @@ class pdfController extends Controller
         // dd($solution_id[0]->sol_how);
         $current_end = json_decode($current_end);
         // return view('report_pdf', compact('data','damageData','damage_type','pastData','current_start','current_narrow','current_end','problem','photo_Blockage','photo_Land','photo_Riverbefore','photo_Riverprob','photo_Riverafter','photo_Probsketch','solution_id','project_id'));
-         $pdf = PDF::loadView('report_pdf' ,compact('current_brigde','data','damageData','damage_type','pastData','current_start','current_narrow_new','current_end','problem','photo_Blockage','photo_Land','photo_Riverbefore','photo_Riverprob','photo_Riverafter','photo_Probsketch','solution_id','project_id'));
-         return $pdf->stream('reportBlockage.pdf');   
+         $pdf = PDF::loadView('report_php' ,compact('current_brigde','data','damageData','damage_type','pastData','current_start','current_narrow_new','current_end','problem','photo_Blockage','photo_Land','photo_Riverbefore','photo_Riverprob','photo_Riverafter','photo_Probsketch','solution_id','project_id'));
+         return $pdf->stream('reportBlockage.pdf');  
         
     
     }
