@@ -76,7 +76,6 @@
                                             <thead>
                                                 <tr>
                                                     <th scope="col" >#</th>
-                                                    <th scope="col" >id</th>
                                                     <th scope="col" >รหัส</th>
                                                     <th scope="col" >ชื่อลำน้ำ</th>
                                                     <th scope="col" >ประเภทลำน้ำ</th>
@@ -87,8 +86,8 @@
                                                     <th scope="col" >จังหวัด</th>
                                                     <th scope="col" >UMT X </th>
                                                     <th scope="col" >UMT Y</th>
-                                                    <th scope="col" >วันที่เก็บข้อมูล</th>
-                                                    <th scope="col" >ผู้กรอก</th>
+                                                    <th scope="col" >Latitude</th>
+                                                    <th scope="col" >Longitude</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -99,7 +98,6 @@
                                                     ?>
                                                     <tr >
                                                         <th scope="row" data-label="ลำดับ">{{$i+1}}</th>
-                                                        <td data-label="รหัส">{{$data[$i]->blk_id}}</td>
                                                         <td data-label="รหัส">{{$data[$i]->blk_code}}</td>
                                                         <td data-label="ลำน้ำ">{{$data[$i]->River->river_name}} </td>
                                                         <td data-label="ลำน้ำ"> {{$data[$i]->River->river_type}} </td>
@@ -107,12 +105,12 @@
                                                         <td data-label="ที่ตั้ง">{{$data[$i]->blockageLocation->blk_village}} </td>
                                                         <td>{{$data[$i]->blockageLocation->blk_tumbol}} </td>
                                                         <td>{{$data[$i]->blockageLocation->blk_district}}</td>
-                                                        <td>เชียงราย</td>
+                                                        <td>ลำปาง</td>
                                                         <td>{{ $data[$i]->blockageLocation->blk_start_utm->getLat()}}</td>
                                                         <td>{{ $data[$i]->blockageLocation->blk_start_utm->getLng()}}</td>
 
-                                                        <td data-label="วันที่เก็บข้อมูล">{{$dateT}}</td>
-                                                        <td>{{$data[$i]->blk_user_name}}</td>
+                                                        <td>{{ $data[$i]->blockageLocation->blk_start_location->getLng()}}</td>
+                                                        <td>{{ $data[$i]->blockageLocation->blk_start_location->getLng()}}</td>
                                                                                     
                                                     </tr>
                                                 <?php }?>
