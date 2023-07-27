@@ -109,7 +109,7 @@
                                                         <td>{{ $data[$i]->blockageLocation->blk_start_utm->getLat()}}</td>
                                                         <td>{{ $data[$i]->blockageLocation->blk_start_utm->getLng()}}</td>
 
-                                                        <td>{{ $data[$i]->blockageLocation->blk_start_location->getLng()}}</td>
+                                                        <td>{{ $data[$i]->blockageLocation->blk_start_location->getLat()}}</td>
                                                         <td>{{ $data[$i]->blockageLocation->blk_start_location->getLng()}}</td>
                                                                                     
                                                     </tr>
