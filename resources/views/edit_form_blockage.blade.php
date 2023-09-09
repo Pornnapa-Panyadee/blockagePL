@@ -6,7 +6,7 @@
         @include('includes.header')
         <div class="dashboard-wrapper">
             <div class="row" style="padding:30px;">
-                <h4><a href="{{ asset('/blocker') }}">รายละเอียดแบบสำรวจ </a> &raquo; แก้ไขแบบสำรวจ &raquo; {{ $obj[$id]->blk_code }}</h4>
+                <h4><a href="{{ asset('/blocker') }}">รายละเอียดแบบสำรวจ </a> &raquo; แก้ไขแบบสำรวจ &raquo; <?php echo($obj[$id]->blk_code) ?></h4>
             </div>
             <div class="flex-center position-ref full-height">
                 <div class="content" >
@@ -41,9 +41,7 @@
                                     <!-- END Step Tabs -->
 
                                     <!-- Form -->
-                                    <!-- <form action="{{ route('form.Qnaire5.uploadImage') }}" method="post" enctype="multipart/form-data" onsubmit="return confirm('บันทึกข้อมูล !!');"> -->
                                     <?php $text='edit/'. $obj[$id]->blk_id ;?>
-                                    <!-- <form action="{{route('form.storeform')}}" method="post" enctype="multipart/form-data" onsubmit="return confirm('บันทึกข้อมูล เรียบร้อย !!');" > -->
                                     <form action="{{asset($text)}}" method="get" onsubmit="return confirm('แก้ไข เรียบร้อย !!');">
                                         {{ csrf_field() }}
                                         <!-- Wizard Progress Bar -->
@@ -71,7 +69,6 @@
                                             }
                                             function checkphoto($text){
                                                 if($text!=NULL){
-                                                    // $img='http://localhost/blockagePL/public/'.$text;
                                                     $img='https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/'.$text; 
                                                     echo "<img src='{$img}'  width=200px; style='margin-left:10px;'>";
                                                 }else{ echo "";}	
@@ -85,18 +82,17 @@
                                                     <tr><th colspan="2">ลำน้ำที่เกิดปัญหาการกีดขวางทางน้ำ</th></tr>
                                                     <tr>
                                                         <th width="20%">ชื่อลำน้ำ  </th>
-                                                        <td><input type="text" id="river_name" name="river_name" value='{{ $river[$id]->river_name ?? "" }}' placeholder="-- กรอกชื่อ --" ></td>
+                                                        <td><input type="text" id="river_name" name="river_name" value='<?php echo $river[$id]->river_name ?? "" ?>' placeholder="-- กรอกชื่อ --" ></td>
                                                     </tr>
                                                     <tr>
                                                         <th> เป็นสาขาของแม่น้ำ </th>
-                                                        <td><input type="text" id="river_main" name="river_main" value='{{ $river[$id]->river_main ?? "" }}' placeholder="-- กรอกชื่อ --" ></td>
+                                                        <td><input type="text" id="river_main" name="river_main" value='<?php echo $river[$id]->river_main ?? "" ?>' placeholder="-- กรอกชื่อ --" ></td>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <th> วันที่ทำการสำรวจ </th>
                                                         <td>
-                                                            <!-- <input type="date" id="survey_date" name="survey_date" placeholder="dd-mm-yyyy" value='{{ $obj[$id]->survey_date }}'  > -->
-                                                            <input type="text" name="survey_date" id="survey_date" value='{{ $obj[$id]->survey_date }}' />
+                                                            <input type="text" name="survey_date" id="survey_date" value='<?php echo $obj[$id]->survey_date ?>' />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -106,10 +102,10 @@
                                                 <table class="table table-borderless">
                                                     {{-- 1.1 --}}
                                                     <tr>
-                                                        <th colspan="2" width="30%">1.1 ประเภทลำน้ำ  {{-- <span class="chatbox__button"><img src="{{ asset('images/question-mark.png') }} " /></span> --}}  </th>
+                                                        <th colspan="2" width="30%">1.1 ประเภทลำน้ำ   </th>
                                                         <td>
                                                             <select id="river_type" name="river_type">
-                                                                <option value="{{ $river[$id]->river_type }}">{{ $river[$id]->river_type }}</option>
+                                                                <option value="<?php echo $river[$id]->river_type ?>"><?php echo $river[$id]->river_type ?></option>
                                                                 <option value="แม่น้ำสายหลัก">แม่น้ำสายหลัก</option>
                                                                 <option value="แม่น้ำสาขา">แม่น้ำสาขา</option>
                                                                 <option value="ลำห้วย">ลำห้วย</option>
@@ -118,12 +114,12 @@
                                                             <div class="invalid-feedback"></div>
                                                         </td>
                                                     </tr>
-                                                    <tr><th colspan="2">1.2 ที่ตั้งของช่วงเวลาที่เกิดปัญหา  {{--  <span class="chatbox__button1"><img src="{{ asset('images/question-mark.png') }} " /></span>  --}} </th></tr>
+                                                    <tr><th colspan="2">1.2 ที่ตั้งของช่วงเวลาที่เกิดปัญหา  </th></tr>
                                                     <tr>
                                                         <td align="right" class="text_location">จังหวัด : </td>
                                                         <td colspan="2">
                                                             <select id="blk_province" name="blk_province" value=''>
-                                                                <option value="เชียงใหม่">เชียงใหม่</option>
+                                                                <option value="ลำปาง">ลำปาง</option>
                                                             </select>
                                                         </td>
                                                     </tr>
@@ -131,10 +127,10 @@
                                                         <td align="right" class="text_location">อำเภอ : </td>
                                                         <td colspan="2">
                                                             <select id='blk_district' name='blk_district'  onchange="validateForm(this.id)">
-                                                                <option value='{{ $obj[$id]->blockage_location->blk_district }}'>{{ $obj[$id]->blockage_location->blk_district }}</option>
+                                                                <option value='<?php echo $obj[$id]->blockage_location->blk_district ?>'><?php echo $obj[$id]->blockage_location->blk_district ?></option>
                                                                 <!-- Read district -->
                                                                 @foreach($districtData['data'] as $village)
-                                                                <option value='{{ $village->vill_district }}'>{{ $village->vill_district  }}</option>
+                                                                <option value='<?php echo $village->vill_district ?> '><?php echo $village->vill_district  ?> </option>
                                                                 @endforeach
                                                             </select>
                                                             <div class="invalid-feedback"></div>
@@ -144,7 +140,7 @@
                                                         <td align="right" class="text_location">ตำบล : </td>
                                                         <td colspan="2">
                                                             <select id="blk_tumbol" name="blk_tumbol"  onchange="validateForm(this.id)">
-                                                                <option value='{{ $obj[$id]->blockage_location->blk_tumbol }}'>{{ $obj[$id]->blockage_location->blk_tumbol }}</option>
+                                                                <option value='<?php echo $obj[$id]->blockage_location->blk_tumbol ?>'><?php echo $obj[$id]->blockage_location->blk_tumbol ?></option>
                                                             </select>
                                                             <div class="invalid-feedback"></div>
                                                         </td>
@@ -153,7 +149,7 @@
                                                         <td align="right" class="text_location" >หมู่บ้าน : </td>
                                                         <td colspan="2">
                                                             <select id="blk_village" name="blk_village" onchange="validateForm(this.id)">
-                                                                <option value='{{ $obj[$id]->blockage_location->blk_village }}'>{{ $obj[$id]->blockage_location->blk_village }}</option>
+                                                                <option value='<?php echo $obj[$id]->blockage_location->blk_village ?>'><?php echo $obj[$id]->blockage_location->blk_village ?></option>
                                                             </select>
                                                             <div class="invalid-feedback"></div>
                                                         </td>
@@ -161,7 +157,7 @@
                                                     <tr>
                                                         <td align="right" class="text_location">หมายเหตุ : </td>
                                                         <td colspan="2">
-                                                            <input type="text" id="comment" name="comment"  value='{{ $obj[$id]->blockage_location->comment }}'  >
+                                                            <input type="text" id="comment" name="comment"  value='<?php echo $obj[$id]->blockage_location->comment ?>'  >
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -182,12 +178,12 @@
                                                 </table>
                                                 <table style="margin-left:10px;" class="table table-borderless">
                                                     <tr>
-                                                        <td colspan="4">พิกัดเริ่มต้นของปัญหา : {{-- <span class="chatbox__button2"><img src="{{ asset('images/question-mark.png') }} " /></span>--}} </td>
+                                                        <td colspan="4">พิกัดเริ่มต้นของปัญหา : </td>
                                                     </tr>
                                                     <tr>
                                                         <td width=10%> &nbsp;</td>
-                                                        <td><input type="text" id="xstart" name="xstart" placeholder="UTM Easting" value='{{ $obj[$id]->blockage_location->blk_start_utm->coordinates[1] ?? "" }}'> </td>
-                                                        <td><input type="text" id="ystart" name="ystart" placeholder="UTM Northing" value='{{ $obj[$id]->blockage_location->blk_start_utm->coordinates[0] ?? "" }}'></td>
+                                                        <td><input type="text" id="xstart" name="xstart" placeholder="UTM Easting" value='<?php echo $obj[$id]->blockage_location->blk_start_utm->coordinates[1] ?? "" ?>'> </td>
+                                                        <td><input type="text" id="ystart" name="ystart" placeholder="UTM Northing" value='<?php echo $obj[$id]->blockage_location->blk_start_utm->coordinates[0] ?? "" ?>'></td>
                                                     </tr>
                                                     <tr>
                                                         <td> &nbsp;</td>
@@ -200,8 +196,8 @@
                                                     </tr>
                                                     <tr>
                                                         <td > &nbsp;</td>
-                                                        <td><input type="text" id="latstart" name="latstart" placeholder="Latitude" value='{{ $obj[$id]->blockage_location->blk_start_location->coordinates[1] ?? "" }}'></td>
-                                                        <td><input type="text" id="longstart" name="longstart" placeholder="Longitude" value='{{ $obj[$id]->blockage_location->blk_start_location->coordinates[0] ?? "" }}'></td>
+                                                        <td><input type="text" id="latstart" name="latstart" placeholder="Latitude" value='<?php echo $obj[$id]->blockage_location->blk_start_location->coordinates[1] ?? "" ?>'></td>
+                                                        <td><input type="text" id="longstart" name="longstart" placeholder="Longitude" value='<?php echo $obj[$id]->blockage_location->blk_start_location->coordinates[0] ?? "" ?>'></td>
                                                     </tr>
                                                     <tr>
                                                         <td > &nbsp;</td>
@@ -210,12 +206,12 @@
                                                 </table>
                                                 <table style="margin-left:10px;" class="table table-borderless">
                                                     <tr>
-                                                        <td colspan="4">พิกัดสิ้นสุดของปัญหา : {{-- <span class="chatbox__button3"><img src="{{ asset('images/question-mark.png') }} " /></span> --}} </td>
+                                                        <td colspan="4">พิกัดสิ้นสุดของปัญหา :  </td>
                                                     </tr>
                                                     <tr>
                                                         <td width=10%> &nbsp;</td>
-                                                        <td><input type="text" id="xend" name="xend" placeholder="UTM Easting" value='{{ $obj[$id]->blockage_location->blk_end_utm->coordinates[1] ?? "" }}'></td>
-                                                        <td><input type="text" id="yend" name="yend" placeholder="UTM Northing" value='{{ $obj[$id]->blockage_location->blk_end_utm->coordinates[0] ?? "" }}'></td>
+                                                        <td><input type="text" id="xend" name="xend" placeholder="UTM Easting" value='<?php echo $obj[$id]->blockage_location->blk_end_utm->coordinates[1] ?? "" ?>'></td>
+                                                        <td><input type="text" id="yend" name="yend" placeholder="UTM Northing" value='<?php echo $obj[$id]->blockage_location->blk_end_utm->coordinates[0] ?? "" ?>'></td>
                                                     </tr>
                                                     <tr>
                                                         <td> &nbsp;</td>
@@ -228,8 +224,8 @@
                                                     </tr>
                                                     <tr>
                                                         <td > &nbsp;</td>
-                                                        <td><input type="text" id="latend" name="latend" placeholder="Latitude" value='{{ $obj[$id]->blockage_location->blk_end_location->coordinates[1] ?? "" }}'></td>
-                                                        <td><input type="text" id="longend" name="longend" placeholder="Longitude" value='{{ $obj[$id]->blockage_location->blk_end_location->coordinates[0] ?? "" }}'></td>
+                                                        <td><input type="text" id="latend" name="latend" placeholder="Latitude" value='<?php echo $obj[$id]->blockage_location->blk_end_location->coordinates[1] ?? "" ?>'></td>
+                                                        <td><input type="text" id="longend" name="longend" placeholder="Longitude" value='<?php echo $obj[$id]->blockage_location->blk_end_location->coordinates[0] ?? "" ?>'></td>
                                                     </tr>
                                                     <tr>
                                                         <td > &nbsp;</td>
@@ -245,9 +241,9 @@
                                                     </tr>
                                                     <tr>
                                                         <td width="9%"></td>
-                                                        <td><input type="text" id="cross_width_past" name="past[width]" placeholder="กว้าง (ม.)" value='{{ $blk_crossection_past->width ?? "" }}' ></td>
-                                                        <td><input type="text" id="cross_depth_past" name="past[depth]" placeholder="ลึก (ม.)" value='{{ $blk_crossection_past->depth ?? "" }}' ></td>
-                                                        <td><input type="text" id="cross_slope_past" name="past[slop]" placeholder="ความลาดชันตลิ่ง" value='{{ $blk_crossection_past->slop ?? "" }}' ></td>
+                                                        <td><input type="text" id="cross_width_past" name="past[width]" placeholder="กว้าง (ม.)" value='<?php echo $blk_crossection_past->width ?? "" ?>' ></td>
+                                                        <td><input type="text" id="cross_depth_past" name="past[depth]" placeholder="ลึก (ม.)" value='<?php echo $blk_crossection_past->depth ?? "" ?>' ></td>
+                                                        <td><input type="text" id="cross_slope_past" name="past[slop]" placeholder="ความลาดชันตลิ่ง" value='<?php echo $blk_crossection_past->slop ?? "" ?>' ></td>
                                                     </tr>
                                                 </table>
                                                 {{-- 1.4 --}}
@@ -260,75 +256,75 @@
                                                     </tr>
                                                     <tr>
                                                         <td width="9%"></td>
-                                                        <td><input type="text" id="cross_width_now" name="current_start[width]" placeholder="กว้าง (ม.)" value='{{ $blk_crossection_current_start->width ?? "" }}'  ></td>
-                                                        <td><input type="text" id="cross_depth_now" name="current_start[depth]" placeholder="ลึก (ม.)" value='{{ $blk_crossection_current_start->depth ?? "" }}'  ></td>
-                                                        <td><input type="text" id="cross_slope_now" name="current_start[slop]" placeholder="ความลาดชันตลิ่ง" value='{{ $blk_crossection_current_start->slop ?? "" }}'  ></td>
+                                                        <td><input type="text" id="cross_width_now" name="current_start[width]" placeholder="กว้าง (ม.)" value='<?php echo $blk_crossection_current_start->width ?? "" ?>'  ></td>
+                                                        <td><input type="text" id="cross_depth_now" name="current_start[depth]" placeholder="ลึก (ม.)" value='<?php echo $blk_crossection_current_start->depth ?? "" ?>'  ></td>
+                                                        <td><input type="text" id="cross_slope_now" name="current_start[slop]" placeholder="ความลาดชันตลิ่ง" value='<?php echo $blk_crossection_current_start->slop ?? "" ?>'  ></td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="3" style="padding-left:20px;">1.4.2. หน้าตัดของลำน้ำที่<b>แคบที่สุด</b>ในช่วงของลำน้ำที่เกิดปัญหา </td>
                                                     </tr>
                                                     <tr>
                                                         <td width=10%></td>
-                                                        <td ><input type="checkbox" id="xsection_status" name="current_narrow[type]" value="waterway"  {{checktext($blk_crossection_current_narrow->width ?? "" )}}  /><label for="xsection_status"> ทางน้ำเปิด </label></td>
-                                                        <td><input type="text" id="cross_width_narrow" name="current_narrow[width]" placeholder="กว้าง (ม.)" value='{{ $blk_crossection_current_narrow->width ?? "" }}' ></td>
-                                                        <td><input type="text" id="cross_depth_narrow" name="current_narrow[depth]" placeholder="ลึก (ม.)" value='{{ $blk_crossection_current_narrow->depth ?? "" }}' ></td>
-                                                        <td><input type="text" id="cross_slope_narrow" name="current_narrow[slop]" placeholder="ความลาดชันตลิ่ง" value='{{ $blk_crossection_current_narrow->slop ?? "" }}' ></td>
+                                                        <td ><input type="checkbox" id="xsection_status" name="current_narrow[type]" value="waterway"  <?php echo checktext($blk_crossection_current_narrow->width ?? "" )?>  /><label for="xsection_status"> ทางน้ำเปิด </label></td>
+                                                        <td><input type="text" id="cross_width_narrow" name="current_narrow[width]" placeholder="กว้าง (ม.)" value='<?php echo  $blk_crossection_current_narrow->width ?? "" ?>' ></td>
+                                                        <td><input type="text" id="cross_depth_narrow" name="current_narrow[depth]" placeholder="ลึก (ม.)" value='<?php echo  $blk_crossection_current_narrow->depth ?? "" ?>' ></td>
+                                                        <td><input type="text" id="cross_slope_narrow" name="current_narrow[slop]" placeholder="ความลาดชันตลิ่ง" value='<?php echo  $blk_crossection_current_narrow->slop ?? "" ?>' ></td>
                                                     </tr>
                                                     <tr>
                                                         <td width=10%></td>
-                                                        <td ><input type="checkbox" id="bridge" name="current_narrow[type]" value="bridge"  {{checktext($blk_crossection_current_brigde->width)}} /><label for="bridge"> สะพาน </label></td>
-                                                        <td><input type="text" id="cross_width_bridge" name="current_bridge[width]" placeholder="กว้าง (ม.)" value='{{ $blk_crossection_current_brigde->width ?? "" }}' ></td>
-                                                        <td><input type="text" id="cross_depth_bridge" name="current_bridge[depth]" placeholder="ลึก (ม.)" value='{{ $blk_crossection_current_brigde->depth ?? "" }}' ></td>
-                                                        <td><input type="text" id="cross_len_bridge" name="current_bridge[len]" placeholder="ความยาวช่วงตอม่อ (ม.)" value='{{ $blk_crossection_current_brigde->len ?? "" }}' ></td>
-                                                        <td><input type="text" id="cross_num_bridge" name="current_bridge[num]" placeholder="จำนวนตอม่อ (แถว)" value='{{ $blk_crossection_current_brigde->num ?? "" }}' ></td>
+                                                        <td ><input type="checkbox" id="bridge" name="current_narrow[type]" value="bridge"  <?php echo checktext($blk_crossection_current_brigde->width)?> /><label for="bridge"> สะพาน </label></td>
+                                                        <td><input type="text" id="cross_width_bridge" name="current_bridge[width]" placeholder="กว้าง (ม.)" value='<?php echo  $blk_crossection_current_brigde->width ?? "" ?>' ></td>
+                                                        <td><input type="text" id="cross_depth_bridge" name="current_bridge[depth]" placeholder="ลึก (ม.)" value='<?php echo  $blk_crossection_current_brigde->depth ?? "" ?>' ></td>
+                                                        <td><input type="text" id="cross_len_bridge" name="current_bridge[len]" placeholder="ความยาวช่วงตอม่อ (ม.)" value='<?php echo  $blk_crossection_current_brigde->len ?? "" ?>' ></td>
+                                                        <td><input type="text" id="cross_num_bridge" name="current_bridge[num]" placeholder="จำนวนตอม่อ (แถว)" value='<?php echo  $blk_crossection_current_brigde->num ?? "" ?>' ></td>
                                                     </tr>
                                                     <tr>
                                                         <td ></td>
-                                                        <td ><input type="checkbox"  id="culvert_round" value="round" name="current_narrow[culvert][round]" {{checktext($blk_crossection_current_narrow->culvert->diameter)}} ><label for="culvert_round">ท่อกลม</label></td>
-                                                        <td><input type="text" id="diameter_culvert" name="current_narrow[culvert][diameter]" placeholder="เส้นผ่าศูนย์กลาง (ม.)" value='{{ $blk_crossection_current_narrow->culvert->diameter ?? "" }}'  ></td>
-                                                        <td><input type="text" id="num_culvert1" name="current_narrow[culvert][c][num]" step="any" placeholder="จำนวนท่อ (ช่อง)" value='{{ $blk_crossection_current_narrow->culvert->c->num ?? "" }}' > </td>
-                                                        <td><input type="text" id="len_culvert1" name="current_narrow[culvert][c][len]" step="any" placeholder="ยาว (ม.)" value='{{ $blk_crossection_current_narrow->culvert->c->len ?? "" }}' > </td>
+                                                        <td ><input type="checkbox"  id="culvert_round" value="round" name="current_narrow[culvert][round]" <?php echo checktext($blk_crossection_current_narrow->culvert->diameter)?> ><label for="culvert_round">ท่อกลม</label></td>
+                                                        <td><input type="text" id="diameter_culvert" name="current_narrow[culvert][diameter]" placeholder="เส้นผ่าศูนย์กลาง (ม.)" value='<?php echo  $blk_crossection_current_narrow->culvert->diameter ?? "" ?>'  ></td>
+                                                        <td><input type="text" id="num_culvert1" name="current_narrow[culvert][c][num]" step="any" placeholder="จำนวนท่อ (ช่อง)" value='<?php echo  $blk_crossection_current_narrow->culvert->c->num ?? "" ?>' > </td>
+                                                        <td><input type="text" id="len_culvert1" name="current_narrow[culvert][c][len]" step="any" placeholder="ยาว (ม.)" value='<?php echo  $blk_crossection_current_narrow->culvert->c->len ?? "" ?>' > </td>
                                                     </tr>
                                                     <tr>
                                                         <td> <input type="hidden" name="current_narrow[type]" value="culvert"></td>
-                                                        <td ><input type="checkbox" id="culvert_square" value="square" name="current_narrow[culvert][sq]" {{checktext($blk_crossection_current_narrow->culvert->width)}} ><label for="culvert_square">ท่อเหลี่ยม</label></td>
-                                                        <td ><input type="text" id="width_culvert" name="current_narrow[culvert][width]" placeholder="กว้าง (ม.)" value='{{ $blk_crossection_current_narrow->culvert->width ?? "" }}' ></td>
-                                                        <td ><input type="text" id="high_culvert" name="current_narrow[culvert][high]" placeholder="สูง (ม.)" value='{{ $blk_crossection_current_narrow->culvert->high ?? "" }}'></td>
-                                                        <td ><input type="text" id="num_culvert2" name="current_narrow[culvert][sq][num]" placeholder="จำนวนท่อ (ช่อง)" step="any" value='{{ $blk_crossection_current_narrow->culvert->sq->num ?? "" }}' ></td>
-                                                        <td><input type="text" id="len_culvert2" name="current_narrow[culvert][sq][len]" step="any" placeholder="ยาว (ม.)" value='{{ $blk_crossection_current_narrow->culvert->sq->len ?? "" }}' > </td>
+                                                        <td ><input type="checkbox" id="culvert_square" value="square" name="current_narrow[culvert][sq]" <?php echo checktext($blk_crossection_current_narrow->culvert->width)?> ><label for="culvert_square">ท่อเหลี่ยม</label></td>
+                                                        <td ><input type="text" id="width_culvert" name="current_narrow[culvert][width]" placeholder="กว้าง (ม.)" value='<?php echo  $blk_crossection_current_narrow->culvert->width ?? "" ?>' ></td>
+                                                        <td ><input type="text" id="high_culvert" name="current_narrow[culvert][high]" placeholder="สูง (ม.)" value='<?php echo  $blk_crossection_current_narrow->culvert->high ?? "" ?>'></td>
+                                                        <td ><input type="text" id="num_culvert2" name="current_narrow[culvert][sq][num]" placeholder="จำนวนท่อ (ช่อง)" step="any" value='<?php echo  $blk_crossection_current_narrow->culvert->sq->num ?? "" ?>' ></td>
+                                                        <td><input type="text" id="len_culvert2" name="current_narrow[culvert][sq][len]" step="any" placeholder="ยาว (ม.)" value='<?php echo  $blk_crossection_current_narrow->culvert->sq->len ?? "" ?>' > </td>
                                                     </tr>
                                                     <tr>
                                                         <td> <input type="hidden" name="current_narrow[type]" value="other"  ></td>
-                                                        <td valign="top"><input type="checkbox" id="xsection_status3" name="current_narrow[type]" value="other" {{checktext($blk_crossection_current_narrow->other )}}/><label for="xsection_status3">อื่นๆ</label></td>
-                                                        <td colspan="4"><input type="text" id="current_narrow" name="current_narrow[other]" value="{{ $blk_crossection_current_narrow->other ?? "" }}"> </td>
+                                                        <td valign="top"><input type="checkbox" id="xsection_status3" name="current_narrow[type]" value="other" <?php echo checktext($blk_crossection_current_narrow->other )?>/><label for="xsection_status3">อื่นๆ</label></td>
+                                                        <td colspan="4"><input type="text" id="current_narrow" name="current_narrow[other]" value="<?php echo  $blk_crossection_current_narrow->other ?? "" ?>"> </td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="3" style="padding-left:20px;">1.4.3. หน้าตัดของลำน้ำ<b>ท้ายน้ำ</b>หลังช่วงที่เกิดปัญหา </td>
                                                     </tr>
                                                     <tr>
                                                         <td></td>
-                                                        <td><input type="text" id="cross_width_end" name="current_end[width]" placeholder="กว้าง (ม.)" value='{{ $blk_crossection_current_end->width ?? "" }}' ></td>
-                                                        <td><input type="text" id="cross_depth_end" name="current_end[depth]" placeholder="ลึก (ม.)" value='{{ $blk_crossection_current_end->depth ?? "" }}' ></td>
-                                                        <td><input type="text" id="cross_slope_end" name="current_end[slope]" placeholder="ความลาดชันตลิ่ง" value='{{ $blk_crossection_current_end->slope ?? "" }}' ></td>
+                                                        <td><input type="text" id="cross_width_end" name="current_end[width]" placeholder="กว้าง (ม.)" value='<?php echo  $blk_crossection_current_end->width ?? "" ?>' ></td>
+                                                        <td><input type="text" id="cross_depth_end" name="current_end[depth]" placeholder="ลึก (ม.)" value='<?php echo  $blk_crossection_current_end->depth ?? "" ?>' ></td>
+                                                        <td><input type="text" id="cross_slope_end" name="current_end[slope]" placeholder="ความลาดชันตลิ่ง" value='<?php echo  $blk_crossection_current_end->slope ?? "" ?>' ></td>
                                                         </tr>
                                                 </table>
                                                 {{-- 1.5 --}}
                                                 <table class="table table-form table-borderless">
                                                     <tr>
-                                                        <th colspan="3">1.5 ความยาวของช่วงลำน้ำที่เกิดปัญหา {{$obj[0]->blk_length_type}}</th>
+                                                        <th colspan="3">1.5 ความยาวของช่วงลำน้ำที่เกิดปัญหา <?php echo $obj[0]->blk_length_type?></th>
                                                     </tr>
                                                 </table>
                                                 <table class="table table-form table-borderless" width=80%>
                                                     <tr>
                                                         <td width=10%></td>
-                                                        <td width=25%><input type="radio" id="blk_length1"  name="blk_length_type" value="น้อยกว่า 10 เมตร" {{checksame($obj[0]->blk_length_type,"น้อยกว่า 10 เมตร")}}><label for="blk_length1">น้อยกว่า 10 เมตร. </label></td>
+                                                        <td width=25%><input type="radio" id="blk_length1"  name="blk_length_type" value="น้อยกว่า 10 เมตร" <?php echo checksame($obj[0]->blk_length_type,"น้อยกว่า 10 เมตร")?>><label for="blk_length1">น้อยกว่า 10 เมตร. </label></td>
                                                     </tr>
                                                     <tr>
                                                         <td width=10%></td>
-                                                        <td><input type="radio" id="blk_length2"  name="blk_length_type"  value="10 -1000 เมตร" {{checksame($obj[0]->blk_length_type,"10 -1000 เมตร")}} ><label for="blk_length2"> 10 -1000 เมตร.</label></td>
+                                                        <td><input type="radio" id="blk_length2"  name="blk_length_type"  value="10 -1000 เมตร" <?php echo checksame($obj[0]->blk_length_type,"10 -1000 เมตร")?> ><label for="blk_length2"> 10 -1000 เมตร.</label></td>
   
                                                         <td> <select id="blk_length_lo" name="blk_length_lo" >
-                                                            <option value="{{$len_prob_value_btw}}">{{$len_prob_value_btw}}</option>
+                                                            <option value="<?php echo $len_prob_value_btw?>"><?php echo $len_prob_value_btw?></option>
                                                             <option value="10-50 เมตร">10-50 เมตร</option>
                                                             <option value="50-100 เมตร">50-100 เมตร</option>
                                                             <option value="100-200 เมตร">100-200 เมตร</option>
@@ -341,28 +337,28 @@
                                                     </tr>
                                                     <tr>
                                                         <td width=10%></td>
-                                                        <td><input type="radio" id="blk_length3"  name="blk_length_type"value="มากกว่า 1 กิโลเมตร" {{checksame($obj[0]->blk_length_type,"มากกว่า 1 กิโลเมตร")}} ><label for="blk_length3">มากกว่า 1 กิโลเมตร</label></td>
-                                                        <td><input type="text" id="blk_length_1k"  name="blk_length_more1" placeholder='{{ $len_morekm ?? "" }}' value='{{$len_prob_value}}'></td>
+                                                        <td><input type="radio" id="blk_length3"  name="blk_length_type"value="มากกว่า 1 กิโลเมตร" <?php echo checksame($obj[0]->blk_length_type,"มากกว่า 1 กิโลเมตร")?> ><label for="blk_length3">มากกว่า 1 กิโลเมตร</label></td>
+                                                        <td><input type="text" id="blk_length_1k"  name="blk_length_more1" placeholder='<?php echo  $len_morekm ?? "" ?>' value='<?php echo $len_prob_value?>'></td>
                                                     </tr>    
                                                 </table>
                                                 {{-- 1.6 --}}
                                                 <table class="table table-form table-borderless">
                                                     <tr>
                                                         <th width=20%>1.6 การดาดผิวของลำน้ำ </th>
-                                                        <td width=20%><input type="radio" id="blk_surface1" value="ไม่ดาดผิว" name="blk_surface" {{checksame($obj[0]->blk_surface,"ไม่ดาดผิว")}}><label for="blk_surface1">ไม่ดาดผิว</label></td>
-                                                        <td><input type="radio" id="blk_surface2" value="ดาดผิว" name="blk_surface" {{checksame($obj[0]->blk_surface,"ดาดผิว")}} ><label for="blk_surface2">ดาดผิว</label></td>
+                                                        <td width=20%><input type="radio" id="blk_surface1" value="ไม่ดาดผิว" name="blk_surface" <?php echo checksame($obj[0]->blk_surface,"ไม่ดาดผิว")?>><label for="blk_surface1">ไม่ดาดผิว</label></td>
+                                                        <td><input type="radio" id="blk_surface2" value="ดาดผิว" name="blk_surface" <?php echo checksame($obj[0]->blk_surface,"ดาดผิว")?> ><label for="blk_surface2">ดาดผิว</label></td>
                                                         <td></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="right">วัสดุที่ดาดผิวของลำน้ำ : </td>
-                                                        <td colspan="2"><input type="text" id="blk_surface_detail" name="blk_surface_detail" placeholder="ระบุวัสดุ" value='{{ $obj[$id]->blk_surface_detail  }}'></td>
+                                                        <td colspan="2"><input type="text" id="blk_surface_detail" name="blk_surface_detail" placeholder="ระบุวัสดุ" value='<?php echo  $obj[$id]->blk_surface_detail  ?>'></td>
                                                     </tr>
                                                 </table>
                                                 {{-- 1.7 --}}
                                                 <table class="table table-form table-borderless">
                                                     <tr>
                                                         <th width=30%>1.7 ความลาดชันท้องน้ำช่วงที่เกิดปัญหา </th>
-                                                        <td colspan="2"><input type="text" id="blk_slope_bed" name="blk_slope_bed" placeholder="ระบุความลาดชัน" value="{{$obj[$id]->blk_slope_bed}}"> </td>
+                                                        <td colspan="2"><input type="text" id="blk_slope_bed" name="blk_slope_bed" placeholder="ระบุความลาดชัน" value="<?php echo $obj[$id]->blk_slope_bed?>"> </td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -380,47 +376,47 @@
                                                 <table align="center"  class="table-damages table-borderless" width="80%">
                                                     <tr>
                                                         <td colspan="3"><input type="hidden" name="damage_type[flood]" value="0">
-                                                            <input type="checkbox" id="damage_type1"  name="damage_type[flood]" value="1" onclick="damageLevelRadioValidation()" {{add($damage_type->flood)}}> 
+                                                            <input type="checkbox" id="damage_type1"  name="damage_type[flood]" value="1" onclick="damageLevelRadioValidation()" <?php echo add($damage_type->flood)?>> 
                                                             <label for="damage_type1">น้ำท่วม</label>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td width="5%"></td>
                                                         <td class="loc_damage"><input type="hidden" name="damage_level[flood]" value="0">
-                                                            <input type="radio" id="damageflood1" name="damage_level[flood]" value="low" {{checksame($damage_level->flood,"low")}} /><label for="damageflood1">น้อย</label></td>
-                                                        <td class="loc_damage"><input type="radio" id="damageflood2" name="damage_level[flood]" value="medium" {{checksame($damage_level->flood,"medium")}}/><label for="damageflood2"> ปานกลาง</label></td>
-                                                        <td class="loc_damage"><input type="radio" id="damageflood3" name="damage_level[flood]" value="high" {{checksame($damage_level->flood,"high")}}/> <label for="damageflood3">มาก</label></td>
+                                                            <input type="radio" id="damageflood1" name="damage_level[flood]" value="low" <?php echo checksame($damage_level->flood,"low")?> /><label for="damageflood1">น้อย</label></td>
+                                                        <td class="loc_damage"><input type="radio" id="damageflood2" name="damage_level[flood]" value="medium" <?php echo checksame($damage_level->flood,"medium")?>/><label for="damageflood2"> ปานกลาง</label></td>
+                                                        <td class="loc_damage"><input type="radio" id="damageflood3" name="damage_level[flood]" value="high" <?php echo checksame($damage_level->flood,"high")?>/> <label for="damageflood3">มาก</label></td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="3"><input type="hidden" name="damage_type[waste]" value="0">
-                                                            <input type='checkbox' id="damage_type2"  name='damage_type[waste]' value="1" {{add($damage_type->waste)}} onclick="damageLevelRadioValidation()">
+                                                            <input type='checkbox' id="damage_type2"  name='damage_type[waste]' value="1" <?php echo add($damage_type->waste)?> onclick="damageLevelRadioValidation()">
                                                             <label for="damage_type2">น้ำเสีย</label>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td width="5%"></td>
                                                         <td class="loc_damage"><input type="hidden" name="damage_level[waste]" value="0">
-                                                            <input type="radio" id="damagewaste1" name="damage_level[waste]" value="low" {{checksame($damage_level->waste,"low")}}  /><label for="damagewaste1">น้อย</label></td>
-                                                        <td class="loc_damage"><input type="radio" id="damagewaste2" name="damage_level[waste]" value="medium" {{checksame($damage_level->waste,"medium")}} /><label for="damagewaste2"> ปานกลาง</label></td>
-                                                        <td class="loc_damage"><input type="radio" id="damagewaste3" name="damage_level[waste]" value="high" {{checksame($damage_level->waste,"high")}} /> <label for="damagewaste3">มาก</label></td>
+                                                            <input type="radio" id="damagewaste1" name="damage_level[waste]" value="low" <?php echo checksame($damage_level->waste,"low")?>  /><label for="damagewaste1">น้อย</label></td>
+                                                        <td class="loc_damage"><input type="radio" id="damagewaste2" name="damage_level[waste]" value="medium" <?php echo checksame($damage_level->waste,"medium")?> /><label for="damagewaste2"> ปานกลาง</label></td>
+                                                        <td class="loc_damage"><input type="radio" id="damagewaste3" name="damage_level[waste]" value="high" <?php echo checksame($damage_level->waste,"high")?> /> <label for="damagewaste3">มาก</label></td>
 
                                                     </tr>
                                                     <tr >
                                                         <td colspan="3"><input type="hidden" name="damage_type[other]" value="0">
-                                                                        <input type="checkbox" id="damage_type3"  name='damage_type[other]' value="1"  {{add($damage_type->other)}} onclick="damageLevelRadioValidation()">
+                                                                        <input type="checkbox" id="damage_type3"  name='damage_type[other]' value="1"  <?php echo add($damage_type->other)?> onclick="damageLevelRadioValidation()">
                                                                         <label for="damage_type3">อื่นๆ </label>
                                                             <input type="hidden" name="damage_level[other][detail]" value="NULL">
-                                                            <input class="textbox" name="damage_level[other][detail]" id="damageotherdetail" size="5" placeholder="ระบุ" value="{{$damage_level->other->detail}}" >
+                                                            <input class="textbox" name="damage_level[other][detail]" id="damageotherdetail" size="5" placeholder="ระบุ" value="<?php echo $damage_level->other->detail?>" >
                                                         </td>
                                                     </tr>
                                                     <tr >
                                                         <td width="5%"></td>
                                                         <td class="loc_damage"><input type="hidden" name="damage_level[other][level]" value="0">
-                                                            <input type="radio" id="damageother1" name="damage_level[other][level]" value="low" {{checksame($damage_level->other->level,"low")}} >
+                                                            <input type="radio" id="damageother1" name="damage_level[other][level]" value="low" <?php echo checksame($damage_level->other->level,"low")?> >
                                                             <label for="damageother1"> น้อย </label>
                                                         </td>
-                                                        <td class="loc_damage"><input type="radio" id="damageother2" name="damage_level[other][level]" value="medium"  {{checksame($damage_level->other->level,"medium")}} > <label for="damageother2">ปานกลาง </label></td>
-                                                        <td class="loc_damage"><input type="radio" id="damageother3" name="damage_level[other][level]" value="high" {{checksame($damage_level->other->level,"high")}} > <label for="damageother3">มาก </label></td>
+                                                        <td class="loc_damage"><input type="radio" id="damageother2" name="damage_level[other][level]" value="medium"  <?php echo checksame($damage_level->other->level,"medium")?> > <label for="damageother2">ปานกลาง </label></td>
+                                                        <td class="loc_damage"><input type="radio" id="damageother3" name="damage_level[other][level]" value="high" <?php echo checksame($damage_level->other->level,"high")?> > <label for="damageother3">มาก </label></td>
                                                     </tr>
                                                 </table>
 
@@ -432,9 +428,9 @@
                                                 <table align="center" width="80%" class="table table-form table-borderless">
                                                     <tr>
                                                         <td></td>
-                                                        <td colspan="2"><input type="radio" id="damage_frequency1" value="มากกว่า 4 ปีครั้ง" name="damage_frequency" {{checksame($obj[0]->damage_frequency,"มากกว่า 4 ปีครั้ง")}}><label for="damage_frequency1">มากกว่า 4 ปีครั้ง </label></td>
-                                                        <td><input type="radio" id="damage_frequency2" value="2-4 ปีครั้ง" name="damage_frequency" {{checksame($obj[0]->damage_frequency,"2-4 ปีครั้ง")}}><label for="damage_frequency2" >2-4 ปีครั้ง </label></td>
-                                                        <td><input type="radio" id="damage_frequency3" value="ทุกปี" name="damage_frequency" {{checksame($obj[0]->damage_frequency,"ทุกปี")}} > <label for="damage_frequency3">ทุกปี </label></td>
+                                                        <td colspan="2"><input type="radio" id="damage_frequency1" value="มากกว่า 4 ปีครั้ง" name="damage_frequency" <?php echo checksame($obj[0]->damage_frequency,"มากกว่า 4 ปีครั้ง")?>><label for="damage_frequency1">มากกว่า 4 ปีครั้ง </label></td>
+                                                        <td><input type="radio" id="damage_frequency2" value="2-4 ปีครั้ง" name="damage_frequency" <?php echo checksame($obj[0]->damage_frequency,"2-4 ปีครั้ง")?>><label for="damage_frequency2" >2-4 ปีครั้ง </label></td>
+                                                        <td><input type="radio" id="damage_frequency3" value="ทุกปี" name="damage_frequency" <?php echo checksame($obj[0]->damage_frequency,"ทุกปี")?> > <label for="damage_frequency3">ทุกปี </label></td>
 
                                                     </tr>
                                                 </table>
@@ -451,27 +447,27 @@
                                                     </tr>
                                                 </table>
                                                 <table align="center" class="table table-form table-borderless" >
-                                                    {{-- ธรรมชาติ --}}
+                                                    {{-- ธรรมชาติ --?>
                                                         <tr>
                                                         <td colspan="2">ธรรมชาติ</td>
                                                         </tr>
                                                         <tr>
                                                             
-                                                            <td><input type="checkbox" id="nat_erosion" name="nat_erosion" {{add($blk_problem_detail[$id]->nat_erosion)}}  /> <label for="nat_erosion"> ตลิ่งพัง, การกัดเซาะ </label></td>
-                                                            <td><input type="checkbox" id="nat_shoal" name="nat_shoal"   {{add ($blk_problem_detail[$id]->nat_shoal)}} /><label for="nat_shoal"> การทับถมของตะกอน (ลำน้ำตื้นเขิน)</label></td>
+                                                            <td><input type="checkbox" id="nat_erosion" name="nat_erosion" <?php echo add($blk_problem_detail[$id]->nat_erosion)?>  /> <label for="nat_erosion"> ตลิ่งพัง, การกัดเซาะ </label></td>
+                                                            <td><input type="checkbox" id="nat_shoal" name="nat_shoal"   <?php echo add ($blk_problem_detail[$id]->nat_shoal)?> /><label for="nat_shoal"> การทับถมของตะกอน (ลำน้ำตื้นเขิน)</label></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><input type="checkbox" id="nat_missing" name="nat_missing" {{add($blk_problem_detail[$id]->nat_missing)}} /><label for="nat_missing">ลำน้ำขาดหาย</label></td>
-                                                            <td><input type="checkbox" id="nat_winding" name="nat_winding" {{add($blk_problem_detail[$id]->nat_winding )}} /> <label for="nat_winding">ลำน้ำคดเคี้ยวมาก </label></td>
+                                                            <td><input type="checkbox" id="nat_missing" name="nat_missing" <?php echo add($blk_problem_detail[$id]->nat_missing)?> /><label for="nat_missing">ลำน้ำขาดหาย</label></td>
+                                                            <td><input type="checkbox" id="nat_winding" name="nat_winding" <?php echo add($blk_problem_detail[$id]->nat_winding )?> /> <label for="nat_winding">ลำน้ำคดเคี้ยวมาก </label></td>
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="2"><input type="checkbox" id="nat_weed" name="nat_weed" {{add($blk_problem_detail[$id]->nat_weed)}}> <label for="nat_weed"> วัชพืช : </label>
-                                                                <textarea  class="textbox"  id="nat_cause_5_detail" name="nat_weed_detail" placeholder="ระบุวัชพืช" value={{$blk_problem_detail[$id]->nat_weed_detail}}>{{$blk_problem_detail[$id]->nat_weed_detail}}</textarea>
+                                                            <td colspan="2"><input type="checkbox" id="nat_weed" name="nat_weed" <?php echo add($blk_problem_detail[$id]->nat_weed)?>> <label for="nat_weed"> วัชพืช : </label>
+                                                                <textarea  class="textbox"  id="nat_cause_5_detail" name="nat_weed_detail" placeholder="ระบุวัชพืช" value=<?php echo $blk_problem_detail[$id]->nat_weed_detail?>><?php echo $blk_problem_detail[$id]->nat_weed_detail?></textarea>
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="2"><input type="checkbox" id="nat_other" name="nat_other" {{add($blk_problem_detail[$id]->nat_other)}} > <label for="nat_other"> อื่นๆ : </label>
-                                                            <textarea class="textbox" id="nat_cause_6_detail" name="nat_other_detail" placeholder="ระบุ" value={{$blk_problem_detail[$id]->nat_other_detail}}> {{$blk_problem_detail[$id]->nat_other_detail}}</textarea></td>
+                                                            <td colspan="2"><input type="checkbox" id="nat_other" name="nat_other" <?php echo add($blk_problem_detail[$id]->nat_other)?> > <label for="nat_other"> อื่นๆ : </label>
+                                                            <textarea class="textbox" id="nat_cause_6_detail" name="nat_other_detail" placeholder="ระบุ" value=<?php echo $blk_problem_detail[$id]->nat_other_detail?>> <?php echo $blk_problem_detail[$id]->nat_other_detail?></textarea></td>
                                                         </tr>
                                                         {{-- มนุษย์ --}}
                                                         <tr>
@@ -482,31 +478,31 @@
                                                             <td colspan="2"><i class="fas fa-angle-double-right"> </i> สิ่งปลูกสร้าง </td>
                                                         </tr>
                                                         <tr>
-                                                            <td style="padding-left:20px;" colspan="2"><input type="checkbox" id="hum_str_gov" name="hum_str_owner_type" value="ราชการ" {{checktext($blk_problem_detail[$id]->hum_stc_bld_num)}}><label for="hum_str_gov">เป็นส่วนราชการ </label></td>
+                                                            <td style="padding-left:20px;" colspan="2"><input type="checkbox" id="hum_str_gov" name="hum_str_owner_type" value="ราชการ" <?php echo checktext($blk_problem_detail[$id]->hum_stc_bld_num)?>><label for="hum_str_gov">เป็นส่วนราชการ </label></td>
                                                         </tr>
                                                         <tr>
                                                             <td colspan="3">
                                                                 <table align="center" class="table table-form table-borderless">
                                                                     <tr>
 
-                                                                        <td >ส่วนของอาคาร</td><td> <input type="text" id="hum_stc_bld_num" name="hum_stc_bld_num" placeholder="ระบุ (หลัง)" value='{{ $blk_problem_detail[$id]->hum_stc_bld_num }}' ></td>
-                                                                        <td >รั้ว</td><td><input type="text" id="hum_stc_fence_num" name="hum_stc_fence_num" placeholder="ระบุ  (หลัง)" value='{{ $blk_problem_detail[$id]->hum_stc_fence_num}}'></td>
-                                                                        <td >อื่นๆ </td><td><input type="text" id="hum_str_other" name="hum_str_other" placeholder="ระบุ" value='{{$blk_problem_detail[$id]->hum_str_other }}'></td>
+                                                                        <td >ส่วนของอาคาร</td><td> <input type="text" id="hum_stc_bld_num" name="hum_stc_bld_num" placeholder="ระบุ (หลัง)" value='<?php echo  $blk_problem_detail[$id]->hum_stc_bld_num ?>' ></td>
+                                                                        <td >รั้ว</td><td><input type="text" id="hum_stc_fence_num" name="hum_stc_fence_num" placeholder="ระบุ  (หลัง)" value='<?php echo  $blk_problem_detail[$id]->hum_stc_fence_num?>'></td>
+                                                                        <td >อื่นๆ </td><td><input type="text" id="hum_str_other" name="hum_str_other" placeholder="ระบุ" value='<?php echo $blk_problem_detail[$id]->hum_str_other ?>'></td>
 
                                                                     </tr>
                                                                 </table>
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                        <td style="padding-left:20px;" colspan="2"><input type="checkbox" id="hum_str_bu" name="hum_str_owner_type" value="เอกชน"  {{checktext($blk_problem_detail[$id]->hum_stc_bld_bu_num)}} /><label for="hum_str_bu">เป็นสวนของเอกชนหรือส่วนบุคคล </label></td>
+                                                        <td style="padding-left:20px;" colspan="2"><input type="checkbox" id="hum_str_bu" name="hum_str_owner_type" value="เอกชน"  <?php echo checktext($blk_problem_detail[$id]->hum_stc_bld_bu_num)?> /><label for="hum_str_bu">เป็นสวนของเอกชนหรือส่วนบุคคล </label></td>
                                                         </tr>
                                                         <tr>
                                                         <td colspan="2">
                                                             <table align="center" class="table table-form table-borderless">
                                                                 <tr>
-                                                                    <td >ส่วนของอาคาร</td><td> <input type="text" id="hum_stc_bld_bu_num" name="hum_stc_bld_bu_num" placeholder="ระบุ (หลัง)" value='{{ $blk_problem_detail[$id]->hum_stc_bld_bu_num }}'> </td>
-                                                                    <td >รั้ว</td><td><input type="text" id="hum_stc_fence_bu_num" name="hum_stc_fence_bu_num" placeholder="ระบุ  (หลัง)" value='{{ $blk_problem_detail[$id]->hum_stc_fence_bu_num }}'> </td>
-                                                                    <td >อื่นๆ </td><td><input type="text" id="hum_str_other_bu" name="hum_str_other_bu" placeholder="ระบุ" value='{{$blk_problem_detail[$id]->hum_str_other_bu}}' ></td>
+                                                                    <td >ส่วนของอาคาร</td><td> <input type="text" id="hum_stc_bld_bu_num" name="hum_stc_bld_bu_num" placeholder="ระบุ (หลัง)" value='<?php echo  $blk_problem_detail[$id]->hum_stc_bld_bu_num ?>'> </td>
+                                                                    <td >รั้ว</td><td><input type="text" id="hum_stc_fence_bu_num" name="hum_stc_fence_bu_num" placeholder="ระบุ  (หลัง)" value='<?php echo  $blk_problem_detail[$id]->hum_stc_fence_bu_num ?>'> </td>
+                                                                    <td >อื่นๆ </td><td><input type="text" id="hum_str_other_bu" name="hum_str_other_bu" placeholder="ระบุ" value='<?php echo $blk_problem_detail[$id]->hum_str_other_bu?>' ></td>
 
                                                                 </tr>
                                                             </table>
@@ -521,28 +517,28 @@
                                                             <td colspan="2"><i class="fas fa-angle-double-right"> </i>ระบบสาธารณูปโภค (ถนน ท่อลอด สะพานและอื่นๆ) </td>
                                                         </tr>
                                                         <tr>
-                                                            <td style="padding-left:40px;"><input type="checkbox" id="hum_road" name="hum_road" {{add($blk_problem_detail[$id]->hum_road)}}><label for="hum_road">ถนนขวางทางน้ำ </label></td>
-                                                            <td style="padding-left:40px;"><input type="checkbox" id="hum_smallconvert" name="hum_smallconvert"  {{ add($blk_problem_detail[$id]->hum_smallconvert)}}><label for="hum_smallconvert">ท่อลอดถนนที่ตัดลำน้ำมีขนาดเล็กเกินไประบายน้ำหลากไม่ทัน</label></td>
+                                                            <td style="padding-left:40px;"><input type="checkbox" id="hum_road" name="hum_road" <?php echo add($blk_problem_detail[$id]->hum_road)?>><label for="hum_road">ถนนขวางทางน้ำ </label></td>
+                                                            <td style="padding-left:40px;"><input type="checkbox" id="hum_smallconvert" name="hum_smallconvert"  <?php echo  add($blk_problem_detail[$id]->hum_smallconvert)?>><label for="hum_smallconvert">ท่อลอดถนนที่ตัดลำน้ำมีขนาดเล็กเกินไประบายน้ำหลากไม่ทัน</label></td>
                                                         </tr>
                                                         <tr>
-                                                            <td style="padding-left:40px;"><input type="checkbox" id="hum_road_paralel" name="hum_road_paralel" {{ add($blk_problem_detail[$id]->hum_road_paralel )}} > <label for="hum_road_paralel">ถนนขนานลำน้ำสร้างกินพื้นที่ลำน้ำ </label></td>
-                                                            <td style="padding-left:40px;"><input type="checkbox" id="hum_replaced_convert" name="hum_replaced_convert" {{ add($blk_problem_detail[$id]->hum_replaced_convert)}}><label for="hum_replaced_convert">วางท่อตามแนวลำน้ำทดแทนลำน้ำเดิม</label></td>
+                                                            <td style="padding-left:40px;"><input type="checkbox" id="hum_road_paralel" name="hum_road_paralel" <?php echo  add($blk_problem_detail[$id]->hum_road_paralel )?> > <label for="hum_road_paralel">ถนนขนานลำน้ำสร้างกินพื้นที่ลำน้ำ </label></td>
+                                                            <td style="padding-left:40px;"><input type="checkbox" id="hum_replaced_convert" name="hum_replaced_convert" <?php echo  add($blk_problem_detail[$id]->hum_replaced_convert)?>><label for="hum_replaced_convert">วางท่อตามแนวลำน้ำทดแทนลำน้ำเดิม</label></td>
                                                         </tr>
                                                         <tr>
-                                                            <td style="padding-left:40px;" colspan="2"> <input type="checkbox" id="hum_bridge_pile" name="hum_bridge_pile" {{ add($blk_problem_detail[$id]->hum_bridge_pile )}}><label for="hum_bridge_pile">สะพานมีหน้าตัดแคบเกินไป หรือมีต่อม่อมากเกินไปในช่วงฤดูน้ำหลากระบายไม่ทัน</label></td>
+                                                            <td style="padding-left:40px;" colspan="2"> <input type="checkbox" id="hum_bridge_pile" name="hum_bridge_pile" <?php echo  add($blk_problem_detail[$id]->hum_bridge_pile )?>><label for="hum_bridge_pile">สะพานมีหน้าตัดแคบเกินไป หรือมีต่อม่อมากเกินไปในช่วงฤดูน้ำหลากระบายไม่ทัน</label></td>
                                                         </tr>
                                                         <tr>
                                                             <td style="padding-bottom:10px;"></td>
                                                         </tr>
                                                         <tr>
-                                                            <td ><input type="checkbox" id="hum_soil_cover" name="hum_soil_cover" {{ add($blk_problem_detail[$id]->hum_soil_cover) }} /><label for="hum_soil_cover">การถมดิน </label></td>
+                                                            <td ><input type="checkbox" id="hum_soil_cover" name="hum_soil_cover" <?php echo  add($blk_problem_detail[$id]->hum_soil_cover) ?> /><label for="hum_soil_cover">การถมดิน </label></td>
                                                         </tr>
                                                         <tr>
-                                                            <td ><input type="checkbox" id="hum_trash" name="hum_trash" {{add($blk_problem_detail[$id]->hum_trash)}} /><label for="hum_trash">สิ่งปฏิกูล </label></td>
+                                                            <td ><input type="checkbox" id="hum_trash" name="hum_trash" <?php echo add($blk_problem_detail[$id]->hum_trash)?> /><label for="hum_trash">สิ่งปฏิกูล </label></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><input type="checkbox" id="hum_other" name="hum_other"  {{add($blk_problem_detail[$id]->hum_other) }} onclick="causeOfDamageValidate()"/><label for="hum_other">อื่นๆ </label>
-                                                                <textarea  class="textbox"  name="hum_other_detail" id="hum_other_detail" placeholder="ระบุ" value="{{$blk_problem_detail[$id]->hum_other_detail }}" /> {{$blk_problem_detail[$id]->hum_other_detail }}</textarea >
+                                                            <td><input type="checkbox" id="hum_other" name="hum_other"  <?php echo add($blk_problem_detail[$id]->hum_other) ?> onclick="causeOfDamageValidate()"/><label for="hum_other">อื่นๆ </label>
+                                                                <textarea  class="textbox"  name="hum_other_detail" id="hum_other_detail" placeholder="ระบุ" value="<?php echo $blk_problem_detail[$id]->hum_other_detail ?>" /> <?php echo $blk_problem_detail[$id]->hum_other_detail ?></textarea >
                                                             </td>
                                                         </tr>
                                                 </table>
@@ -554,9 +550,9 @@
                                                 </table>
                                                 <table align="center" class="table table-form table-borderless"> 
                                                     <tr>
-                                                        <td ><input type="radio" id="problevel1" name="prob_level" value="1-30%"  {{checksame($blk_problem_detail[$id]->prob_level,"1-30%")}}/> <label for="problevel1">น้อย (1-30%) </label></td>
-                                                        <td ><input type="radio" id="problevel2" name="prob_level" value="30-70%" {{checksame($blk_problem_detail[$id]->prob_level,"30-70%")}}/><label for="problevel2">กลาง (30-70%)</label></td>
-                                                        <td ><input type="radio" id="problevel3" name="prob_level" value="มากกว่า 70%" {{checksame($blk_problem_detail[$id]->prob_level,"มากกว่า 70%")}}/><label for="problevel3">มาก (มากกว่า 70%)</label></td>
+                                                        <td ><input type="radio" id="problevel1" name="prob_level" value="1-30%"  <?php echo checksame($blk_problem_detail[$id]->prob_level,"1-30%")?>/> <label for="problevel1">น้อย (1-30%) </label></td>
+                                                        <td ><input type="radio" id="problevel2" name="prob_level" value="30-70%" <?php echo checksame($blk_problem_detail[$id]->prob_level,"30-70%")?>/><label for="problevel2">กลาง (30-70%)</label></td>
+                                                        <td ><input type="radio" id="problevel3" name="prob_level" value="มากกว่า 70%" <?php echo checksame($blk_problem_detail[$id]->prob_level,"มากกว่า 70%")?>/><label for="problevel3">มาก (มากกว่า 70%)</label></td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -570,20 +566,20 @@
                                                 <table align="center" class="table table-form table-borderless">
                                                     <tr>
                                                         <td  colspan="6" >หน่วยงานที่รับผิดชอบ : 
-                                                            <input class="textbox" id="responsed_dept" name="responsed_dept" value="{{$solution[0]->responsed_dept}}">
+                                                            <input class="textbox" id="responsed_dept" name="responsed_dept" value="<?php echo $solution[0]->responsed_dept?>">
                                                             <div class="invalid-feedback"></div>
                                                         </td>
                                                     </tr>
                                                     <tr class="chooseBox">
                                                         <td colspan="5">
-                                                            <input type="radio" id="sol_how" name="sol_how" value="ปรับปรุงแก้ไข" {{checksame($solution[0]->sol_how,"ปรับปรุงแก้ไข")}} onclick="solHowValidate()"><label for="sol_how">ปรับปรุงแก้ไขโดย </label>
-                                                            <input class="textbox" id="responsed_dept2" name="sol_edit" placeholder="(วิธีแก้ไขหรือโครงการ)" value="{{$solution[0]->sol_edit}}" disabled>
+                                                            <input type="radio" id="sol_how" name="sol_how" value="ปรับปรุงแก้ไข" <?php echo checksame($solution[0]->sol_how,"ปรับปรุงแก้ไข")?> onclick="solHowValidate()"><label for="sol_how">ปรับปรุงแก้ไขโดย </label>
+                                                            <input class="textbox" id="responsed_dept2" name="sol_edit" placeholder="(วิธีแก้ไขหรือโครงการ)" value="<?php echo $solution[0]->sol_edit?>" disabled>
                                                         </td>
                                                     </tr>
-                                                    <tr> <td ><input type="radio" id="sol_how2" name="sol_how" value="เจรจาให้รื้อถอน"  {{checksame($solution[0]->sol_how,"เจรจาให้รื้อถอน")}} ><label for="sol_how2">เจรจาให้รื้อถอน</label></td></tr>
-                                                    <tr> <td  colspan="2"><input type="radio" id="sol_how3" name="sol_how" value="ฟ้องร้อง" {{checksame($solution[0]->sol_how,"ฟ้องร้อง")}} ><label for="sol_how3">ฟ้องร้อง</label></td></tr>
-                                                    <tr> <td  colspan="2"><input type="radio" id="sol_how4" name="sol_how" value="รื้อถอน" {{checksame($solution[0]->sol_how,"รื้อถอน")}} ><label for="sol_how4">รื้อถอน</label></td></tr>
-                                                    <tr> <td  colspan="2"><input type="radio" id="sol_how5" name="sol_how" value="ยังไม่ได้ดำเนินการ" {{checksame($solution[0]->sol_how,"ยังไม่ได้ดำเนินการ")}} ><label for="sol_how5">ยังไม่ได้ดำเนินการ</label></td></tr>
+                                                    <tr> <td ><input type="radio" id="sol_how2" name="sol_how" value="เจรจาให้รื้อถอน"  <?php echo checksame($solution[0]->sol_how,"เจรจาให้รื้อถอน")?> ><label for="sol_how2">เจรจาให้รื้อถอน</label></td></tr>
+                                                    <tr> <td  colspan="2"><input type="radio" id="sol_how3" name="sol_how" value="ฟ้องร้อง" <?php echo checksame($solution[0]->sol_how,"ฟ้องร้อง")?> ><label for="sol_how3">ฟ้องร้อง</label></td></tr>
+                                                    <tr> <td  colspan="2"><input type="radio" id="sol_how4" name="sol_how" value="รื้อถอน" <?php echo checksame($solution[0]->sol_how,"รื้อถอน")?> ><label for="sol_how4">รื้อถอน</label></td></tr>
+                                                    <tr> <td  colspan="2"><input type="radio" id="sol_how5" name="sol_how" value="ยังไม่ได้ดำเนินการ" <?php echo checksame($solution[0]->sol_how,"ยังไม่ได้ดำเนินการ")?> ><label for="sol_how5">ยังไม่ได้ดำเนินการ</label></td></tr>
                                                     <tr> <td  colspan="2"><input type="checkbox" id="clear_sol"><label for="clear_sol">ล้างข้อมูลทั้งหมด</label> </td></tr>
                                                 </table>
                                                 {{-- 4.1 --}}
@@ -593,10 +589,10 @@
                                                     </tr>
                                                 </table>
                                                 <table class="table table-form table-borderless">
-                                                    <tr> <td colspan="2"><input type="radio" id="result_selector1" name="result_selector" value="ได้ผลดีสามารถแก้ไขปัญหาได้"  {{checksame($solution[0]->result,"ได้ผลดีสามารถแก้ไขปัญหาได้")}} ><label for="result_selector1">ได้ผลดีสามารถแก้ไขปัญหาได้</label></td> </tr>
-                                                    <tr> <td colspan="2"><input type="radio" id="result_selector2" name="result_selector" value="ได้ผลดีพอสมควรแก้ไขปัญหาได้บางส่วน"  {{checksame($solution[0]->result,"ได้ผลดีพอสมควรแก้ไขปัญหาได้บางส่วน")}} ><label for="result_selector2">ได้ผลดีพอสมควรแก้ไขปัญหาได้บางส่วน</label></td></tr>
-                                                    <tr> <td colspan="2"><input type="radio" id="result_selector3" name="result_selector" value="ได้ผลไม่ดีเท่าที่ควรแก้ไขปัญหาได้น้อย"{{checksame($solution[0]->result,"ได้ผลไม่ดีเท่าที่ควรแก้ไขปัญหาได้น้อย")}}   ><label for="result_selector3"> ได้ผลไม่ดีเท่าที่ควรแก้ไขปัญหาได้น้อย</label></td></tr>
-                                                    <tr> <td colspan="2"><input type="radio" id="result_selector4" name="result_selector" value="ไม่ได้ผล" {{checksame($solution[0]->result,"ไม่ได้ผล")}}   ><label for="result_selector4"> ไม่ได้ผล </label></td></tr>
+                                                    <tr> <td colspan="2"><input type="radio" id="result_selector1" name="result_selector" value="ได้ผลดีสามารถแก้ไขปัญหาได้"  <?php echo checksame($solution[0]->result,"ได้ผลดีสามารถแก้ไขปัญหาได้")?> ><label for="result_selector1">ได้ผลดีสามารถแก้ไขปัญหาได้</label></td> </tr>
+                                                    <tr> <td colspan="2"><input type="radio" id="result_selector2" name="result_selector" value="ได้ผลดีพอสมควรแก้ไขปัญหาได้บางส่วน"  <?php echo checksame($solution[0]->result,"ได้ผลดีพอสมควรแก้ไขปัญหาได้บางส่วน")?> ><label for="result_selector2">ได้ผลดีพอสมควรแก้ไขปัญหาได้บางส่วน</label></td></tr>
+                                                    <tr> <td colspan="2"><input type="radio" id="result_selector3" name="result_selector" value="ได้ผลไม่ดีเท่าที่ควรแก้ไขปัญหาได้น้อย"<?php echo checksame($solution[0]->result,"ได้ผลไม่ดีเท่าที่ควรแก้ไขปัญหาได้น้อย")?>   ><label for="result_selector3"> ได้ผลไม่ดีเท่าที่ควรแก้ไขปัญหาได้น้อย</label></td></tr>
+                                                    <tr> <td colspan="2"><input type="radio" id="result_selector4" name="result_selector" value="ไม่ได้ผล" <?php echo checksame($solution[0]->result,"ไม่ได้ผล")?>   ><label for="result_selector4"> ไม่ได้ผล </label></td></tr>
                                                     <tr> <td  colspan="2"><input type="checkbox" id="clear_result"><label for="clear_result">ล้างข้อมูลทั้งหมด</label> </td></tr>
                                                 </table>
                                                 {{-- 4.2 --}}
@@ -608,21 +604,21 @@
                                                 </table>
                                                 <table align="center" width="70%" class="table table-form table-borderless">
                                                     <tr>
-                                                        <td><input type="radio" id="proj_status1" name="proj_status" value="plan"  {{checksame($project['proj_status'],"plan")}} onclick="projStatusValidate()" /><label for="proj_status1"> อยู่ในแผน </label></td>
-                                                        <td><input type="text" id="proj_year" name="proj_year" step="any" placeholder="ระบุปี พ.ศ" value='{{ $project['proj_year']  }}' disabled ></td> 
-                                                        <td><input type="text" id="proj_name" name="proj_name" step="any" placeholder="ระบุชื่อโครงการ" value='{{ $project['proj_name_plan']  }}' disabled></td>
-                                                        <td><input type="text" id="proj_budget" name="proj_budget" step="any" placeholder="ระบุงบประมาณ" value='{{ $project['proj_budget_plan'] }}' disabled></td>
+                                                        <td><input type="radio" id="proj_status1" name="proj_status" value="plan"  <?php echo checksame($project['proj_status'],"plan")?> onclick="projStatusValidate()" /><label for="proj_status1"> อยู่ในแผน </label></td>
+                                                        <td><input type="text" id="proj_year" name="proj_year" step="any" placeholder="ระบุปี พ.ศ" value='<?php echo  $project['proj_year']  ?>' disabled ></td> 
+                                                        <td><input type="text" id="proj_name" name="proj_name" step="any" placeholder="ระบุชื่อโครงการ" value='<?php echo  $project['proj_name_plan']  ?>' disabled></td>
+                                                        <td><input type="text" id="proj_budget" name="proj_budget" step="any" placeholder="ระบุงบประมาณ" value='<?php echo  $project['proj_budget_plan'] ?>' disabled></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="radio" id="proj_status2" name="proj_status" value="received" {{checksame($project['proj_status'],"received")}} onclick="projStatusValidate()" / ><label for="proj_status2">ได้รับงบประมาณแล้ว</label></td>
-                                                        <td><input type="text" id="proj_name2" name="proj_name2" step="any" placeholder="ระบุชื่อโครงการ" value='{{ $project['proj_name_rev']}}' disabled></td>
-                                                        <td><input type="text" id="proj_budget2" name="proj_budget2" step="any" placeholder="ระบุงบประมาณ" value='{{ $project['proj_budget_rev'] }}' disabled></td>
+                                                        <td><input type="radio" id="proj_status2" name="proj_status" value="received" <?php echo checksame($project['proj_status'],"received")?> onclick="projStatusValidate()" / ><label for="proj_status2">ได้รับงบประมาณแล้ว</label></td>
+                                                        <td><input type="text" id="proj_name2" name="proj_name2" step="any" placeholder="ระบุชื่อโครงการ" value='<?php echo  $project['proj_name_rev']?>' disabled></td>
+                                                        <td><input type="text" id="proj_budget2" name="proj_budget2" step="any" placeholder="ระบุงบประมาณ" value='<?php echo  $project['proj_budget_rev'] ?>' disabled></td>
                                                     </tr>
                                                     <tr>
-                                                        <td colspan="3"><input type="radio" id="proj_status3" name="proj_status" value="making" {{checksame($project['proj_status'],"making")}}  /><label for="proj_status3">กำลังปรับปรุงหรือก่อสร้าง</label> </td>
+                                                        <td colspan="3"><input type="radio" id="proj_status3" name="proj_status" value="making" <?php echo checksame($project['proj_status'],"making")?>  /><label for="proj_status3">กำลังปรับปรุงหรือก่อสร้าง</label> </td>
                                                     </tr>
                                                     <tr>
-                                                        <td colspan="3"><input type="radio" id="proj_status4" name="proj_status" value="noplan" {{checksame($project['proj_status'],"noplan")}} /><label for="proj_status4">ยังไม่มีในแผน </label></td>
+                                                        <td colspan="3"><input type="radio" id="proj_status4" name="proj_status" value="noplan" <?php echo checksame($project['proj_status'],"noplan")?> /><label for="proj_status4">ยังไม่มีในแผน </label></td>
                                                     </tr>
                                                     <tr> <td  colspan="3"><input type="checkbox" id="clear_proj"><label for="clear_proj">ล้างข้อมูลทั้งหมด</label> </td></tr>
                                                 </table>
@@ -633,14 +629,14 @@
                                             <!-- Step 5 -->
                                             <div class="tab-pane" id="wizard-progress-step5" role="tabpanel">
                                                 {{-- รูป--}}
-                                                <span class="number">5</span><b>รูปภาพประกอบ <span class="chatbox__button18"><img src="{{ asset('images/question-mark.png') }} " /></span></b>
+                                                <span class="number">5</span><b>รูปภาพประกอบ <span class="chatbox__button18"><img src="<?php echo  asset('images/question-mark.png') ?> " /></span></b>
                                                 <br><br>
                                                 <div class="row">
                                                         <?php for($i=0;$i<count($obj[0]->photo);$i++){ ?>
                                                             <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3" style="margin-bottom: 10px;" >
-                                                                {{checkphoto($obj[0]->photo[$i]->thumbnail_name)}}  
+                                                                <?php echo checkphoto($obj[0]->photo[$i]->thumbnail_name)?>  
                                                             <br>
-                                                                <font style="padding-left:15%;">{{$obj[0]->photo[$i]->photo_id}}  </font>
+                                                                <font style="padding-left:15%;"><?php echo $obj[0]->photo[$i]->photo_id?>  </font>
                                                             </div>
                                                                
                                                         <?php } ?>

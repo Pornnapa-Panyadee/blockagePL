@@ -1102,7 +1102,7 @@ class DataForExpertController extends Controller
         }else{
             $name=Auth::user()->name ;
             // dd ($name);
-            if($name=="admin" ||$name=="ระวีเวช จาติเกตุ" || $name=="Prem"||Auth::user()->status_work=="admin" || Auth::user()->status_work=="expert" ){
+            if($name=="admin" ||$name=="Raveewach" ||Auth::user()->status_work=="admin" || Auth::user()->status_work=="expert" ){
                 // $data = Blockage::with('blockageLocation')->get();
                 // dd($data);
                 $data = DB::table('blockage_locations')
