@@ -998,8 +998,9 @@ class DataForExpertController extends Controller
         $photo_Blockage=Photo::select('blk_id','photo_id','thumbnail_name')->where('blk_id', $blk_id )->get();
         // dd($photo_Blockage);
         $exprt_pix=Expert::select('exp_pixmap','exp_pix1','exp_pix2')->where('blk_id', $blk_id)->get();
-        if($exprt_pix[0]->exp_pixmap==NULL){$pix=0;}
+        if($exprt_pix[0]->exp_pix1==NULL){$pix=0;}
         else{$pix=1;}
+        // dd($exprt_pix);
         return view('expert.upphoto',compact('photo_Blockage','data','exprt_pix','pix'));
     }
 
