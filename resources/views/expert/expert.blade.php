@@ -56,7 +56,7 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <?php for($i = 0;$i < count($data);$i++){?>
+                                                            <?php for($i = 0;$i < count($blk);$i++){?>
                                                                 <tr align="center">
                                                                     <td >{{$i+1}}</td>
                                                                     <td data-label="รหัส">{{$data[$i]->blk_code}}</td>
@@ -103,7 +103,7 @@
                                                                     if($text<26 ){ return "วิศวกรแหล่งน้ำ";}
                                                                     else{return $name; }
                                                                 }
-                                                                for($i = 0;$i < count($data);$i++){
+                                                                for($i = 0;$i < count($blk);$i++){
                                                                     if($blk[$i]->status_approve==2 ||$blk[$i]->status_approve==1 ){ ?>
                                                                     <tr align="center">
                                                                         <td >{{$c+1}}</td>
@@ -152,7 +152,7 @@
                                                         </thead>
                                                         <tbody>
                                                             <?php $c=0;
-                                                                for($i = 0;$i < count($data);$i++){
+                                                                for($i = 0;$i < count($blk);$i++){
                                                                     if($blk[$i]->status_approve==0){ ?>
                                                                         <tr align="center">
                                                                             <td >{{$i+1}}</td>

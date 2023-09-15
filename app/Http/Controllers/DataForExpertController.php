@@ -467,8 +467,9 @@ class DataForExpertController extends Controller
         // dd($damageData);
         $current_end = json_decode($current_end);
         // dd($expert);
+        $name_file=$data[0]->blk_code.".pdf";
         $pdf = PDF::loadView('expert.reportpdf_php' ,compact('current_brigde','expert','data','nut','hum','damageData','damage_type','pastData','current_start','current_narrow_new','current_end','problem','photo_Blockage','photo_Land','photo_Riverbefore','photo_Riverprob','photo_Riverafter','photo_Probsketch','solution_id','project_id'));
-        return $pdf->stream('expert_report.pdf');
+        return $pdf->stream($name_file);
     }
 
     public function expertPDFSurvey($blk_id=0)

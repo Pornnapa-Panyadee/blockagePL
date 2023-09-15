@@ -96,9 +96,6 @@
                 left: 0cm; 
                 right: 0cm;
                 height: 2cm;
-
-                /** Extra personal styles **/
-                /* background-color: #03a9f4; */
                 color:#000;
                 text-align: right;
                 line-height: 1.5cm;
@@ -255,8 +252,21 @@
                     <div class="flex-center position-ref full-height">
                         <div class="content">
                             <div class="title m-b-md" style="margin-top:-30px;">
-                                
-                                <center> ข้อมูลสภาพปัญหาและแนวทางการแก้ไขปัญหาเบื้องต้นของตำแหน่งการกีดขวางทางน้ำ พื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง </center> 
+                            <table>
+                                <tr>
+                                    <td width="20%" align="right" >
+                                        <img src='images/footer/lampang.png' width="30px" style="margin-top:20px;">
+                                        <img src='images/footer/egat.jpg' width="50px">
+                                    </td>
+                                    <td width="60%">
+                                        <div class="texthead"> ข้อมูลสภาพปัญหาและแนวทางการแก้ไขปัญหาเบื้องต้นของตำแหน่งการกีดขวางทางน้ำ พื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง</div>
+                                    </td>
+                                    <td width="20%" align="left">
+                                        <img src='images/footer/cmu.png' width="30px"></td>
+                                    </td>  
+                                </tr>
+                            </table>
+                              
                             </div>
                             <div align="right">
                                  รหัสตำแหน่งกีดขวางที่:  <?PHP ECHO $data[0]->blk_code ?>  
@@ -502,7 +512,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <div style="page-break-after: always"></div>
+                                <!-- <div style="page-break-after: always"></div> -->
                                 <table class="table table-bordered" width="400px;"  style="margin-top:1px;">
                                     <thead>
                                         <tr>
@@ -513,10 +523,10 @@
                                        <?php 
                                             if(!empty($expert[0]->exp_pixmap)){ ?>
                                                 <tr>
-                                                    <td align="center"><div style="margin-top:10px;"><img src="https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/ <?PHP ECHO($expert[0]->exp_pixmap)  ?> " width=180px;></div></td>
+                                                    <td align="center"><div style="margin-top:10px;"><img src="<?php echo($expert[0]->exp_pixmap); ?> " width=140px;></div></td>
                                                     <td align="center"> 
-                                                        <div style="margin-top:5px;"><img src="https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/ <?PHP ECHO($expert[0]->exp_pix1)  ?> " width=180px;></div>
-                                                        <div style="margin-top:15px;margin-bottom:10px;"><img src="https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/ <?PHP ECHO($expert[0]->exp_pix2) ?> " width=180px;></div>
+                                                        <div style="margin-top:5px;"><img src="<?php echo($expert[0]->exp_pix1); ?> "  width=140px;></div>
+                                                        <div style="margin-top:15px;margin-bottom:10px;"><img src="<?php echo($expert[0]->exp_pix2); ?> " width=140px;></div>
                                                     </td>
                                                 </tr>
                                         <?php  }else{ ?>
