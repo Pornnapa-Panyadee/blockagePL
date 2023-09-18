@@ -366,14 +366,14 @@
                                                                             <?php 
                                                                             if($photo_has==2){?>
                                                                                 <td align="center"> 
-                                                                                    <img src="{{asset($photo_Blockage[0]->thumbnail_name) }}">
+                                                                                    <img src="{{asset($expert[0]->exp_pix1) }}">
                                                                                 </td>
                                                                                 <td align="center">
-                                                                                    <img src="{{asset($photo_Blockage[1]->thumbnail_name) }}">
+                                                                                    <img src="{{asset($expert[0]->exp_pix2) }}">
                                                                                 </td>
                                                                             <?php }else if($photo_has==1){?>
                                                                                 <td align="center"> 
-                                                                                    <img src="{{asset($photo_Blockage[0]->thumbnail_name) }}">
+                                                                                    <img src="{{asset($expert[0]->exp_pix1) }}">
                                                                                 </td>
                                                                             <?php } ?> 
                                                                         </tr>

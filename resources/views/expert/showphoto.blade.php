@@ -203,12 +203,12 @@
                       </div>
                         <!-- The four columns -->
                         <div class="card-body" >
-                          <!-- <div class="alert alert-primary" style="margin:0 -20px 0;">รูปภาพแผนที่แสดงขอบเขตพื้นที่รับน้ำ</div>
+                          <div class="alert alert-primary" style="margin:0 -20px 0;">รูปภาพแผนที่แสดงขอบเขตพื้นที่รับน้ำ</div>
                           <div class="row">
                               <div class="column">
-                                  <img src="https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/{{($expert[0]->exp_pixmap)  }}" onclick="openModal();currentSlide({{1}})" style="width:40%" class="hover-shadow cursor">
+                                  <img src="{{asset($expert[0]->exp_pixmap) }}" onclick="openModal();currentSlide({{1}})" style="width:40%" class="hover-shadow cursor">
                               </div>
-                          </div> -->
+                          </div>
                           <br>
                           <div class="alert alert-primary" style="margin:0 -20px 0;">รูปภาพสำรวจตำแหน่งจุดกีดขวางทางน้ำ</div>
                           <div class="row">
@@ -226,11 +226,11 @@
                                   <span class="closeph cursor" onclick="closeModal()"> &times; </span>
                               <div class="modal-content">
                                 <?php   $num =count($photo_Blockage)+1; ?>
-                                  <!-- <div class="mySlides">
+                                  <div class="mySlides">
                                     <div class="numbertext">1/ {{$num}}</div>
-                                      <center><img src="https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/{{($expert[0]->exp_pixmap)  }}"  style="width:40%"></center>
+                                      <center><img src="{{asset($expert[0]->exp_pixmap)}}"  style="width:40%"></center>
                                     </div>
-                                  </div> -->
+                                  </div>
                                   
                                   <?php for($i=0;$i<count($photo_Blockage);$i++){?>
                                         <div class="mySlides">
@@ -248,9 +248,9 @@
                                   <p id="caption"></p>
                                 </div>
                                 <div class="caption-container" width=100%>
-                                  <!-- <div class="columnDown">
-                                    <img class="demo cursor" src="https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/{{($expert[0]->exp_pixmap)  }}" style="width:40%" onclick="currentSlide({{1}})" >
-                                  </div> -->
+                                  <div class="columnDown">
+                                    <img class="demo cursor" src="{{asset($expert[0]->exp_pixmap)}}" style="width:40%" onclick="currentSlide({{1}})" >
+                                  </div>
                                   <?php for($i=0;$i<count($photo_Blockage);$i++){?>
                                       <div class="columnDown">
                                           <img class="demo cursor" src="{{asset($photo_Blockage[$i]->photo_name)}}" style="width:100%" onclick="currentSlide({{$i+1}})" >
