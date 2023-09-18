@@ -516,17 +516,17 @@
                                 <table class="table table-bordered" width="400px;"  style="margin-top:1px;">
                                     <thead>
                                         <tr>
-                                            <td colspan="2" style="background-color:#C0C0C0">รูปภาพประกอบ</td>
+                                            <td colspan="2" style="background-color:#C0C0C0">รูปภาพประกอบ <?php echo ($expert[0]->exp_pixmap) ?> </td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                        <?php 
                                             if(!empty($expert[0]->exp_pixmap)){ ?>
                                                 <tr>
-                                                    <td align="center"><div style="margin-top:10px;"><img src="https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/<?php echo ($expert[0]->exp_pixmap); ?>" width=140px;></div></td>
+                                                    <td align="center"><div style="margin-top:10px;"><img src="<?php echo ($expert[0]->exp_pixmap); ?>" width=140px;></div></td>
                                                     <td align="center"> 
-                                                        <div style="margin-top:5px;"><img src="https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/<?php echo ($expert[0]->exp_pix1); ?> "  width=140px;></div>
-                                                        <div style="margin-top:15px;margin-bottom:10px;"><img src="https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/<?php echo ($expert[0]->exp_pix2); ?> " width=140px;></div>
+                                                        <div style="margin-top:5px;"><img src="<?php echo ($expert[0]->exp_pix1); ?> "  width=140px;></div>
+                                                        <div style="margin-top:15px;margin-bottom:10px;"><img src="<?php echo ($expert[0]->exp_pix2); ?> " width=140px;></div>
                                                     </td>
                                                 </tr>
                                         <?php  }else{ ?>
