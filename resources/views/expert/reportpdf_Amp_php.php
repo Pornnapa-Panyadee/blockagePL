@@ -579,7 +579,9 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td align="center" width=50%;><div style="margin-top:5px;"><img src="https://watercenter.scmc.cmu.ac.th/blockage/jang_basin/<?php echo($expert[$i][0]->exp_pixmap); ?> " width=140px;></div></td>
+                                                    <td align="center" width=50%;>
+                                                        <div style="margin-top:5px;"><img src="<?php echo ($expert[$i][0]->exp_pixmap); ?>" width=140px;></div>                                                        
+                                                    </td>
                                                     <td align="center" width=50%;> 
                                                         <div style="margin-top:5px;"><img src="<?php echo ($expert[$i][0]->exp_pix1); ?>"  width=140px;></div>
                                                         <div style="margin-top:15px;margin-bottom:10px;"><img src="<?php echo ($expert[$i][0]->exp_pix2); ?> " width=140px;></div>
