@@ -262,7 +262,7 @@
                                 </table>
                             </div>
                             <div align="right" style="margin-top:-20px;">
-                                รหัสตำแหน่งกีดขวางที่ :   <?php echo $data[0]->blk_code ?>  
+                                <b>รหัสตำแหน่งกีดขวางที่ :</b>   <?php echo $data[0]->blk_code ?>  
                             </div>
                             
                             <div class="title m-b-md">
