@@ -143,7 +143,7 @@
                                 <div class="col-md-2"></div>
                                 <div class="col-md-7 col-md-offset-2 text-center">
                                     <br>
-                                    <h3> กราฟแสดงสัดส่วนสิ่งกีดขวางทางน้ำ {{ $amp}} </h3>
+                                    <h2> กราฟแสดงสัดส่วนสิ่งกีดขวางทางน้ำ <br> {{ $amp}} </h2>
                                     <div id="container" ></div>
                                 </div>
                                
@@ -181,18 +181,18 @@
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     
     <script type="text/javascript">
-    var pieColors = (function () {
-        var colors = [],
-            base = Highcharts.getOptions().colors[0],
-            i;
+    // var pieColors = (function () {
+    //     var colors = [],
+    //         base = Highcharts.getOptions().colors[0],
+    //         i;
     
-        for (i = 0; i < 10; i += 1) {
-            // Start out with a darkened base color (negative brighten), and end
-            // up with a much brighter color
-            colors.push(Highcharts.Color(base).brighten((i - 3) / 7).get());
-        }
-        return colors;
-    }());
+    //     for (i = 0; i < 10; i += 1) {
+    //         // Start out with a darkened base color (negative brighten), and end
+    //         // up with a much brighter color
+    //         colors.push(Highcharts.Color(base).brighten((i - 3) / 7).get());
+    //     }
+    //     return colors;
+    // }());
     
         var users =  <?php echo json_encode($countNum) ?>;
         // alert (users);

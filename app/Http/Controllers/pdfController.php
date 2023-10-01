@@ -46,7 +46,6 @@ class pdfController extends Controller
             $pdf = PDF::loadView('table_report' ,compact('data','problem','amp'))->setPaper('a4', 'landscape');
             return $pdf->stream('BlockageAll.pdf');
         }else{
-
             $problem =DB::table('blockage_locations')
             ->join('blockages', 'blockage_locations.blk_location_id', '=', 'blockages.blk_location_id')
             ->join('problem_details', 'blockages.blk_id', '=', 'problem_details.blk_id')
@@ -456,7 +455,7 @@ class pdfController extends Controller
                             ->get();
                // dd($data);
                 $amp="sum";
-                $pdf = PDF::loadView('table_report' ,compact('data','problem','amp'))->setPaper('a4', 'landscape');
+                $pdf = PDF::loadView('table_report_php' ,compact('data','problem','amp'))->setPaper('a4', 'landscape');
                 return $pdf->stream('BlockageAll.pdf');
             }else{
                 if($request->tumbol=="sum" ){
@@ -483,7 +482,7 @@ class pdfController extends Controller
                     // $damageData=json_decode($problem[0]->damage_level);
                     // dd($damageData->flood);
                     $name= "อำเภอ.".$amp.".pdf";
-                    $pdf = PDF::loadView('table_reportAmp' ,compact('problem','amp','tumbol'))->setPaper('a4', 'landscape');
+                    $pdf = PDF::loadView('table_reportAmp_php' ,compact('problem','amp','tumbol'))->setPaper('a4', 'landscape');
                     return $pdf->stream($name);
     
                 }else{
@@ -513,7 +512,7 @@ class pdfController extends Controller
                     $amp=$amp;
                     // dd($amp);
                     $name= "อำเภอ.".$amp.".pdf";
-                    $pdf = PDF::loadView('table_reportAmp' ,compact('problem','amp','tumbol'))->setPaper('a4', 'landscape');
+                    $pdf = PDF::loadView('table_reportAmp_php' ,compact('problem','amp','tumbol'))->setPaper('a4', 'landscape');
                     return $pdf->stream($name);
     
                 }

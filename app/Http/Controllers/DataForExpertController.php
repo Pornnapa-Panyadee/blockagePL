@@ -987,7 +987,7 @@ class DataForExpertController extends Controller
        
         // dd($expert[10]);
         // dd($data);
-        $pdf = PDF::loadView('expert.reportpdf_Amp' ,compact('amp','tumbol','current_brigde','expert','data','nut','hum','damageData','damage_type','pastData','current_start','current_narrow_new','current_end','problem','photo_Blockage','photo_Land','photo_Riverbefore','photo_Riverprob','photo_Riverafter','photo_Probsketch','solution_id','project_id'));
+        $pdf = PDF::loadView('expert.reportpdf_Amp_php' ,compact('amp','tumbol','current_brigde','expert','data','nut','hum','damageData','damage_type','pastData','current_start','current_narrow_new','current_end','problem','photo_Blockage','photo_Land','photo_Riverbefore','photo_Riverprob','photo_Riverafter','photo_Probsketch','solution_id','project_id'));
         
         return $pdf->stream('expert_report_Amp.pdf');
     }
@@ -1414,29 +1414,6 @@ class DataForExpertController extends Controller
     {
         $amp_req=$request->amp;
         $tumbol=$request->tumbol;
-        if ($request->amp=="sum"){
-            $amp=["ฝาง","ไชยปราการ","แม่อาย","ดอยหล่อ", "สะเมิง","สันกำแพง","สันทราย","สันป่าตอง","หางดง","เมืองเชียงใหม่","แม่ริม","แม่วาง","แม่ออน"];
-                for($i=0;$i<count($amp);$i++){
-                    $blk[$i] =DB::table('blockage_locations')
-                    ->join('blockages', 'blockage_locations.blk_location_id', '=', 'blockages.blk_location_id')
-                    ->join('rivers', 'blockages.river_id', '=', 'rivers.river_id')
-                    ->join('experts', 'experts.blk_id', '=', 'blockages.blk_id')
-                    ->select('blockages.blk_id','rivers.*','blockage_locations.*','experts.*',
-                            \DB::raw('ST_Y(blockage_locations.blk_start_utm) as lat_utm_start'),
-                            \DB::raw('ST_X(blockage_locations.blk_start_utm) as lng_utm_start')
-                    )
-                    ->where ('blockage_locations.blk_district',$amp[$i])
-                    ->groupBy('blockages.blk_id')
-                    ->get();
-                    $data[$i]=['amp'=>$amp[$i],'detail'=>$blk[$i]];
-                
-                }
-            // dd($data);
-            $pix="9amp.jpg";
-            $key=1;
-            $pdf = PDF::loadView('expert.tablepdf' ,compact('data','pix','key'))->setPaper('a4', 'landscape');
-            return $pdf->stream('solution_report.pdf');
-        }else{
             if($request->tumbol=="sum"){
                 $blk[0] =DB::table('blockage_locations')
                 ->join('blockages', 'blockage_locations.blk_location_id', '=', 'blockages.blk_location_id')
@@ -1450,10 +1427,10 @@ class DataForExpertController extends Controller
                 ->groupBy('blockages.blk_id')
                 ->get();
                 $data[0]=['amp'=>$amp_req,'detail'=>$blk[0]];
-
+                // dd($data);
                 $pix=$amp_req.".jpg";
                 $key=2;
-                $pdf = PDF::loadView('expert.tablepdf' ,compact('data','pix','key','amp_req','tumbol'))->setPaper('a4', 'landscape');
+                $pdf = PDF::loadView('expert.tablepdf_php' ,compact('data','pix','key','amp_req','tumbol'))->setPaper('a4', 'landscape');
                 return $pdf->stream('solution_report.pdf');
             }else{
                 $blk[0] =DB::table('blockage_locations')
@@ -1471,15 +1448,13 @@ class DataForExpertController extends Controller
                 $data[0]=['amp'=>$amp_req,'detail'=>$blk[0]];
 
                 $pix=$amp_req."/".$request->tumbol.".png";
-                // dd($pix);
+                // dd($data);
                 $key=2;
-                $pdf = PDF::loadView('expert.tablepdf' ,compact('data','pix','key','amp_req','tumbol'))->setPaper('a4', 'landscape');
+                $pdf = PDF::loadView('expert.tablepdf_php' ,compact('data','pix','key','amp_req','tumbol'))->setPaper('a4', 'landscape');
                 return $pdf->stream('solution_report.pdf');
 
             }
             
-
-        }
         
     }
 
