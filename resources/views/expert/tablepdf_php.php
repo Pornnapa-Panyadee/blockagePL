@@ -192,7 +192,7 @@
                                             <td rowspan="2" width=4%>วันที่สำรวจ</td>
                                             <td rowspan="2" width=25%>สภาพปัญหาการกีดขวางทางน้ำ</td>
                                             <td rowspan="2" width=16%>ข้อมูลพื้นที่รับน้ำ</td>
-                                            <td rowspan="2" width=30%>แนวทางและวิธีการแก้ไขปัญหาเบื้องต้น <?php echo count($data[0]['detail']); ?></td>
+                                            <td rowspan="2" width=30%>แนวทางและวิธีการแก้ไขปัญหาเบื้องต้น </td>
                                         </tr>
                                         <tr>
                                             <td> X</td>
@@ -252,9 +252,9 @@
                                                 echo "<td>".$data[$i]['detail'][$j]->lat_utm_start."</td>";
                                                 echo "<td>".$data[$i]['detail'][$j]->lng_utm_start."</td>";
                                                 echo "<td>".DateTimeThai($data[$i]['detail'][$j]->created_at)."</td>";
-                                                echo "<td class=\"test2\">".$data[$i]['detail'][$j]->exp_probreport."</td>";
+                                                echo "<td class=\"test2\">".$data[$i]['detail'][$j]->survey_problem."</td>";
                                                 echo "<td class=\"test2\"> ".$area."</td>";
-                                                echo "<td class=\"test2\">".$data[$i]['detail'][$j]->exp_solreport." ".$slope."</td></tr>";
+                                                echo "<td class=\"test2\">".$data[$i]['detail'][$j]->survey_solution." ".$slope."</td></tr>";
                                         
                                             } 
                                         } 
