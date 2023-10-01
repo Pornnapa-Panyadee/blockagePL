@@ -536,7 +536,7 @@
                                                             <?php 
                                                                 if($expert[$i][0]->maning==1){
                                                                     echo "เนื่องจากตำแหน่งกีดขวางทางน้ำของลำน้ำหรือลำเหมืองนี้ไม่สามารถหาขนาด พื้นที่รับน้ำได้ชัดเจนและไม่มีข้อมูลการวัดน้ำ จึงหาอัตราการไหลโดยใช้วิธีของ แมนนิ่ง และกำหนดให้มีน้ำไหลเต็มลำน้ำ ในช่วงต้นน้ำก่อนถึงจุดกีดขวาง";
-                                                                    echo "<br>โดยมีอัตราการไหลสูงสุด = ".checkZero($expert[$i][0]->exp_maxflow)." m<sup>3</sup>/s &nbsp;<br>";
+                                                                    echo "<br>โดยมีอัตราการไหลสูงสุด = ".checkZero($expert[$i][0]->exp_maxflow)." ลบ.ม./วินาที &nbsp;<br>";
                                                                 }else{
                                                                     echo "ข้อมูลพื้นที่รับน้ำของตำแหน่งที่เกิดปัญหา <br>";  
                                                                     if($expert[$i][0]->exp_a25==0){ 
@@ -546,11 +546,11 @@
                                                                         echo "C = ".checkZero($expert[$i][0]->exp_C)."<br>";
                                                                         echo "tc = ".checkZero($expert[$i][0]->exp_tc)." ชั่วโมง&nbsp;&nbsp;";
                                                                         echo "I = ".checkZero($expert[$i][0]->exp_I)." มิลลิเมตร&nbsp;";
-                                                                        echo "อัตราการไหลสูงสุด = ".checkZero($expert[$i][0]->exp_maxflow)." m<sup>3</sup>/s &nbsp;<br>";
+                                                                        echo "อัตราการไหลสูงสุด = ".checkZero($expert[$i][0]->exp_maxflow)." ลบ.ม./วินาที &nbsp;<br>";
                                                                         echo "Return period = ".checkZero($expert[$i][0]->exp_returnPeriod)." ปี";
                                                                     }else{
                                                                         echo "A = ".checkZero($expert[$i][0]->exp_area)." ตารางกิโลเมตร&nbsp;";
-                                                                        echo "อัตราการไหลสูงสุด = ".checkZero($expert[$i][0]->exp_maxflow)." m<sup>3</sup>/s &nbsp;<br>";
+                                                                        echo "อัตราการไหลสูงสุด = ".checkZero($expert[$i][0]->exp_maxflow)." ลบ.ม./วินาที &nbsp;<br>";
                                                                         echo "Return period = ".checkZero($expert[$i][0]->exp_returnPeriod)." ปี";
                                                                     }
                                                                 }
