@@ -570,7 +570,6 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <div style="page-break-after: always"></div>
                                         <table class="table table-bordered" width="400px;"  style="margin-top:1px;margin-bottom:-1px;">
                                             <thead>
                                                 <tr>
