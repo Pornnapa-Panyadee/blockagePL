@@ -247,17 +247,12 @@
         // var y = 98.993518 ;
         var x = {{$x}} ; 
         var y = {{$y}};
-        var mbAttr = 'Mae Jang Basin',
-           mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidmFucGFueWEiLCJhIjoiY2loZWl5ZnJ4MGxnNHRwbHp5bmY4ZnNxOCJ9.IooQB0jYS_4QZvIq7gkjeQ';
-                                                                          
-        osm = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
-                                    maxZoom: 20,
-                                    subdomains:['mt0','mt1','mt2','mt3'], attribution: mbAttr
-                                });
-        osmBw = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
-                                    maxZoom: 20,
-                                    subdomains:['mt0','mt1','mt2','mt3'], attribution: mbAttr
-                                });
+        var mbAttr = 'Mae Jang Basin ',
+          mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidmFucGFueWEiLCJhIjoiY2loZWl5ZnJ4MGxnNHRwbHp5bmY4ZnNxOCJ9.IooQB0jYS_4QZvIq7gkjeQ';
+          osm = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
+              maxZoom: 20,subdomains:['mt0','mt1','mt2','mt3'], attribution: mbAttr });
+          osmBw = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
+                maxZoom: 20,subdomains:['mt0','mt1','mt2','mt3'], attribution: mbAttr });
 
         var map = L.map('map', {
             layers: [borders,osm,stations1,stations2,stations3,stations4],
@@ -341,14 +336,18 @@
             addPin(stations4,3,mo);
      
         var baseTree = {
-            label: 'BaseLayers',
-            noShow: true,
-            children: [  {label: ' แผนที่ภูมิประเทศ (Streets)', layer: osm},
-                         {label: ' แผนที่ภาพถ่ายผ่านดาวเทียม (Satellite)', layer: osmBw},
-                     ]
+          label: '  BaseLayers',
+          noShow: true,
+          children: [  {label: ' แผนที่ภูมิประเทศ (Streets)', layer: osm},
+                       {label: ' แผนที่ภาพถ่ายผ่านดาวเทียม (Satellite)', layer: osmBw},
+          ]
         };
+        
+        var ctl = L.control.layers.tree(baseTree, null);
+        ctl.addTo(map).collapseTree().expandSelected();
+
         var overlays = {
-            label: ' อำเภอ',
+            label: '  ข้อมูลสิ่งกีดขวางรายอำเภอ',
             selectAllCheckbox: true,
             children: [
                 { label:" "+amp[0],layer: stations1,},
@@ -357,31 +356,7 @@
                 { label:" "+amp[3],layer: stations4,},
             ]
         };
-
-        var ctl = L.control.layers.tree(baseTree, null,
-            // {
-            //     // namedToggle: true,
-            //     // collapseAll: 'Collapse all',
-            //     // expandAll: 'Expand all',
-            //     // collapsed: false,
-            //     collapsed: false,
-            //     collapseAll: '',
-            //     expandAll: '',
-            // }
-            );
-    
-
-        ctl.addTo(map).collapseTree().expandSelected();
-
         ctl.setOverlayTree(overlays).collapseTree().expandSelected();
-
-        
-        // L.control.layers(baseTree, overlays).addTo(map).collapseTree().expandSelected();
-
-
     </script>
-
-    
-
 </body>
 </html>
