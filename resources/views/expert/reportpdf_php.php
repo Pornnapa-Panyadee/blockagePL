@@ -49,9 +49,9 @@
         .table th{
             /* padding:-.5rem; */
 			/* vertical-align:top; */
-			padding-top: -.3rem;
+			padding-top: -.5rem;
             border-top:1px solid #000000;
-            line-height: 90%;
+            line-height: 80%;
         }
         .table thead th{
             /* vertical-align:bottom; */            
@@ -262,7 +262,7 @@
                                 </table>
                             </div>
                             <div align="right" style="margin-top:-20px;">
-                                 รหัสตำแหน่งกีดขวางที่:  <?php echo $data[0]->blk_code ?>  
+                                รหัสตำแหน่งกีดขวางที่ :   <?php echo $data[0]->blk_code ?>  
                             </div>
                             
                             <div class="title m-b-md">
@@ -516,7 +516,7 @@
                                        <?php 
                                             if(!empty($expert[0]->exp_pixmap)){ ?>
                                                 <tr>
-                                                    <td align="center" width="35%"><div style="margin-top:10px;"><img src="<?php echo ($expert[0]->exp_pixmap); ?>" width=110px;></div></td>
+                                                    <td align="center" width="35%"><div style="margin-top:10px;"><img src="<?php echo ($expert[0]->exp_pixmap); ?>" width=100px;></div></td>
                                                     <td align="center"></td>
                                                     <td align="center" width="35%"> 
                                                         <div style="margin-top:5px;"><img src="<?php echo ($expert[0]->exp_pix1); ?>"  width=120px;></div>

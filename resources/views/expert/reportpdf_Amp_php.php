@@ -573,18 +573,18 @@
                                         <table class="table table-bordered" width="400px;"  style="margin-top:1px;margin-bottom:-1px;">
                                             <thead>
                                                 <tr>
-                                                    <td colspan="2" style="background-color:#C0C0C0">รูปภาพประกอบ</td>
+                                                    <td colspan="3" style="background-color:#C0C0C0">รูปภาพประกอบ</td>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     <td align="center" width=35%;>
-                                                        <div style="margin-top:5px;"><img src="<?php echo ($expert[$i][0]->exp_pixmap); ?>" width=140px;></div>                                                        
+                                                        <div style="margin-top:5px;"><img src="<?php echo ($expert[$i][0]->exp_pixmap); ?>" width=100px;></div>                                                        
                                                     </td>
                                                     <td align="center"></td>
                                                     <td align="center" width=35%;> 
-                                                        <div style="margin-top:5px;"><img src="<?php echo ($expert[$i][0]->exp_pix1); ?>"  width=160px;></div>
-                                                        <div style="margin-top:15px;margin-bottom:10px;"><img src="<?php echo ($expert[$i][0]->exp_pix2); ?>"  width=160px;></div>
+                                                        <div style="margin-top:5px;"><img src="<?php echo ($expert[$i][0]->exp_pix1); ?>"  width=120px;></div>
+                                                        <div style="margin-top:15px;margin-bottom:10px;"><img src="<?php echo ($expert[$i][0]->exp_pix2); ?>"  width=120px;></div>
                                                        
                                                     </td>
                                                 </tr>

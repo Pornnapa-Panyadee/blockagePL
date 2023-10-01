@@ -217,20 +217,6 @@
                 var stations2 = new L.LayerGroup();
                 var stations3 = new L.LayerGroup();
                 var stations4 = new L.LayerGroup();
-                var stations5 = new L.LayerGroup();
-                var stations6 = new L.LayerGroup();
-                var stations7 = new L.LayerGroup();
-                var stations8 = new L.LayerGroup();
-                var stations9 = new L.LayerGroup();
-                var stations10 = new L.LayerGroup();
-                var stations11 = new L.LayerGroup();
-                var stations12 = new L.LayerGroup();
-                var stations13 = new L.LayerGroup();
-                var stations14 = new L.LayerGroup();
-                var stations15= new L.LayerGroup();
-                // var stations16 = new L.LayerGroup();
-                // var stations17 = new L.LayerGroup();
-                // var stations18 = new L.LayerGroup();
 
                 var borders = new L.LayerGroup();
                 
@@ -238,36 +224,16 @@
 
         {//---- Basemap Load
                 
-            var mbAttr = 'CRFlood ',
+            var mbAttr = 'Mae Jang Basin ',
             mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidmFucGFueWEiLCJhIjoiY2loZWl5ZnJ4MGxnNHRwbHp5bmY4ZnNxOCJ9.IooQB0jYS_4QZvIq7gkjeQ';
-                // var googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
-                //                         maxZoom: 20,
-                //                         subdomains:['mt0','mt1','mt2','mt3'], attribution: mbAttr
-                //                     });
-                //     googleHybrid = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
-                //                             maxZoom: 20,
-                //                             subdomains:['mt0','mt1','mt2','mt3'], attribution: mbAttr
-                //                         });
-                //     googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
-                //                             maxZoom: 20,
-                //                             subdomains:['mt0','mt1','mt2','mt3'], attribution: mbAttr
-                //                         });
-                //     grayscale   = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr});
-
             osm = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
-                                        maxZoom: 20,
-                                        subdomains:['mt0','mt1','mt2','mt3'], attribution: mbAttr
-                                    });
+                maxZoom: 20,subdomains:['mt0','mt1','mt2','mt3'], attribution: mbAttr });
             osmBw = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
-                                        maxZoom: 20,
-                                        subdomains:['mt0','mt1','mt2','mt3'], attribution: mbAttr
-                                    });
+                    maxZoom: 20,subdomains:['mt0','mt1','mt2','mt3'], attribution: mbAttr });
 
         }
         //----------------- การแสดงผลเริ่มต้น 
         {//--------borders, stations, rivers, 
-                
-            
                 var x=18.290015; 
                 var y=99.656525;
                     
@@ -278,10 +244,11 @@
                     // layers: [borders,stations1,stations2,stations3,osm]
                 });
 
-                var runLayer = omnivore.kml('{{ asset('kml/CM_bound-25-amphoe.kml') }}')
+                var runLayer = omnivore.kml('{{ asset('kml/bound_maejangbasin.kml') }}')
                             .on('ready', function() {
                             this.setStyle({
-                            color: "#466DF3",
+                            fillOpacity: 0,
+                            color: "#994F3E",
                             weight: 3
                             });
                 }).addTo(borders); 
