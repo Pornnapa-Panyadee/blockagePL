@@ -51,7 +51,7 @@
 			/* vertical-align:top; */
 			padding-top: -.3rem;
             border-top:1px solid #000000;
-            line-height: 96%;
+            line-height: 90%;
         }
         .table thead th{
             /* vertical-align:bottom; */
@@ -325,7 +325,7 @@
                                             </tr>
                                         </table>
                                     </div>
-                                    <div align="right">
+                                    <div align="right" style="margin-top:-20px;">
                                         รหัสตำแหน่งกีดขวางที่: <?php echo  $data[$i][0]->blk_code; ?> 
                                     </div>
                                     <div class="title m-b-md">
@@ -507,12 +507,12 @@
 
                                         <table class="table table-borderless" width=90% >
                                             <tr>
-                                                <td width=20%>ระดับการกีดขวาง {{checkProbleLevel($problem[$i][0]->prob_level)}}</td>
+                                                <td width=20%>ระดับการกีดขวาง <?php echo(checkProbleLevel($problem[$i][0]->prob_level)); ?></td>
                                                 <td>คิดเป็น <?php echo(checkZero($problem[$i][0]->prob_level)); ?></td>
                                                 <td>หน่วยงานการดำเนินการแก้ไข <?php echo(checkZero($solution_id[$i][0]->responsed_dept)); ?></td>
                                             </tr>
                                                 <tr>
-                                                    <td>โดยวิธี {{$solution_id[$i][0]->sol_how}}</td>
+                                                    <td>โดยวิธี <?php echo $solution_id[$i][0]->sol_how; ?></td>
                                                     <td colspan="2">ผลการดำเนินการ <?php echo(checkZero($solution_id[$i][0]->result)); ?> </td>
                                                 </tr>
                                                 <tr>
@@ -570,7 +570,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-
+                                        <div style="page-break-after: always"></div>
                                         <table class="table table-bordered" width="400px;"  style="margin-top:1px;margin-bottom:-1px;">
                                             <thead>
                                                 <tr>
@@ -579,12 +579,14 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td align="center" width=50%;>
+                                                    <td align="center" width=35%;>
                                                         <div style="margin-top:5px;"><img src="<?php echo ($expert[$i][0]->exp_pixmap); ?>" width=140px;></div>                                                        
                                                     </td>
-                                                    <td align="center" width=50%;> 
-                                                        <div style="margin-top:5px;"><img src="<?php echo ($expert[$i][0]->exp_pix1); ?>"  width=140px;></div>
-                                                        <div style="margin-top:15px;margin-bottom:10px;"><img src="<?php echo ($expert[$i][0]->exp_pix2); ?> " width=140px;></div>
+                                                    <td align="center"></td>
+                                                    <td align="center" width=35%;> 
+                                                        <div style="margin-top:5px;"><img src="<?php echo ($expert[$i][0]->exp_pix1); ?>"  width=160px;></div>
+                                                        <div style="margin-top:15px;margin-bottom:10px;"><img src="<?php echo ($expert[$i][0]->exp_pix2); ?>"  width=160px;></div>
+                                                       
                                                     </td>
                                                 </tr>
                                             </tbody>

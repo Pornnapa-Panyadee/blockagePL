@@ -251,9 +251,9 @@
                                                 echo "<td>".$data[$i]['detail'][$j]->lat_utm_start."</td>";
                                                 echo "<td>".$data[$i]['detail'][$j]->lng_utm_start."</td>";
                                                 echo "<td>".DateTimeThai($data[$i]['detail'][$j]->created_at)."</td>";
-                                                echo "<td class=\"test2\">".$data[$i]['detail'][$j]->exp_problem."</td>";
+                                                echo "<td class=\"test2\" width=\"25%\">".$data[$i]['detail'][$j]->exp_problem."</td>";
                                                 echo "<td class=\"test2\"> ".$area."</td>";
-                                                echo "<td class=\"test2\">".$data[$i]['detail'][$j]->exp_solution." ".$slope."</td></tr>";
+                                                echo "<td class=\"test2\" width=\"25%\">".$data[$i]['detail'][$j]->exp_solution." ".$slope."</td></tr>";
                                         
                                             } 
                                         } 
