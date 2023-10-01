@@ -9,12 +9,6 @@
 		font-weight: normal;
 		src: url("{{ asset('fonts/THSarabunNew.ttf') }}") format('truetype');
 		}
-	    @font-face{
-		font-family:  'THSarabunNew';
-		font-style: normal;
-		font-weight: normal;
-		src: url("{{ asset('fonts/THSarabunNew Bold.ttf') }}") format('truetype');
-		}
 		html, body {
 			background-color: #fff;
 			color: #000000;
@@ -50,7 +44,7 @@
         }
         
         td {
-            
+            vertical-align: top;
             border: 1px black solid;
         }
         .rotate {
@@ -251,9 +245,9 @@
                                                 echo "<td>".$data[$i]['detail'][$j]->lat_utm_start."</td>";
                                                 echo "<td>".$data[$i]['detail'][$j]->lng_utm_start."</td>";
                                                 echo "<td>".DateTimeThai($data[$i]['detail'][$j]->created_at)."</td>";
-                                                echo "<td class=\"test2\" width=\"25%\">".$data[$i]['detail'][$j]->exp_problem."</td>";
+                                                echo "<td class=\"test2\" width=\"20%\">".$data[$i]['detail'][$j]->survey_problem."</td>";
                                                 echo "<td class=\"test2\"> ".$area."</td>";
-                                                echo "<td class=\"test2\" width=\"25%\">".$data[$i]['detail'][$j]->exp_solution." ".$slope."</td></tr>";
+                                                echo "<td class=\"test2\" width=\"30%\">".$data[$i]['detail'][$j]->survey_solution." ".$slope."</td></tr>";
                                         
                                             } 
                                         } 
