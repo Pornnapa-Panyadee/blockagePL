@@ -8,7 +8,13 @@
 		font-style: normal;
 		font-weight: normal;
 		src: url("{{ asset('fonts/THSarabunNew.ttf') }}") format('truetype');
+		}@font-face{
+		font-family:'THSarabunNew';
+		font-style: normal;
+		font-weight: bold;
+		src: url("fonts/THSarabunNew Bold.ttf") format('truetype');
 		}
+    
 		html, body {
 			background-color: #fff;
 			color: #000000;
@@ -97,26 +103,32 @@
         }
         .text_report{
             font-size: 70px;
+            font-weight: bold;
         }
         .text_report1{
             font-size: 42px;
+            font-weight: bold;
             margin-bottom: -20px;
         }
         .text_report2{
             font-size: 60px;
+            font-weight: bold;
             margin: 100px 0 -20px 0;
         }
         .text_report3{
             font-size: 30px;
+            font-weight: bold;
             margin: 150px 0 -160px 0;
         }
         .text_report4{
             font-size: 24px;
+            font-weight: bold;
             margin: 160px 0 -160px 0;
         }
         .text_report5{
             font-size: 56px;
             margin: 130px 0 0 0;
+            font-weight: bold;
         }
         .text_report6{
             font-size: 18px;
@@ -178,7 +190,7 @@
                                     }
                                 ?>
                                     <thead align="center" style="background-color:#C0C0C0" >
-                                        <tr >
+                                        <tr style="font-weight: bold;">
                                             <td rowspan="2"  width=4%>ลำดับ</td>
                                             <td rowspan="2" width=6% >รหัส</td>
                                             <td rowspan="2" width=8%>หมู่บ้าน/ตำบล<br> ชื่อลำน้ำ</td>

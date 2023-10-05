@@ -12,7 +12,7 @@
 	    @font-face{
 		font-family:'THSarabunNew';
 		font-style: normal;
-		font-weight: normal;
+		font-weight: bold;
 		src: url("{{ asset('fonts/THSarabunNew Bold.ttf') }}") format('truetype');
 		}
 		
@@ -110,30 +110,39 @@
             border-color: #fff;
         }
         .text_report{
+            font-weight: bold;
             font-size: 70px;
         }
         .text_report1{
             font-size: 42px;
+            font-weight: bold;
             margin-bottom: -20px;
         }
         .text_report2{
             font-size: 80px;
+            font-weight: bold;
             margin: 100px 0 -20px 0;
         }
         .text_report3{
+            font-weight: bold;
             font-size: 30px;
             margin: 250px 0 -260px 0;
         }
         .text_report4{
+            font-weight: bold;
             font-size: 24px;
             margin: 260px 0 -260px 0;
         }
         .text_report5{
+            font-weight: bold;
             font-size: 60px;
             margin: 170px 0 0 0;
         }
         .text_report6{
             font-size: 18px;
+            font-weight: bold;
+        }
+        .texthead{
             font-weight: bold;
         }
     </style>
@@ -317,7 +326,7 @@
                                                     <img src='images/footer/egat.jpg' width="50px">
                                                 </td>
                                                 <td width="60%">
-                                                    <div class="texthead"> ข้อมูลสภาพปัญหาและแนวทางการแก้ไขปัญหาเบื้องต้นของตำแหน่งการกีดขวางทางน้ำ พื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง</div>
+                                                    <div class="texthead" > ข้อมูลสภาพปัญหาและแนวทางการแก้ไขปัญหาเบื้องต้นของตำแหน่งการกีดขวางทางน้ำ พื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง</div>
                                                 </td>
                                                 <td width="20%" align="left">
                                                     <img src='images/footer/cmu.png' width="30px"></td>
@@ -326,28 +335,28 @@
                                         </table>
                                     </div>
                                     <div align="right" style="margin-top:-20px;">
-                                        รหัสตำแหน่งกีดขวางที่: <?php echo  $data[$i][0]->blk_code; ?> 
+                                        <font class="texthead" > รหัสตำแหน่งกีดขวางที่ : </font> <?php echo  $data[$i][0]->blk_code; ?> 
                                     </div>
                                     <div class="title m-b-md">
                                         <table  class="table table-borderless" width="80%" align="center">
                                                 <tr>
-                                                    <td>ชื่อลำน้ำ <?php echo  $data[$i][0]->river->river_name; ?></td>
-                                                    <td colspan="2"> เป็นสาขาของแม่น้ำ  <?php echo  $data[$i][0]->river->river_main; ?> </td>
-                                                    <td>ประเภทลำน้ำ <?php echo  $data[$i][0]->river->river_type; ?></td>
-                                                    <td>วันที่สำรวจ: <?php echo DateTimeThai($data[$i][0]->created_at); ?> </td>
+                                                    <td><font class="texthead" > ชื่อลำน้ำ </font><?php echo  $data[$i][0]->river->river_name; ?></td>
+                                                    <td colspan="2"> <font class="texthead" > เป็นสาขาของแม่น้ำ </font> <?php echo  $data[$i][0]->river->river_main; ?> </td>
+                                                    <td><font class="texthead" > ประเภทลำน้ำ </font><?php echo  $data[$i][0]->river->river_type; ?></td>
+                                                    <td><font class="texthead" > วันที่สำรวจ </font><?php echo DateTimeThai($data[$i][0]->created_at); ?> </td>
                                                     
                                                 </tr>
                                                 <tr>
-                                                    <td>หมู่บ้าน <?php echo $data[$i][0]->blockageLocation->blk_village; ?></td>
-                                                    <td>ตำบล <?php echo $data[$i][0]->blockageLocation->blk_tumbol; ?>  </td>
-                                                    <td>อำเภอ <?php echo   $data[$i][0]->blockageLocation->blk_district; ?></td>
-                                                    <td>จังหวัด <?php echo   $data[$i][0]->blockageLocation->blk_province; ?></td>
+                                                    <td><font class="texthead" > หมู่บ้าน </font><?php echo $data[$i][0]->blockageLocation->blk_village; ?></td>
+                                                    <td><font class="texthead" > ตำบล </font><?php echo $data[$i][0]->blockageLocation->blk_tumbol; ?>  </td>
+                                                    <td><font class="texthead" > อำเภอ </font><?php echo   $data[$i][0]->blockageLocation->blk_district; ?></td>
+                                                    <td><font class="texthead" > จังหวัด </font><?php echo   $data[$i][0]->blockageLocation->blk_province; ?></td>
                                                 </tr>
                                         </table>
 
                                         <table class="table table-bordered">
                                             <thead>
-                                                <tr>
+                                                <tr style="font-weight: bold;">
                                                     <td colspan="4" class="text-center" style="background-color:#C0C0C0">พิกัดเริ่มปัญหา</td>
                                                     <td colspan="4" class="text-center" style="background-color:#C0C0C0">พิกัดสิ้นสุดปัญหา</td>
                                                 </tr>
@@ -368,7 +377,7 @@
 
                                         <table class="table table-bordered" style="margin-top:1px;">
                                             <thead>
-                                                <tr>
+                                                <tr style="font-weight: bold;">
                                                     <td colspan="2" class="text-center" style="background-color:#C0C0C0">หน้าตัดลำน้ำที่เกิดปัญหา</td>
                                                     <td colspan="4"  class="text-center" style="background-color:#C0C0C0">กว้าง (เมตร)</td>
                                                     <td colspan="4"  class="text-center" style="background-color:#C0C0C0">ลึก (เมตร)</td>
@@ -455,25 +464,25 @@
                                         
                                         <table  class="table table-borderless" >
                                             <tr>
-                                                <td colspan="2">ความยาวของช่วงลำน้ำที่เกิดปัญหา เป็นจุดระยะ  <?php echo(checkZero($data[$i][0]->blk_length_type)); ?> </td>
-                                                <td >การดาดผิวของลำน้ำ <?php echo(checkZero($data[$i][0]->blk_surface)); ?></td>
-                                                <td >วัสดุที่ใช้ดาดผิวของลำน้ำ <?php echo(checkZero($data[$i][0]->blk_surface_detail)); ?></td>
+                                                <td colspan="2"> <font style="font-weight: bold;" > ความยาวของช่วงลำน้ำที่เกิดปัญหา </font> เป็นจุดระยะ  <?php echo(checkZero($data[$i][0]->blk_length_type)); ?> </td>
+                                                <td ><font style="font-weight: bold;" >การดาดผิวของลำน้ำ </font><?php echo(checkZero($data[$i][0]->blk_surface)); ?></td>
+                                                <td ><font style="font-weight: bold;" >วัสดุที่ใช้ดาดผิวของลำน้ำ </font><?php echo(checkZero($data[$i][0]->blk_surface_detail)); ?></td>
                                             </tr>
                                             <tr>
-                                                <td width=20%>ลักษณะความเสียหาย  <?php echo(checkDamage($damageData[$i]->flood,$damageData[$i]->waste,$damageData[$i]->other->level)); ?></td>
-                                                <td width=30%>ระดับ <?php echo(checklevel($damageData[$i]->flood,$damageData[$i]->waste,$damageData[$i]->other->level)); ?></td>
-                                                <td>ความถี่ที่เกิดความเสียหาย  <?php echo(checkZero($data[$i][0]->damage_frequency)); ?> </td>
+                                                <td width=20%><font style="font-weight: bold;" >ลักษณะความเสียหาย </font> <?php echo(checkDamage($damageData[$i]->flood,$damageData[$i]->waste,$damageData[$i]->other->level)); ?></td>
+                                                <td width=30%><font style="font-weight: bold;" >ระดับ</font> <?php echo(checklevel($damageData[$i]->flood,$damageData[$i]->waste,$damageData[$i]->other->level)); ?></td>
+                                                <td><font style="font-weight: bold;" >ความถี่ที่เกิดความเสียหาย </font> <?php echo(checkZero($data[$i][0]->damage_frequency)); ?> </td>
 
                                                 <?php 
                                                     $level=checklevel($damageData[$i]->flood,$damageData[$i]->waste,$damageData[$i]->other->level);
                                                 ?>
-                                                <td>ระดับความเสี่ยง <?php echo(checkRisk($level,$data[$i][0]->damage_frequency)); ?></td>
+                                                <td><font style="font-weight: bold;" >ระดับความเสี่ยง </font><?php echo(checkRisk($level,$data[$i][0]->damage_frequency)); ?></td>
                                             </tr>
                                         </table>
                                     
                                         <table  class="table table-borderless" width=90% >
                                             <tr>
-                                                <td colspan="3">สาเหตุของการกีดขวางลำน้ำ</td>
+                                                <td colspan="3"><font style="font-weight: bold;" > สาเหตุของการกีดขวางลำน้ำ </font></td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1" width=15%> &nbsp;&nbsp;&nbsp;> โดยธรรมชาติ</td>
@@ -507,23 +516,23 @@
 
                                         <table class="table table-borderless" width=90% >
                                             <tr>
-                                                <td width=20%>ระดับการกีดขวาง <?php echo(checkProbleLevel($problem[$i][0]->prob_level)); ?></td>
+                                                <td width=20%><font style="font-weight: bold;" > ระดับการกีดขวาง</font> <?php echo(checkProbleLevel($problem[$i][0]->prob_level)); ?></td>
                                                 <td>คิดเป็น <?php echo(checkZero($problem[$i][0]->prob_level)); ?></td>
-                                                <td>หน่วยงานการดำเนินการแก้ไข <?php echo(checkZero($solution_id[$i][0]->responsed_dept)); ?></td>
+                                                <td><font style="font-weight: bold;" >หน่วยงานการดำเนินการแก้ไข </font><?php echo(checkZero($solution_id[$i][0]->responsed_dept)); ?></td>
                                             </tr>
                                                 <tr>
-                                                    <td>โดยวิธี <?php echo $solution_id[$i][0]->sol_how; ?></td>
-                                                    <td colspan="2">ผลการดำเนินการ <?php echo(checkZero($solution_id[$i][0]->result)); ?> </td>
+                                                    <td><font style="font-weight: bold;" >โดยวิธี</font> <?php echo $solution_id[$i][0]->sol_how; ?></td>
+                                                    <td colspan="2"><font style="font-weight: bold;" >ผลการดำเนินการ</font> <?php echo(checkZero($solution_id[$i][0]->result)); ?> </td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="3" valign="top">สภาพในปัจจุบันของโครงการที่แก้ไขปัญหา <?php echo(checkPlan($project_id[$i][0]->proj_status,$project_id[$i][0]->proj_year,$project_id[$i][0]->proj_char,$project_id[$i][0]->proj_budget)); ?></td>
+                                                    <td colspan="3" valign="top"><font style="font-weight: bold;" >สภาพในปัจจุบันของโครงการที่แก้ไขปัญหา <?php echo(checkPlan($project_id[$i][0]->proj_status,$project_id[$i][0]->proj_year,$project_id[$i][0]->proj_char,$project_id[$i][0]->proj_budget)); ?></td>
                                                 </tr>
                                         </table>
 
                                         <table class="table table-bordered" width="400px;">
                                     
                                             <tbody>
-                                                <tr>
+                                                <tr style="font-weight: bold;" >
                                                     <td class="text-center" style="background-color:#C0C0C0" width=50%;>สภาพปัญหาการกีดขวางทางน้ำ</td>
                                                     <td class="text-center" style="background-color:#C0C0C0" width=50%;>แนวทางและวิธีการแก้ไขปัญหาเบื้องต้น</td>
                                                 </tr>
@@ -573,7 +582,7 @@
                                         <table class="table table-bordered" width="400px;"  style="margin-top:1px;margin-bottom:-1px;">
                                             <thead>
                                                 <tr>
-                                                    <td colspan="3" style="background-color:#C0C0C0">รูปภาพประกอบ</td>
+                                                    <td colspan="3" style="background-color:#C0C0C0; font-weight: bold;">รูปภาพประกอบ</td>
                                                 </tr>
                                             </thead>
                                             <tbody>
