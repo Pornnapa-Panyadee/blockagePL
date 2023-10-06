@@ -591,7 +591,7 @@
                                                         <div style="margin-top:5px;"><img src="<?php echo ($expert[$i][0]->exp_pixmap); ?>" width=100px;></div>                                                        
                                                     </td>
                                                     <td align="center">
-                                                        <img src="images/expert/map/<?php echo($$data[$i][0]->blk_code)?>.jpg"  width=140px;></div>
+                                                        <img src="images/expert/map/<?php echo($data[$i][0]->blk_code)?>.jpg"  width=140px;></div>
                                                     </td>
                                                     <td align="center" width=35%;> 
                                                         <div style="margin-top:5px;"><img src="<?php echo ($expert[$i][0]->exp_pix1); ?>"  width=120px;></div>
