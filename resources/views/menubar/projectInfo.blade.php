@@ -21,9 +21,11 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" type="text/css"> --}}
     <style>
      p{
-         text-indent: 2.5em;
+        text-align: justify;
+        text-indent: 2.5em;
      }
      .text3{
+        text-align: justify;
         margin-left: 3em;
         padding:5px;
       }
