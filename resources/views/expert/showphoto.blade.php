@@ -208,6 +208,9 @@
                               <div class="column">
                                   <img src="{{asset($expert[0]->exp_pixmap) }}" onclick="openModal();currentSlide({{1}})" style="width:40%" class="hover-shadow cursor">
                               </div>
+                              <div class="column">
+                                  <img src="images/expert/map/{{$data[0]->blk_code}}.jpg" onclick="openModal();currentSlide({{2}})" style="width:40%" class="hover-shadow cursor">
+                              </div>
                           </div>
                           <br>
                           <div class="alert alert-primary" style="margin:0 -20px 0;">รูปภาพสำรวจตำแหน่งจุดกีดขวางทางน้ำ</div>
@@ -230,7 +233,12 @@
                                     <div class="numbertext">1/ {{$num}}</div>
                                       <center><img src="{{asset($expert[0]->exp_pixmap)}}"  style="width:40%"></center>
                                     </div>
+                                    
                                   </div>
+                                  <div class="mySlides">
+                                            <div class="numbertext">2 / {{$num}}</div>
+                                            <center><img src="images/expert/map/{{$data[0]->blk_code}}.jpg"  style="width:80%"></center>
+                                        </div>
                                   
                                   <?php for($i=0;$i<count($photo_Blockage);$i++){?>
                                         <div class="mySlides">
@@ -250,6 +258,9 @@
                                 <div class="caption-container" width=100%>
                                   <div class="columnDown">
                                     <img class="demo cursor" src="{{asset($expert[0]->exp_pixmap)}}" style="width:40%" onclick="currentSlide({{1}})" >
+                                  </div>
+                                  <div class="columnDown">
+                                    <img class="demo cursor" src="images/expert/map/{{$data[0]->blk_code}}.jpg" style="width:40%" onclick="currentSlide({{2}})" >
                                   </div>
                                   <?php for($i=0;$i<count($photo_Blockage);$i++){?>
                                       <div class="columnDown">
