@@ -789,9 +789,6 @@ class DataForExpertController extends Controller
                 $current_brigde[$i]=json_encode($current_brigde_new[$i]);
                 $current_brigde[$i]=json_decode($current_brigde[$i]);
             }
-
-
-
             // dd($current_brigde);
             $current_narrow_new[$i] = [
                 'waterway_type' => null,
@@ -814,7 +811,6 @@ class DataForExpertController extends Controller
                 'other'=>[
                     'detail'=>null,
                 ]
-
 
             ];
             $current_narrow_new[$i]=json_encode($current_narrow_new[$i]);
@@ -989,7 +985,7 @@ class DataForExpertController extends Controller
         // dd($data);
         $pdf = PDF::loadView('expert.reportpdf_Amp_php' ,compact('amp','tumbol','current_brigde','expert','data','nut','hum','damageData','damage_type','pastData','current_start','current_narrow_new','current_end','problem','photo_Blockage','photo_Land','photo_Riverbefore','photo_Riverprob','photo_Riverafter','photo_Probsketch','solution_id','project_id'));
         
-        return $pdf->stream('expert_report_Amp.pdf');
+        return $pdf->stream('สภาพปัญหาและแนวทางการแก้ไขปัญหาเบื้องต้น.pdf');
     }
 
 
@@ -1013,8 +1009,9 @@ class DataForExpertController extends Controller
         $expert=Expert::select('exp_pixmap')->where('blk_id',$blk_id)->get();
         $location =BlockageLocation::where('blk_location_id', $data[0]->blk_location_id)->get();
         $map = "images/map/".$data[0]->blk_code.".JPG";
+        $mapgoogle="images/expert/map/".$data[0]->blk_code.".jpg";
         // dd($map);	
-        return view('expert.showphoto',compact('photo_Blockage','data','expert','location','map'));
+        return view('expert.showphoto',compact('photo_Blockage','data','expert','location','map','mapgoogle'));
     }
 
 
@@ -1446,7 +1443,6 @@ class DataForExpertController extends Controller
                 ->groupBy('blockages.blk_id')
                 ->get();
                 $data[0]=['amp'=>$amp_req,'detail'=>$blk[0]];
-
                 $pix=$amp_req."/".$request->tumbol.".png";
                 // dd($data);
                 $key=2;
