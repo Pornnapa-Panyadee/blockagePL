@@ -209,7 +209,7 @@
                                   <img src="{{asset($expert[0]->exp_pixmap) }}" onclick="openModal();currentSlide({{1}})" style="width:40%" class="hover-shadow cursor">
                               </div>
                               <div class="column">
-                                  <img src="{{asset($mapgoogle) }}" onclick="openModal();currentSlide({{2}})" style="width:40%" class="hover-shadow cursor">
+                                  <img src="{{asset($mapgoogle) }}" onclick="openModal();currentSlide({{2}})" style="width:60%" class="hover-shadow cursor">
                               </div>
                           </div>
                           <br>
