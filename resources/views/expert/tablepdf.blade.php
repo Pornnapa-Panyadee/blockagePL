@@ -198,9 +198,9 @@
                                         <td rowspan="2" width=4%>หมู่บ้าน/ตำบล/อำเภอ<br> ชื่อลำน้ำ</td>
                                         <td colspan="2" width=16%>พิกัด</td>
                                         <td rowspan="2" width=4%>วันที่สำรวจ</td>
-                                        <td rowspan="2" width=22%>สภาพปัญหาการกีดขวางทางน้ำ</td>
-                                        <td rowspan="2" width=18% >ข้อมูลพื้นที่รับน้ำ</td>
-                                        <td rowspan="2" width=25%>แนวทางและวิธีการแก้ไขปัญหาเบื้องต้น</td>
+                                        <td rowspan="2" width=24%>สภาพปัญหาการกีดขวางทางน้ำ</td>
+                                        <td rowspan="2" width=14% >ข้อมูลพื้นที่รับน้ำ</td>
+                                        <td rowspan="2" width=24%>แนวทางและวิธีการแก้ไขปัญหาเบื้องต้น</td>
                                     </tr>
                                     <tr style="background-color:#F1F0F0">
                                         <td> X</td>
@@ -265,9 +265,9 @@
                                             <td rowspan="2" width=8%>หมู่บ้าน/ตำบล<br> ชื่อลำน้ำ</td>
                                             <td colspan="2" width=16%>พิกัด</td>
                                             <td rowspan="2" width=4%>วันที่สำรวจ</td>
-                                            <td rowspan="2" width=25%>สภาพปัญหาการกีดขวางทางน้ำ</td>
-                                            <td rowspan="2" width=16%>ข้อมูลพื้นที่รับน้ำ</td>
-                                            <td rowspan="2" width=30%>แนวทางและวิธีการแก้ไขปัญหาเบื้องต้น</td>
+                                            <td rowspan="2" width=24%>สภาพปัญหาการกีดขวางทางน้ำ</td>
+                                            <td rowspan="2" width=14%>ข้อมูลพื้นที่รับน้ำ</td>
+                                            <td rowspan="2" width=24%>แนวทางและวิธีการแก้ไขปัญหาเบื้องต้น</td>
                                         </tr>
                                         <tr style="background-color:#F1F0F0">
                                             <td> X</td>
@@ -336,7 +336,6 @@
                             
                    
                     </table>
-                    {{-- {{$data[0]['detail'][0]->blk_start_utm->getLat()}} --}}
                     
                 </div>
             </div>
