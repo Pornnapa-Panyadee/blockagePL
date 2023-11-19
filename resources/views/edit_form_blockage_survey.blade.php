@@ -701,7 +701,7 @@
                                                                         <tr>
                                                                             <td> I  =</td>
                                                                             <td><input type="text" id="exp_I" name="exp_I" value='{{$expert[0]->exp_I}}'></td>
-                                                                            <td>มิลลิเมตร</td>
+                                                                            <td>มิลลิเมตร/ชั่วโมง</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td> อัตราการไหลสูงสุด  =</td>

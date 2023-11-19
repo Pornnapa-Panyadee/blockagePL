@@ -480,7 +480,7 @@
                                                                 echo "H = ".checkZero($expert[0]->exp_H)." เมตร&nbsp;";
                                                                 echo "C = ".checkZero($expert[0]->exp_C)."<br>";
                                                                 echo "tc = ".checkZero($expert[0]->exp_tc)." ชั่วโมง&nbsp;&nbsp;";
-                                                                echo "I = ".checkZero($expert[0]->exp_I)." มิลลิเมตร&nbsp;";
+                                                                echo "I = ".checkZero($expert[0]->exp_I)." มิลลิเมตร/ชั่วโมง&nbsp;";
                                                                 echo "อัตราการไหลสูงสุด = ".checkZero($expert[0]->exp_maxflow)." ลบ.ม./วินาที &nbsp;<br>";
                                                                 echo "Return period = ".checkZero($expert[0]->exp_returnPeriod)." ปี";
                                                             }else{
